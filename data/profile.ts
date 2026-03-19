@@ -1,14 +1,14 @@
 export const profile = {
   name: "Hisham Khashman",
   greeting: "Hola! · お疲れ様です！ · مرحبًا",
-  title: "Consultant & Full-Stack Engineer focused on backend and data-driven applications.",
+  title: "Full-Stack Engineer & Data Specialist building scalable, production-ready systems.",
   summary:
-    "I build SaaS platforms, web apps, analytics systems, and ML-powered tools.",
+    "Built 5+ production apps • Kaggle top 20% • 10+ years consulting experience",
   stack: ["Python", "Ruby on Rails", "JavaScript", "SQL", "Machine Learning"],
   email: "hisham.khashman@gmail.com",
   links: {
     github: "https://github.com/Hishamkhashman1",
-    linkedin: "https://www.linkedin.com/in/your-handle",
+    linkedin: "https://www.linkedin.com/in/hishamkhashman",
     cv: "/cv.pdf"
   },
   background:
