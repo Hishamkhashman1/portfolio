@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: "Forecast Alpha",
     description: "Plug-and-play data analytics SaaS for SMBs.",
     stack: ["Analytics", "SaaS"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/forecast.png",
     liveUrl: "https://github.com/Hishamkhashman1/forecast-alpha",
     repoUrl: "https://github.com/Hishamkhashman1/forecast-alpha",
     category: "Current Projects"
