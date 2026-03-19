@@ -79,7 +79,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             type="button"
             onClick={(event) => {
               event.stopPropagation();
-              openLink(project.repoUrl);
+              if (project.repoUrl) openLink(project.repoUrl);
             }}
             className="rounded-full border border-zinc-700 px-3 py-1 font-mono text-zinc-200 transition hover:border-electric hover:text-electric"
           >
