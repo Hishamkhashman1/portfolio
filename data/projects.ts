@@ -14,8 +14,8 @@ export const projects: Project[] = [
     title: "LinguaLogic",
     description: "Gamified coding learning platform.",
     stack: ["Full Stack", "Gamification"],
-    image: "/projects/placeholder.svg",
-    liveUrl: "https://github.com/Hishamkhashman1/lingualogic",
+    image: "/projects/lingua.png",
+    liveUrl: "https://lingualogic-4a902f58893e.herokuapp.com/",
     repoUrl: "https://github.com/Hishamkhashman1/lingualogic",
     category: "Current Projects"
   },
@@ -32,20 +32,20 @@ export const projects: Project[] = [
     title: "SEO Cyber Tool",
     description: "SEO score report tool built to share with teams.",
     stack: ["SEO", "Reporting"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/SEO-screenshot.png",
     liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
     category: "Current Projects"
   },
-  {
-    title: "Fraud Detection Dashboard",
-    description:
-      "Identified real fraud cases using anomaly detection models (Python + React).",
-    stack: ["Python", "React", "Anomaly Detection"],
-    image: "/projects/placeholder.svg",
-    liveUrl: "#contact",
-    category: "Selected Work",
-    badge: "Confidential"
-  },
+  // {
+  //   title: "Fraud Detection Dashboard",
+  //   description:
+  //     "Identified real fraud cases using anomaly detection models (Python + React).",
+  //   stack: ["Python", "React", "Anomaly Detection"],
+  //   image: "/projects/placeholder.svg",
+  //   liveUrl: "#contact",
+  //   category: "Selected Work",
+  //   badge: "Confidential"
+  // },
   {
     title: "Stock Forecasting LSTM",
     description: "Time-series prediction pipeline using deep learning.",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     title: "World Cup 2026 Tracker",
     description: "Real-time tracking web app.",
     stack: ["Web App", "Live Data"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/wc.png",
     liveUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
     repoUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
     category: "Selected Work"
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     title: "Movie Favorite Watch List",
     description: "Deployed app with API integration.",
     stack: ["API", "Web App"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/movie.png",
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
     category: "Selected Work"
   }
