@@ -4,7 +4,7 @@ export default function ContactSection() {
   const mailto = `mailto:${profile.email}`;
 
   return (
-    <section id="contact" className="rounded-3xl border border-zinc-800 bg-haze/50 p-8">
+    <section id="contact" className="mt-10 rounded-3xl border border-zinc-800 bg-haze/50 p-8">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="text-sm font-mono uppercase tracking-[0.3em] text-electric">

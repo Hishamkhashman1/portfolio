@@ -5,7 +5,7 @@ const categories = ["Current Projects", "Selected Work"] as const;
 
 export default function ProjectGrid() {
   return (
-    <section id="projects" className="space-y-12">
+    <section id="projects" className="space-y-16 pt-4">
       <div>
         <p className="text-sm font-mono uppercase tracking-[0.3em] text-electric">
           Projects

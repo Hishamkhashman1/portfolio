@@ -2,7 +2,7 @@ import { profile } from "@/data/profile";
 
 export default function CVSection() {
   return (
-    <section id="cv" className="space-y-6">
+    <section id="cv" className="mt-10 space-y-6">
       <div>
         <p className="text-sm font-mono uppercase tracking-[0.3em] text-electric">
           CV
