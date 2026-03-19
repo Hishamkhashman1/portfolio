@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #0a0b0f;
+  color: #e4e7ec;
+  font-feature-settings: "ss01" on, "ss02" on;
+}
+
+::selection {
+  background: rgba(57, 245, 200, 0.25);
+}
+
+@layer utilities {
+  .bg-tech {
+    background-image: theme("backgroundImage.grid-fade");
+    background-size: theme("backgroundSize.grid");
+    background-position: top center, center, center;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 18px rgba(57, 245, 200, 0.35);
+  }
+
+  .card-sheen {
+    background: linear-gradient(135deg, rgba(57, 245, 200, 0.12), rgba(17, 21, 29, 0.6));
+  }
+}
