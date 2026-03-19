@@ -1146,7 +1146,7 @@ video {
         rgba(11, 15, 26, 0.92) 0%,
         rgba(10, 11, 15, 1) 60%
       ),
-      radial-gradient(circle at 20% 10%, rgba(74, 168, 255, 0.18), transparent 55%), radial-gradient(circle at 80% 20%, rgba(74, 168, 255, 0.08), transparent 60%), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      radial-gradient(circle at 20% 10%, rgba(74, 168, 255, 0.18), transparent 55%), radial-gradient(circle at 80% 20%, rgba(74, 168, 255, 0.08), transparent 60%);
     background-size: 100% 100%;
     background-position: top center, top left, top right;
     background-repeat: no-repeat;
