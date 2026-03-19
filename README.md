@@ -1,4 +1,4 @@
 # Hisham Khashman - Portfolio
 
-# deplopyed throgh vercel, live on:
-# hishamkhashman.com
+# deplopyed through vercel, live on:
+# https://hishamkhashman.com
