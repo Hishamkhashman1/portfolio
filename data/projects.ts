@@ -50,7 +50,7 @@ export const projects: Project[] = [
     title: "Stock Forecasting LSTM",
     description: "Time-series prediction pipeline using deep learning.",
     stack: ["Python", "LSTM", "Time Series"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/stock.png",
     liveUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
     repoUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
     category: "Selected Work"
