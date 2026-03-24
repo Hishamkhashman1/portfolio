@@ -68,7 +68,7 @@ export const projects: Project[] = [
     title: "Who's Snooping",
     description: "Local IP detection and network monitoring tool.",
     stack: ["Networking", "Security"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/whos_snooping.png",
     liveUrl: "https://github.com/Hishamkhashman1/whos_snooping",
     repoUrl: "https://github.com/Hishamkhashman1/whos_snooping",
     category: "Selected Work"
