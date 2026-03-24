@@ -59,7 +59,7 @@ export const projects: Project[] = [
     title: "ML Data Analysis Suite",
     description: "Python-based analytics and automated reporting tool.",
     stack: ["Python", "Analytics"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/ml-data.png",
     liveUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
     repoUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
     category: "Selected Work"
