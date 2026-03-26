@@ -44,13 +44,13 @@ export default function Hero() {
             <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-100 sm:text-6xl">
               {profile.name}
             </h1>
-            <p className="mt-3 text-sm text-zinc-400">{profile.greeting}</p>
+            {/* <p className="mt-3 text-sm text-zinc-400">{profile.greeting}</p> */}
             <p className="mt-5 text-xl leading-relaxed text-zinc-200">
               {profile.title}
             </p>
-            <p className="mt-3 text-base leading-relaxed text-zinc-400">
+            {/* <p className="mt-3 text-base leading-relaxed text-zinc-400">
               {profile.summary}
-            </p>
+            </p> */}
             <div className="mt-5 flex flex-wrap gap-3">
               {profile.stack.map((item) => (
                 <span
