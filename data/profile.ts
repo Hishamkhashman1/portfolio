@@ -1,9 +1,9 @@
 export const profile = {
   name: "Hisham Khashman",
   // greeting: "Hola! · お疲れ様です！ · مرحبًا",
-  title: "Full-Stack Engineer",
-  // summary:
-  //   "Built 5+ production apps • Kaggle top 20% • 10+ years consulting experience",
+  title: "Full-Stack Software Engineer",
+  summary:
+    "Built 5+ production apps • 10+ years consulting, finance and Ops. experience",
   stack: ["Python", "Ruby on Rails", "JavaScript", "SQL", "Machine Learning"],
   email: "hisham.khashman@gmail.com",
   links: {
