@@ -38,9 +38,9 @@ export default function Hero() {
       <div className="mt-5">
         <div className="grid items-center gap-6 lg:grid-cols-[1.35fr_0.65fr]">
           <div className="max-w-2xl">
-            <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
+            {/* <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
               Hi, I&apos;m Hisham
-            </p>
+            </p> */}
             <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-zinc-100 sm:text-6xl">
               {profile.name}
             </h1>
