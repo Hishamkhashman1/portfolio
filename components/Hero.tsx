@@ -48,9 +48,9 @@ export default function Hero() {
             <p className="mt-5 text-xl leading-relaxed text-zinc-200">
               {profile.title}
             </p>
-            {/* <p className="mt-3 text-base leading-relaxed text-zinc-400">
+            <p className="mt-3 text-base leading-relaxed text-zinc-400">
               {profile.summary}
-            </p> */}
+            </p>
             <div className="mt-5 flex flex-wrap gap-3">
               {profile.stack.map((item) => (
                 <span
