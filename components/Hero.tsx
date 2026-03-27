@@ -81,7 +81,7 @@ export default function Hero() {
             <div className="absolute -inset-8 rounded-full bg-electric/10 blur-3xl" />
             <div className="relative rounded-full border border-electric/40 bg-haze/40 p-2 shadow-glow">
               <Image
-                src="/hisham-photo.jpeg"
+                src="/hisham-photo.png"
                 alt="Portrait of Hisham Khashman"
                 width={320}
                 height={320}
