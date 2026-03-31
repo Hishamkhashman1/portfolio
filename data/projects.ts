@@ -69,7 +69,7 @@ export const projects: Project[] = [
     description: "Real-time tracking web app.",
     stack: ["Web App", "Live Data"],
     image: "/projects/wc.png",
-    liveUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
+    liveUrl: "https://hishamkhashman1.github.io/wc26-tracker/",
     repoUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
     category: "Selected Work"
   },
