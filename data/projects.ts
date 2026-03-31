@@ -20,15 +20,6 @@ export const projects: Project[] = [
     category: "Current Projects"
   },
   {
-    title: "Forecast Alpha",
-    description: "Plug-and-play data analytics SaaS for SMBs.",
-    stack: ["Analytics", "SaaS"],
-    image: "/projects/forecast.png",
-    liveUrl: "https://github.com/Hishamkhashman1/forecast-alpha",
-    repoUrl: "https://github.com/Hishamkhashman1/forecast-alpha",
-    category: "Current Projects"
-  },
-  {
     title: "SEO Cyber Tool",
     description: "SEO score report tool built to share with teams.",
     stack: ["SEO", "Reporting"],

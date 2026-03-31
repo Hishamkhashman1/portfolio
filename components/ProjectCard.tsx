@@ -24,6 +24,14 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const isForecastAlpha = project.title.startsWith("Forecast Alpha");
+  const liveLabel = isForecastAlpha
+    ? "View Platform"
+    : isExternal(project.liveUrl)
+      ? "Open Live"
+      : "Open";
+  const repoLabel = isForecastAlpha ? "GitHub" : "Repo";
+
   return (
     <article
       role="link"
@@ -71,9 +79,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="mt-6 flex items-center justify-between text-xs text-zinc-400">
-        <span className="font-mono">
-          {isExternal(project.liveUrl) ? "Open Live" : "Open"}
-        </span>
+        <span className="font-mono">{liveLabel}</span>
         {project.repoUrl ? (
           <button
             type="button"
@@ -83,7 +89,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             }}
             className="rounded-full border border-zinc-700 px-3 py-1 font-mono text-zinc-200 transition hover:border-electric hover:text-electric"
           >
-            Repo
+            {repoLabel}
           </button>
         ) : (
           <span className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
