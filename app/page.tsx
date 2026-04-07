@@ -26,7 +26,7 @@ export default function Home() {
                 Building Forecast Alpha
               </h2>
               <p className="mt-4 max-w-2xl text-sm text-zinc-400">
-                Forecast Alpha is the main product I&apos;m currently building —
+                Forecast Alpha is the main product I&apos;m currently building.
                 an AI-powered analytics platform focused on anomaly detection,
                 forecasting, and decision intelligence. It is designed for
                 real-world operational data, not just dashboards.
@@ -73,7 +73,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    View Platform
+                    Get a Data Audit
                   </a>
                   {/* <a
                     href={forecastRepoUrl}
