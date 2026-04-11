@@ -19,7 +19,14 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/kwood6319/kifor-match",
     category: "Current Projects"
   },
-
+  {
+    title: "Rick and Morty API (MVP)",
+    description: "A lightweight REST API built with FastAPI serving Rick and Morty character data. Designed as a learning project to explore API design, routing, and data handling, with     plans for filtering, pagination, and expanded endpoints.",
+    stack: ["FastAPI", "Python"],
+    image: "/projects/placeholder.svg",
+    liveUrl: "https://hishamkhashman1.com/rick-and-morty-api",
+    category: "Current Projects"
+  },
   {
     title: "LinguaLogic",
     description: "Gamified coding learning platform.",
