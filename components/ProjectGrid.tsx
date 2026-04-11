@@ -11,7 +11,7 @@ export default function ProjectGrid() {
           Projects
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
-          Builds, experiments, and real-world systems
+          Fullstack Builds, tools, and real-world systems
         </h2>
         <p className="mt-4 max-w-2xl text-sm text-zinc-400">
           A selection of current work and highlights. Each card opens the live
