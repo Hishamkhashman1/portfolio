@@ -27,9 +27,8 @@ export default function Home() {
               </h2>
               <p className="mt-4 max-w-2xl text-sm text-zinc-400">
                 Forecast Alpha is the main product I&apos;m currently building.
-                an AI-powered analytics platform focused on anomaly detection,
-                forecasting, and decision intelligence. It is designed for
-                real-world operational data, not just dashboards.
+                a Fullstack build with an AI-powered analytics platform focused on anomaly detection,
+                forecasting, and decision intelligence.
               </p>
               <p className="mt-3 max-w-2xl text-sm text-zinc-400">
                 Built from hands-on experience across consulting, finance, and
