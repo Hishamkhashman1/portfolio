@@ -8,7 +8,7 @@ export default function CVSection() {
           CV
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
-          Strategy, engineering, and execution
+          Building real-world software & data systems
         </h2>
       </div>
 
@@ -16,20 +16,16 @@ export default function CVSection() {
         <div className="space-y-4 text-sm text-zinc-400">
           <p>{profile.background}</p>
           <p>
-            I translate business objectives into scalable backend systems,
-            analytics pipelines, and ML-enabled products with measurable impact.
-          </p>
-          <p>
-            Domains: finance, SaaS, analytics tooling, and decision support.
+            I build Fullstack web applications, APIs and data systems that solve real problems.
           </p>
         </div>
 
         <div className="rounded-2xl border border-zinc-800 bg-haze/50 p-6">
           <div className="text-sm text-zinc-400">CV Highlights</div>
           <ul className="mt-4 space-y-3 text-sm text-zinc-200">
-            <li>Consulting & delivery leadership across enterprise clients.</li>
-            <li>Backend and data engineering for analytics-first products.</li>
-            <li>Full-stack builds with strong UX and business alignment.</li>
+            <li>Full-stack builds with strong UX and business alignment for clients in Japan, Mexico and USA.</li>
+	    <li>Designed and Built APIs and backend systems using Python and Ruby on Rails.</li>
+	    <li>Developed data tools for forecasting, anomaly detection, and analytics.</li>
           </ul>
           <a
             href={profile.links.cv}
