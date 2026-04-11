@@ -12,5 +12,5 @@ export const profile = {
     cv: "/cv.pdf"
   },
   background:
-    "10+ years in finance & consulting (PwC, Accenture) -> now building software with strong business context."
+    "10+ years in finance & consulting (PwC, Accenture), now building software with strong business context."
 };
