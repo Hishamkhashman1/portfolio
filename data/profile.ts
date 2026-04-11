@@ -1,7 +1,7 @@
 export const profile = {
   name: "Hisham Khashman",
   // greeting: "Hola! · お疲れ様です！ · مرحبًا",
-  title: "Full-Stack Software Engineer",
+  title: "Full-Stack Engineer",
   summary:
     "Built 5+ production apps • 10+ years consulting (Ex-Pwc, Accenture), finance and ops. experience",
   stack: ["Python", "Ruby on Rails", "JavaScript", "SQL", "Machine Learning","Linux"],
