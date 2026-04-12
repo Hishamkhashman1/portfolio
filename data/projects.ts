@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: "Kifor Match (MVP)",
     description: "Kifor Match is an MVP for a Japanese Charity that matches donors and charities to help them fulfill their needs.",
     stack: ["Full Stack"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/kiforwip.png",
     liveUrl: "https://github.com/kwood6319/kifor-match",
     repoUrl: "https://github.com/kwood6319/kifor-match",
     category: "Current Projects"
