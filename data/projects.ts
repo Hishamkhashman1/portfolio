@@ -6,6 +6,7 @@ export type Project = {
   liveUrl: string;
   repoUrl?: string;
   category: "Current Projects" | "Selected Work";
+  subCategory?: "Full-Stack" | "Data" | "Security & Network";
   badge?: string;
 };
 
@@ -61,7 +62,8 @@ export const projects: Project[] = [
     image: "/projects/Screenshot from 2026-03-24 15-14-26.png",
     liveUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
     repoUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
-    category: "Selected Work"
+    category: "Selected Work",
+    subCategory: "Data"
   },
   {
     title: "ML Data Analysis Suite",
@@ -70,7 +72,8 @@ export const projects: Project[] = [
     image: "/projects/ml-data.png",
     liveUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
     repoUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
-    category: "Selected Work"
+    category: "Selected Work",
+    subCategory: "Data"
   },
   {
     title: "Who's Snooping",
@@ -79,7 +82,8 @@ export const projects: Project[] = [
     image: "/projects/whos_snooping.png",
     liveUrl: "https://github.com/Hishamkhashman1/whos_snooping",
     repoUrl: "https://github.com/Hishamkhashman1/whos_snooping",
-    category: "Selected Work"
+    category: "Selected Work",
+    subCategory: "Security & Network"
   },
   {
     title: "World Cup 2026 Tracker",
@@ -88,7 +92,8 @@ export const projects: Project[] = [
     image: "/projects/wc.png",
     liveUrl: "https://hishamkhashman1.github.io/wc26-tracker/",
     repoUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
-    category: "Selected Work"
+    category: "Selected Work",
+    subCategory: "Full-Stack"
   },
   {
     title: "Movie Favorite Watch List",
@@ -96,6 +101,7 @@ export const projects: Project[] = [
     stack: ["API", "Web App"],
     image: "/projects/movie.png",
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
-    category: "Selected Work"
+    category: "Selected Work",
+    subCategory: "Full-Stack"
   }
 ];

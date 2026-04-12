@@ -2,6 +2,7 @@ import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
 const categories = ["Current Projects", "Selected Work"] as const;
+const selectedWorkGroups = ["Full-Stack", "Data", "Security & Network"] as const;
 
 export default function ProjectGrid() {
   return (
@@ -33,11 +34,38 @@ export default function ProjectGrid() {
                 {list.length} projects
               </span>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {list.map((project) => (
-                <ProjectCard key={project.title} project={project} />
-              ))}
-            </div>
+
+            {category === "Selected Work" ? (
+              <div className="space-y-8">
+                {selectedWorkGroups.map((group) => {
+                  const grouped = list.filter(
+                    (project) => project.subCategory === group
+                  );
+                  if (!grouped.length) {
+                    return null;
+                  }
+
+                  return (
+                    <div key={group} className="space-y-4">
+                      <p className="text-xs font-mono uppercase tracking-[0.3em] text-zinc-500">
+                        {group}
+                      </p>
+                      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                        {grouped.map((project) => (
+                          <ProjectCard key={project.title} project={project} />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {list.map((project) => (
+                  <ProjectCard key={project.title} project={project} />
+                ))}
+              </div>
+            )}
           </div>
         );
       })}
