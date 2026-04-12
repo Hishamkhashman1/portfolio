@@ -21,8 +21,8 @@ export const projects: Project[] = [
   },
   {
     title: "Rick and Morty API (MVP)",
-    description: "A lightweight REST API built with FastAPI serving Rick and Morty character data. (in development)",
-    stack: ["FastAPI", "Python"],
+    description: "A lightweight REST API built with FastAPI and PostgreSQL serving Rick and Morty character data. (in development)",
+    stack: ["FastAPI", "Python", "PostgreSQL"],
     image: "/projects/api.png",
     liveUrl: "https://hishamkhashman1.com/rick-and-morty-api",
     category: "Current Projects"
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     title: "LinguaLogic",
     description: "Gamified coding learning platform.",
-    stack: ["Full Stack", "Gamification"],
+    stack: ["Full Stack", "Gamification","phaser.js"],
     image: "/projects/lingua.png",
     liveUrl: "https://lingualogic-4a902f58893e.herokuapp.com/",
     repoUrl: "https://github.com/Hishamkhashman1/lingualogic",
