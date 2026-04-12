@@ -14,8 +14,8 @@ export default function Home() {
     <div className="min-h-screen bg-tech">
       <main className="mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-12">
         <Hero />
-        <section className="space-y-3">
-          <h2 className="text-3xl font-semibold text-zinc-100 sm:text-4xl">
+        <section className="mt-24 space-y-3 border-t border-zinc-900 pt-10">
+          <h2 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">
             Forecast Alpha
           </h2>
 
