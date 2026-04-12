@@ -23,9 +23,6 @@ export default function Home() {
               <h2 className="text-3xl font-semibold text-zinc-100 sm:text-4xl">
                 Forecast Alpha
               </h2>
-              <p className="max-w-2xl text-sm text-zinc-400">
-                Founder-built analytics for anomaly detection and forecasting.
-              </p>
             </div>
 
             <div className="mt-6 max-w-3xl">
@@ -47,16 +44,7 @@ export default function Home() {
                   <p className="text-sm text-zinc-400">
                     Signal detection and forecast clarity for critical ops.
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {["Anomaly Detection", "Forecasting"].map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full bg-night/60 px-3 py-1 text-xs font-mono text-zinc-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+
                   <a
                     href={forecastLiveUrl}
                     className="inline-flex w-fit rounded-full bg-electric px-5 py-2 text-sm font-semibold text-night shadow-glow transition hover:shadow-glowStrong"
