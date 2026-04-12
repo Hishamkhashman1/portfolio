@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex flex-col pt-16 pb-2"
+      className="relative flex flex-col pt-16 pb-32"
     >
       <header className="flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-3 text-sm font-mono text-zinc-400">
