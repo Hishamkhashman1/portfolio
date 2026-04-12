@@ -14,7 +14,7 @@ export const projects: Project[] = [
   {
     title: "Kifor Match (MVP)",
     description: "Kifor Match is an MVP for a Japanese Charity that matches donors and charities to help them fulfill their needs.",
-    stack: ["Full Stack"],
+    stack: ["Full Stack","Ruby on Rails", "PostgreSQL"],
     image: "/projects/kiforwip.png",
     liveUrl: "https://github.com/kwood6319/kifor-match",
     repoUrl: "https://github.com/kwood6319/kifor-match",
@@ -31,7 +31,7 @@ export const projects: Project[] = [
   {
     title: "LinguaLogic",
     description: "Gamified coding learning platform.",
-    stack: ["Full Stack", "Gamification","phaser.js"],
+    stack: ["Full Stack","Ruby on Rails", "i18n","phaser.js", "devise", "stimulus.js","turbo", "postgreSQL"],
     image: "/projects/lingua.png",
     liveUrl: "https://lingualogic-4a902f58893e.herokuapp.com/",
     repoUrl: "https://github.com/Hishamkhashman1/lingualogic",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
   {
     title: "SEO Cyber Tool",
     description: "SEO score report tool built to share with teams.",
-    stack: ["SEO", "Reporting"],
+    stack: ["Full Stack", "Ruby on Rails", "Nokogiri", "JavaScript", "CSS"],
     image: "/projects/SEO-screenshot.png",
     liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
     category: "Selected Work",
@@ -90,7 +90,7 @@ export const projects: Project[] = [
   {
     title: "World Cup 2026 Tracker",
     description: "Real-time tracking web app.",
-    stack: ["Web App", "Live Data"],
+    stack: ["JavaScript", "JSON", "HTML", "CSS"],
     image: "/projects/wc.png",
     liveUrl: "https://hishamkhashman1.github.io/wc26-tracker/",
     repoUrl: "https://github.com/Hishamkhashman1/wc26-tracker",
@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     title: "Movie Favorite Watch List",
     description: "Deployed app with API integration.",
-    stack: ["API", "Web App"],
+    stack: ["Full Stack", "Ruby on Rails", "jbuilder API", "postgreSQL","stimulus.js", "turbo"],
     image: "/projects/movie.png",
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
     category: "Selected Work",
