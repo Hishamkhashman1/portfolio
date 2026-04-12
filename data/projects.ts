@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: "Rick and Morty API (MVP)",
     description: "A lightweight REST API built with FastAPI serving Rick and Morty character data. (in development)",
     stack: ["FastAPI", "Python"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/api.png",
     liveUrl: "https://hishamkhashman1.com/rick-and-morty-api",
     category: "Current Projects"
   },
