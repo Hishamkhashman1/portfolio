@@ -35,7 +35,8 @@ export const projects: Project[] = [
     image: "/projects/lingua.png",
     liveUrl: "https://lingualogic-4a902f58893e.herokuapp.com/",
     repoUrl: "https://github.com/Hishamkhashman1/lingualogic",
-    category: "Current Projects"
+    category: "Selected Work",
+    subCategory: "Full-Stack"
   },
   {
     title: "SEO Cyber Tool",
@@ -43,7 +44,8 @@ export const projects: Project[] = [
     stack: ["SEO", "Reporting"],
     image: "/projects/SEO-screenshot.png",
     liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
-    category: "Current Projects"
+    category: "Selected Work",
+    subCategory: "Full-Stack"
   },
   // {
   //   title: "Fraud Detection Dashboard",
