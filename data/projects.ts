@@ -13,7 +13,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Kifor Match (MVP)",
-    description: "Kifor Match is an MVP for a Japanese Charity that matches donors and charities to help them fulfill their needs.",
+    description: "Donor–charity matching MVP built for a Japanese nonprofit.",
     stack: ["Full Stack","Ruby on Rails", "PostgreSQL"],
     image: "/projects/kiforwip.png",
     liveUrl: "https://github.com/kwood6319/kifor-match",
@@ -22,7 +22,7 @@ export const projects: Project[] = [
   },
   {
     title: "Rick and Morty API (MVP)",
-    description: "A lightweight REST API built with FastAPI and PostgreSQL serving Rick and Morty character data. (in development)",
+    description: "FastAPI + PostgreSQL API for Rick and Morty character data.",
     stack: ["FastAPI", "Python", "PostgreSQL"],
     image: "/projects/api.png",
     liveUrl: "https://hishamkhashman1.com/rick-and-morty-api",
@@ -99,7 +99,7 @@ export const projects: Project[] = [
   },
   {
     title: "Movie Favorite Watch List",
-    description: "Deployed app with API integration.",
+    description: "Rails app with API integration.",
     stack: ["Full Stack", "Ruby on Rails", "jbuilder API", "postgreSQL","stimulus.js", "turbo"],
     image: "/projects/movie.png",
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
