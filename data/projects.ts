@@ -60,7 +60,7 @@ export const projects: Project[] = [
   {
     title: "Stock Forecasting LSTM",
     description: "Time-series prediction pipeline using deep learning.",
-    stack: ["Python", "LSTM", "Time Series"],
+    stack: ["Python", "Keras", "Pandas","Numpy", "Scikit-learn"],
     image: "/projects/Screenshot from 2026-03-24 15-14-26.png",
     liveUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
     repoUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     title: "ML Data Analysis Suite",
     description: "Python-based analytics and automated reporting tool.",
-    stack: ["Python", "Analytics"],
+    stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn","PyQt5","FPDF"],
     image: "/projects/ml-data.png",
     liveUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
     repoUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",

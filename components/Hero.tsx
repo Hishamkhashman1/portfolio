@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { profile } from "@/data/profile";
+import { getStackIcon } from "@/data/stackIcons";
 
 const navLinks = [
   { label: "Projects", href: "#projects" },
@@ -55,9 +56,12 @@ export default function Hero() {
               {profile.stack.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-zinc-800 bg-haze/60 px-4 py-1 text-xs font-mono text-zinc-200"
+                  className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-haze/60 px-4 py-1 text-xs font-mono text-zinc-200"
                 >
-                  {item}
+                  {getStackIcon(item) ? (
+                    <i className={`${getStackIcon(item)} text-sm`} aria-hidden />
+                  ) : null}
+                  <span>{item}</span>
                 </span>
               ))}
             </div>

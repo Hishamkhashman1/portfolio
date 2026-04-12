@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { Project } from "@/data/projects";
+import { getStackIcon } from "@/data/stackIcons";
 
 const isExternal = (url: string) => url.startsWith("http");
 
@@ -71,9 +72,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {project.stack.map((item) => (
           <span
             key={item}
-            className="rounded-full bg-night/60 px-3 py-1 text-xs font-mono text-zinc-300"
+            className="inline-flex items-center gap-2 rounded-full bg-night/60 px-3 py-1 text-xs font-mono text-zinc-300"
           >
-            {item}
+            {getStackIcon(item) ? (
+              <i className={`${getStackIcon(item)} text-sm`} aria-hidden />
+            ) : null}
+            <span>{item}</span>
           </span>
         ))}
       </div>

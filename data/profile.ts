@@ -4,7 +4,7 @@ export const profile = {
   title: "Fullstack Engineer",
   summary:
     "Building software with strong business context and a passion for learning new things.",
-  stack: ["Python", "Ruby on Rails", "JavaScript", "SQL", "AI & ML","Linux"],
+  stack: ["Python", "Ruby", "Ruby on Rails", "JavaScript", "SQL", "FastAPI","Linux","AI & ML", "Git"],
   email: "hisham.khashman@gmail.com",
   links: {
     github: "https://github.com/Hishamkhashman1",
