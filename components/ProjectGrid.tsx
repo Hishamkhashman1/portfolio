@@ -8,15 +8,8 @@ export default function ProjectGrid() {
   return (
     <section id="projects" className="space-y-16 pt-4">
       <div>
-        <p className="text-sm font-mono uppercase tracking-[0.3em] text-electric">
+        <p className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
           Projects
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
-          Fullstack Builds, tools, and real-world systems
-        </h2>
-        <p className="mt-4 max-w-2xl text-sm text-zinc-400">
-          A selection of current work and highlights. Each card opens the live
-          build or repo directly.
         </p>
       </div>
 
