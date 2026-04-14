@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description: "Donor–charity matching MVP built for a Japanese nonprofit.",
     stack: ["Full Stack","Ruby on Rails", "PostgreSQL"],
     image: "/projects/kiforwip.png",
-    liveUrl: "https://github.com/kwood6319/kifor-match",
+    liveUrl: "",
     repoUrl: "https://github.com/kwood6319/kifor-match",
     category: "Current Projects"
   },
@@ -34,7 +34,8 @@ export const projects: Project[] = [
     description: "Squanch the bug. Ship the fix. CLI tool that captures failed shell commands, analyzes errors, and suggests fixes in real time.",
     stack: ["Python","Shell","PostgreSQL"],
     image: "/projects/bugsquancher.png",
-    liveUrl: "https://github.com/Hishamkhashman1/bug-squancher",
+    liveUrl: "",
+    repoUrl: "https://github.com/Hishamkhashman1/bug-squancher",
     category: "Current Projects",
     subCategory: "CLI Tools"
   },
@@ -54,6 +55,7 @@ export const projects: Project[] = [
     stack: ["Full Stack", "Ruby on Rails", "Nokogiri", "JavaScript", "CSS"],
     image: "/projects/SEO-screenshot.png",
     liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
+    repoUrl: "https://github.com/Hishamkhashman1/seo-tool",
     category: "Selected Work",
     subCategory: "Full-Stack"
   },
@@ -72,7 +74,7 @@ export const projects: Project[] = [
     description: "Time-series prediction pipeline using deep learning.",
     stack: ["Python", "Keras", "Pandas","Numpy", "Scikit-learn"],
     image: "/projects/Screenshot from 2026-03-24 15-14-26.png",
-    liveUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
+    liveUrl: "",
     repoUrl: "https://github.com/Hishamkhashman1/stock-forecasting-lstm",
     category: "Selected Work",
     subCategory: "Data"
@@ -82,7 +84,7 @@ export const projects: Project[] = [
     description: "Python-based analytics and automated reporting tool.",
     stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn","PyQt5","FPDF"],
     image: "/projects/ml-data.png",
-    liveUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
+    liveUrl: "",
     repoUrl: "https://github.com/Hishamkhashman1/ml-data-analysis-suite",
     category: "Selected Work",
     subCategory: "Data"
@@ -92,7 +94,7 @@ export const projects: Project[] = [
     description: "Local IP detection and network monitoring tool.",
     stack: ["Networking", "Security"],
     image: "/projects/whos_snooping.png",
-    liveUrl: "https://github.com/Hishamkhashman1/whos_snooping",
+    liveUrl: "",
     repoUrl: "https://github.com/Hishamkhashman1/whos_snooping",
     category: "Selected Work",
     subCategory: "Security & Network"
