@@ -30,7 +30,7 @@ export const projects: Project[] = [
   },
    {
     title: "BugSquancher",
-    description: "Squanch the bug. Ship the fix.Coming soon.. your go to CLI debugger!",
+    description: "Squanch the bug. Ship the fix. CLI tool that captures failed shell commands, analyzes errors, and suggests fixes in real time.",
     stack: ["Python","Shell","PostgreSQL"],
     image: "/projects/bugsquancher.png",
     liveUrl: "https://github.com/Hishamkhashman1/bug-squancher",
