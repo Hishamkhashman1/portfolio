@@ -25,7 +25,8 @@ export const projects: Project[] = [
     description: "FastAPI + PostgreSQL API for Rick and Morty character data.",
     stack: ["FastAPI", "Python", "PostgreSQL"],
     image: "/projects/api.png",
-    liveUrl: "https://hishamkhashman1.com/rick-and-morty-api",
+    liveUrl: "https://rick-and-morty-api-9871cc72.fastapicloud.dev/",
+    repoUrl: "https://github.com/Hishamkhashman1/rick-and-morty-api",
     category: "Current Projects"
   },
    {
