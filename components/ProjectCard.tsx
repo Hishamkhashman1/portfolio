@@ -7,6 +7,7 @@ import { getStackIcon } from "@/data/stackIcons";
 const isExternal = (url: string) => url.startsWith("http");
 
 const openLink = (url: string) => {
+  if (!url) return;
   if (url.startsWith("#")) {
     window.location.hash = url;
     return;
@@ -26,6 +27,8 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const isForecastAlpha = project.title.startsWith("Forecast Alpha");
+  const primaryUrl = project.liveUrl || project.repoUrl || "";
+  const hasPrimaryUrl = Boolean(primaryUrl);
   const liveLabel = isForecastAlpha
     ? "View Platform"
     : isExternal(project.liveUrl)
@@ -35,13 +38,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      role="link"
-      tabIndex={0}
-      onClick={() => openLink(project.liveUrl)}
+      role={hasPrimaryUrl ? "link" : undefined}
+      tabIndex={hasPrimaryUrl ? 0 : undefined}
+      aria-disabled={hasPrimaryUrl ? undefined : true}
+      onClick={() => openLink(primaryUrl)}
       onKeyDown={(event) => {
+        if (!hasPrimaryUrl) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          openLink(project.liveUrl);
+          openLink(primaryUrl);
         }
       }}
       className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-haze/40 p-5 transition hover:-translate-y-1 hover:border-electric/60 hover:shadow-glow"
