@@ -32,11 +32,11 @@ export const projects: Project[] = [
     title: "BugSquancher",
     description: "Squanch the bug. Ship the fix.Coming soon.. your go to CLI debugger!",
     stack: ["Python","Shell","PostgreSQL"],
-    image: "/projects/placeholder.svg",
+    image: "/projects/bugsquancher.png",
     liveUrl: "https://github.com/Hishamkhashman1/bug-squancher",
     category: "Current Projects",
     subCategory: "CLI Tools"
-  },		
+  },
   {
     title: "LinguaLogic",
     description: "Gamified coding learning platform.",
@@ -114,5 +114,5 @@ export const projects: Project[] = [
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
     category: "Selected Work",
     subCategory: "Full-Stack"
-  },		  
+  },
 ];
