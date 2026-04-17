@@ -115,6 +115,7 @@ export const projects: Project[] = [
     stack: ["Full Stack", "Ruby on Rails", "jbuilder API", "postgreSQL","stimulus.js", "turbo"],
     image: "/projects/movie.png",
     liveUrl: "https://hisham-watch-list-aad8d178a962.herokuapp.com/",
+    repoUrl: "https://github.com/Hishamkhashman1/rails-watch-list",
     category: "Selected Work",
     subCategory: "Full-Stack"
   },
