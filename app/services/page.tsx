@@ -123,7 +123,7 @@ export default function ServicesPage() {
             </ul>
 
             <p className="mt-6 text-sm font-mono uppercase tracking-[0.2em] text-ember">
-              Plans start from $1000/month
+              Plans start from $987/month
             </p>
           </div>
         </section>
