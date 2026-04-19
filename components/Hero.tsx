@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { getStackIcon } from "@/data/stackIcons";
@@ -78,6 +79,12 @@ export default function Hero() {
               >
                 Download CV
               </a>
+              <Link
+                href="/services"
+                className="rounded-full border border-electric/40 px-6 py-3 text-sm font-semibold text-zinc-100 transition hover:border-electric hover:text-electric"
+              >
+                Services
+              </Link>
             </div>
           </div>
 
