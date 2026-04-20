@@ -62,7 +62,7 @@ export default function ServicesPage() {
               smoothly - with practical backend, DevOps, and AI solutions.
             </p>
             <p className="mt-4 text-base leading-relaxed text-zinc-400">
-              Worked with teams across LATAM, Europe, the Middle East, and
+              Worked with teams across LATAM, USA, the Middle East, and
               Japan.
             </p>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-zinc-400">
