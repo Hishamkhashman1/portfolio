@@ -32,7 +32,7 @@ const services = [
   {
     title: "ERP Systems & Implementation",
     description:
-      "Custom ERP workflows, system setup, and integrations aligned with your business processes."
+      "Custom ERP workflows, system setup, system development and integrations aligned with your business processes."
   }
 ];
 
