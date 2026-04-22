@@ -54,7 +54,7 @@ export const projects: Project[] = [
     description: "SEO score report tool built to share with teams.",
     stack: ["Full Stack", "Ruby on Rails", "Nokogiri", "JavaScript", "CSS"],
     image: "/projects/SEO-screenshot.png",
-    liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
+    liveUrl: "https://www.seosignalconsole.com/",
     category: "Selected Work",
     subCategory: "Full-Stack"
   },
