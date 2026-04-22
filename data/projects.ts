@@ -55,7 +55,6 @@ export const projects: Project[] = [
     stack: ["Full Stack", "Ruby on Rails", "Nokogiri", "JavaScript", "CSS"],
     image: "/projects/SEO-screenshot.png",
     liveUrl: "https://mysterious-sands-38628-1e67da485e8d.herokuapp.com/",
-    repoUrl: "https://github.com/Hishamkhashman1/seo-tool",
     category: "Selected Work",
     subCategory: "Full-Stack"
   },
