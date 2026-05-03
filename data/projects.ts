@@ -118,4 +118,13 @@ export const projects: Project[] = [
     category: "Selected Work",
     subCategory: "Full-Stack"
   },
+{
+    title: "AI Personal Assistant",
+    description: "Your Personal AI assistant",
+    stack: ["Python","FastAPI", "OpenAI"],
+    image: "/projects/placeholder.svg",
+    liveUrl: "",
+    repoUrl: "https://github.com/hishamkhashman1/ai-personal-assistant",
+    category: "Current Projects"
+  },
 ];
