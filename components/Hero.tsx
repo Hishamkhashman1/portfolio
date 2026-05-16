@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex flex-col pt-16 pb-12 sm:pb-16"
+      className="relative flex flex-col overflow-x-clip pt-16 pb-12 sm:pb-16"
     >
       <header className="flex flex-wrap items-center justify-between gap-6">
         {/* <div className="flex items-center gap-3 text-sm font-mono text-zinc-600">
@@ -41,8 +41,8 @@ export default function Hero() {
       </header>
 
       <div className="mt-5 w-full max-w-xl mx-auto sm:max-w-none sm:mx-0">
-        <div className="grid items-start gap-10 lg:grid-cols-[1.35fr_0.65fr]">
-          <div className="order-2 max-w-3xl lg:order-1">
+        <div className="grid min-w-0 items-center gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
+          <div className="order-2 min-w-0 max-w-3xl text-center lg:order-1 lg:text-left">
             {/* <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
               Hi, I&apos;m Hisham
             </p> */}
@@ -56,7 +56,7 @@ export default function Hero() {
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
               {profile.summary}
             </p>
-            <div className="mt-6">
+            <div className="mt-6 min-w-0">
               <div className="tech-stack-marquee">
                 <div className="tech-stack-marquee__viewport">
                   <div className="tech-stack-marquee__track">
@@ -79,22 +79,22 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 grid gap-4 sm:flex sm:flex-wrap sm:justify-center lg:justify-start">
               <a
                 href="#projects"
-                className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                className="inline-flex w-full items-center justify-center rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800 sm:w-auto"
               >
                 View Projects
               </a>
               <a
                 href={profile.links.cv}
-                className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950"
+                className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950 sm:w-auto"
               >
                 Download CV
               </a>
               <Link
                 href="/services"
-                className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950"
+                className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950 sm:w-auto"
               >
                 Services
               </Link>
@@ -102,7 +102,7 @@ export default function Hero() {
             <NowBuildingStatus />
           </div>
 
-          <div className="relative order-1 flex justify-center lg:order-2">
+          <div className="relative order-1 flex min-w-0 justify-center lg:order-2 lg:justify-end">
             <div className="absolute -inset-8 rounded-full bg-zinc-200/70 blur-3xl" />
             <div className="relative rounded-full border border-zinc-200 bg-white p-2 shadow-glow">
               <Image
@@ -111,7 +111,7 @@ export default function Hero() {
                 width={320}
                 height={320}
                 sizes="(max-width: 1024px) 240px, 320px"
-                className="h-52 w-52 rounded-full object-cover"
+                className="h-44 w-44 rounded-full object-cover sm:h-52 sm:w-52"
                 priority
               />
             </div>
