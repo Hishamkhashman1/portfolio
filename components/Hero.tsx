@@ -1,16 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { getStackIcon } from "@/data/stackIcons";
 import NowBuildingStatus from "@/components/NowBuildingStatus";
-
-const navLinks = [
-  { label: "Projects", href: "#projects" },
-  { label: "CV", href: "#cv" },
-  { label: "LinkedIn", href: profile.links.linkedin },
-  { label: "GitHub", href: profile.links.github },
-  { label: "Contact", href: "#contact" }
-];
 
 export default function Hero() {
   const marqueeItems = [...profile.stack, ...profile.stack];
@@ -20,26 +11,6 @@ export default function Hero() {
       id="top"
       className="relative flex flex-col overflow-x-clip pt-16 pb-12 sm:pb-16"
     >
-      <header className="flex flex-wrap items-center justify-between gap-6">
-        {/* <div className="flex items-center gap-3 text-sm font-mono text-zinc-600">
-          <span className="inline-flex h-2 w-2 rounded-full bg-zinc-900 shadow-glow" />
-          Available for consulting and product builds
-        </div> */}
-        <nav className="flex flex-wrap items-center gap-6 text-sm text-zinc-700 sm:text-base">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="transition hover:text-zinc-950"
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </header>
-
       <div className="mt-5 w-full max-w-xl mx-auto sm:max-w-none sm:mx-0">
         <div className="grid min-w-0 items-center gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
           <div className="order-2 min-w-0 max-w-3xl text-center lg:order-1 lg:text-left">
@@ -88,16 +59,11 @@ export default function Hero() {
               </a>
               <a
                 href={profile.links.cv}
+                download
                 className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950 sm:w-auto"
               >
                 Download CV
               </a>
-              <Link
-                href="/services"
-                className="inline-flex w-full items-center justify-center rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950 sm:w-auto"
-              >
-                Services
-              </Link>
             </div>
             <NowBuildingStatus />
           </div>

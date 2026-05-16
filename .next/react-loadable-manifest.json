@@ -1,9 +1,8 @@
 {
   "node_modules/react-activity-calendar/build/chunks/index-CLOTiFb2.js -> ./Tooltip-B8gZJWmn.js": {
-    "id": 8706,
+    "id": "node_modules/react-activity-calendar/build/chunks/index-CLOTiFb2.js -> ./Tooltip-B8gZJWmn.js",
     "files": [
-      "static/chunks/62be3177.93860ab8a7ec674a.js",
-      "static/chunks/187.99d7546af19fd74e.js"
+      "static/chunks/_app-pages-browser_node_modules_react-activity-calendar_build_chunks_Tooltip-B8gZJWmn_js.js"
     ]
   }
 }
