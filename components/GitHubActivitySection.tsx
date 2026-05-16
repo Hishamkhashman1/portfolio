@@ -21,14 +21,9 @@ export default async function GitHubActivitySection({
       <article className="overflow-hidden rounded-[24px] border border-zinc-200/80 bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_18px_45px_-28px_rgba(15,23,42,0.24)]">
         <div className="flex flex-col gap-4 p-5 sm:p-6">
           <div className="flex items-center justify-between gap-4">
-            <div className="space-y-1">
-              <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500">
-                BUILDING ACTIVITY
-              </p>
-              <p className="text-[12px] text-zinc-500">
-                Recent GitHub contribution activity
-              </p>
-            </div>
+            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500">
+              BUILDING ACTIVITY
+            </p>
 
             <a
               href={profileUrl}
