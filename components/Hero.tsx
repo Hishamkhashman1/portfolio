@@ -40,7 +40,7 @@ export default function Hero() {
         </nav>
       </header>
 
-      <div className="mt-5">
+      <div className="mt-5 w-full max-w-xl mx-auto sm:max-w-none sm:mx-0">
         <div className="grid items-start gap-10 lg:grid-cols-[1.35fr_0.65fr]">
           <div className="order-2 max-w-3xl lg:order-1">
             {/* <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
