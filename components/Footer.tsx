@@ -6,30 +6,6 @@ export default function Footer() {
       <div className="font-mono text-xs uppercase tracking-[0.2em]">
         {profile.name}
       </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <a
-          href={profile.links.github}
-          target="_blank"
-          rel="noreferrer"
-          className="transition hover:text-zinc-950"
-        >
-          GitHub
-        </a>
-        <a
-          href={profile.links.linkedin}
-          target="_blank"
-          rel="noreferrer"
-          className="transition hover:text-zinc-950"
-        >
-          LinkedIn
-        </a>
-        <a
-          href={`mailto:${profile.email}`}
-          className="transition hover:text-zinc-950"
-        >
-          Email
-        </a>
-      </div>
       <div className="text-xs text-zinc-500">
         © {new Date().getFullYear()} All rights reserved.
       </div>
