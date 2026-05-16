@@ -1,57 +1,34 @@
-"use client";
-
-import { cloneElement, type CSSProperties, type ReactElement } from "react";
-import { GitHubCalendar } from "react-github-calendar";
+import { getGithubContributionDays } from "@/lib/github-activity";
+import GitHubActivityField from "@/components/GitHubActivityField";
 
 type GitHubActivitySectionProps = {
   username: string;
 };
 
-export default function GitHubActivitySection({
+export default async function GitHubActivitySection({
   username
 }: GitHubActivitySectionProps) {
   const profileUrl = `https://github.com/${username}`;
-  const calendarTheme = {
-    light: ["#f4f4f5", "#e5e7eb", "#cbd5e1", "#94a3b8", "#64748b"]
-  };
-  const activityOrder = new Map<string, number>();
-
-  const transformData = (data: any[]) => {
-    activityOrder.clear();
-    [...data]
-      .sort((a, b) => a.date.localeCompare(b.date))
-      .forEach((activity, index) => {
-        activityOrder.set(activity.date, index);
-      });
-
-    return data;
-  };
-
-  const renderBlock = (
-    block: ReactElement<{ className?: string; style?: CSSProperties }>,
-    activity: any
-  ) => {
-    const order = activityOrder.get(activity.date) ?? 0;
-    const delay = Math.min(order * 8, 420);
-
-    return cloneElement(block, {
-      className:
-        "gh-square-reveal gh-square-hover " + (block.props.className ?? ""),
-      style: {
-        ...(block.props.style as CSSProperties),
-        animationDelay: `${delay}ms`
-      }
-    });
-  };
+  const contributionDays = await getGithubContributionDays(username);
+  const activityStart = new Date("2025-10-01T00:00:00Z");
+  const filteredDays = contributionDays.filter((day) => {
+    const dayDate = new Date(`${day.date}T00:00:00Z`);
+    return dayDate >= activityStart;
+  });
 
   return (
     <section className="space-y-4 pt-8">
-      <article className="overflow-hidden rounded-[24px] bg-white shadow-sm">
+      <article className="overflow-hidden rounded-[24px] border border-zinc-200/80 bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_18px_45px_-28px_rgba(15,23,42,0.24)]">
         <div className="flex flex-col gap-4 p-5 sm:p-6">
           <div className="flex items-center justify-between gap-4">
-            <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500">
-              Building Activity
-            </p>
+            <div className="space-y-1">
+              <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500">
+                BUILDING ACTIVITY
+              </p>
+              <p className="text-[12px] text-zinc-500">
+                Recent GitHub contribution activity
+              </p>
+            </div>
 
             <a
               href={profileUrl}
@@ -71,32 +48,12 @@ export default function GitHubActivitySection({
             </a>
           </div>
 
-          <div className="overflow-x-auto rounded-[18px] bg-zinc-50/70 p-2 sm:p-3">
-            <GitHubCalendar
-              username={username}
-              year="last"
-              colorScheme="light"
-              theme={calendarTheme}
-              blockSize={11}
-              blockMargin={4}
-              blockRadius={3}
-              fontSize={12}
-              showColorLegend={false}
-              showMonthLabels={false}
-              showWeekdayLabels={false}
-              showTotalCount={false}
-              labels={{
-                totalCount: ""
-              }}
-              tooltips={{
-                activity: {
-                  text: (activity) => `${activity.count} contribution${activity.count === 1 ? "" : "s"} on ${activity.date}`
-                }
-              }}
-              transformData={transformData}
-              renderBlock={renderBlock}
-              errorMessage=""
-            />
+          <div
+            className="activity-field-viewport rounded-[18px] border border-zinc-200/70 bg-[linear-gradient(180deg,rgba(250,250,250,1)_0%,rgba(244,244,245,0.96)_100%)] p-3 sm:p-4"
+            role="img"
+            aria-label={`Recent GitHub contribution activity for ${username}, starting in October 2025.`}
+          >
+            <GitHubActivityField days={filteredDays} />
           </div>
         </div>
       </article>
