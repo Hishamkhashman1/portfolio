@@ -57,9 +57,6 @@ export default function ForecastAlphaSection({
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-white via-transparent to-transparent" />
             <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white to-transparent" />
-            <div className="absolute left-4 top-4 rounded-full border border-zinc-200 bg-white/90 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-600">
-              SaaS case study
-            </div>
           </div>
         </div>
       </div>
