@@ -27,6 +27,7 @@ const FIELD_PADDING_X = 18;
 const FIELD_PADDING_Y = 16;
 const FIELD_HEIGHT = 132;
 const SCROLL_SPEED = 0.018;
+const TILE_SCALE = 1.5;
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
@@ -66,7 +67,8 @@ function buildActivityCells(days: ContributionDay[]) {
       const opacity = active
         ? Math.max(0.08, 0.08 + intensity * 0.78 - distance * 0.09 + rowOffset * 0.01)
         : 0.04;
-      const size = Math.max(5.4, 6.2 + intensity * 3.55 - distance * 0.25);
+      const size =
+        Math.max(5.4, 6.2 + intensity * 3.55 - distance * 0.25) * TILE_SCALE;
       const offsetX = rowOffset * rightDepth * 2.2;
       const offsetY =
         Math.sin(progress * Math.PI) * rowOffset * -1.2 +
