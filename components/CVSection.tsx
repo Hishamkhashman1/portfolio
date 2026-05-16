@@ -4,15 +4,15 @@ export default function CVSection() {
   return (
     <section id="cv" className="mt-10 space-y-6">
       <div>
-        <p className="text-sm font-mono uppercase tracking-[0.3em] text-electric">
+        <p className="text-sm font-mono uppercase tracking-[0.3em] text-zinc-500">
           CV
         </p>
-        <h2 className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
+        <h2 className="mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">
           Building real-world software & data systems
         </h2>
       </div>
 
-      <div className="space-y-4 text-sm text-zinc-400">
+      <div className="space-y-4 text-sm text-zinc-600">
         <p>{profile.background}</p>
         <p>
           I build Fullstack web applications, APIs and data systems that solve real problems.
@@ -20,16 +20,16 @@ export default function CVSection() {
       </div>
 
       <div className="mt-6 max-w-3xl">
-        <div className="rounded-2xl border border-zinc-800 bg-haze/50 p-6">
-          <div className="text-sm text-zinc-400">CV Highlights</div>
-          <ul className="mt-4 space-y-3 text-sm text-zinc-200">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <div className="text-sm text-zinc-500">CV Highlights</div>
+          <ul className="mt-4 space-y-3 text-sm text-zinc-800">
             <li>Full-stack builds with strong UX and business alignment for clients in Japan, Mexico and USA.</li>
             <li>Designed and Built APIs and backend systems using Python and Ruby on Rails.</li>
             <li>Developed data tools for forecasting, anomaly detection, and analytics.</li>
           </ul>
           <a
             href={profile.links.cv}
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-electric"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-zinc-950"
           >
             Download the full CV
             <span aria-hidden="true">-&gt;</span>

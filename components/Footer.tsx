@@ -2,7 +2,7 @@ import { profile } from "@/data/profile";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-zinc-800 pt-8 text-sm text-zinc-500 md:flex-row md:items-center">
+    <footer className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-zinc-200 pt-8 text-sm text-zinc-500 md:flex-row md:items-center">
       <div className="font-mono text-xs uppercase tracking-[0.2em]">
         {profile.name}
       </div>
@@ -11,7 +11,7 @@ export default function Footer() {
           href={profile.links.github}
           target="_blank"
           rel="noreferrer"
-          className="transition hover:text-electric"
+          className="transition hover:text-zinc-950"
         >
           GitHub
         </a>
@@ -19,18 +19,18 @@ export default function Footer() {
           href={profile.links.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="transition hover:text-electric"
+          className="transition hover:text-zinc-950"
         >
           LinkedIn
         </a>
         <a
           href={`mailto:${profile.email}`}
-          className="transition hover:text-electric"
+          className="transition hover:text-zinc-950"
         >
           Email
         </a>
       </div>
-      <div className="text-xs text-zinc-600">
+      <div className="text-xs text-zinc-500">
         © {new Date().getFullYear()} All rights reserved.
       </div>
     </footer>

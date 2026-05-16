@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 type ForecastAlphaSectionProps = {
@@ -12,72 +9,57 @@ export default function ForecastAlphaSection({
   liveUrl,
   image
 }: ForecastAlphaSectionProps) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = sectionRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.7 }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  const transitionClasses = "transition-all duration-700 ease-out";
-  const hiddenClasses = "opacity-60 blur-sm translate-y-6";
-  const visibleClasses = "opacity-100 blur-0 translate-y-0";
-
   return (
-    <section
-      ref={sectionRef}
-      className={`mt-4 space-y-3 border-t border-zinc-900 pt-16 ${transitionClasses} ${
-        isVisible ? visibleClasses : hiddenClasses
-      }`}
-    >
-      <h2 className="text-2xl font-semibold text-zinc-100 sm:text-3xl">
-        Forecast Alpha
-      </h2>
+    <section className="mt-4 space-y-4 border-t border-zinc-200 pt-16">
+      <div className="flex flex-col gap-3">
+        <p className="text-xs font-mono uppercase tracking-[0.35em] text-zinc-500">
+          Featured case study
+        </p>
+        <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
+          Forecast Alpha
+        </h2>
+      </div>
 
-      <div className="mt-6 max-w-3xl">
-        <div className="rounded-2xl border border-zinc-800 bg-haze/40 p-5">
-          <div className="relative h-64 overflow-hidden rounded-xl">
+      <div className="overflow-hidden rounded-[28px] border border-zinc-200 bg-white shadow-sm">
+        <div className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+            <div className="max-w-2xl space-y-5">
+              <div className="space-y-3">
+                <p className="text-sm font-mono uppercase tracking-[0.22em] text-zinc-500">
+                  Operational intelligence for connected business data
+                </p>
+                <p className="max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg">
+                  Connect live business data, detect anomalies, forecast operational
+                  trends, and generate AI-assisted KPI systems from a single
+                  workspace.
+                </p>
+              </div>
+
+              <a
+                href={liveUrl}
+                className="inline-flex rounded-full bg-zinc-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Platform
+              </a>
+            </div>
+          </div>
+
+          <div className="relative min-h-[320px] border-t border-zinc-200 bg-zinc-50 lg:min-h-[560px] lg:border-l lg:border-t-0">
             <Image
               src={image}
               alt="Forecast Alpha platform preview"
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover opacity-85"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover opacity-90"
+              priority
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-night/60 via-transparent to-transparent" />
-          </div>
-          <div className="mt-4 space-y-3">
-            <h3 className="text-xl font-semibold text-zinc-100">
-              Applied AI for revenue-critical operations
-            </h3>
-            <p className="text-sm text-zinc-400">
-              Signal detection and forecast clarity for critical ops.
-            </p>
-
-            <a
-              href={liveUrl}
-              className="inline-flex w-fit rounded-full bg-electric px-5 py-2 text-sm font-semibold text-night shadow-glow transition hover:shadow-glowStrong"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Get a Data Audit
-            </a>
+            <div className="absolute inset-0 bg-gradient-to-tr from-white via-transparent to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-white to-transparent" />
+            <div className="absolute left-4 top-4 rounded-full border border-zinc-200 bg-white/90 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.22em] text-zinc-600">
+              SaaS case study
+            </div>
           </div>
         </div>
       </div>

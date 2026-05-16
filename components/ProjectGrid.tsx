@@ -1,67 +1,50 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
-const categories = ["Current Projects", "Selected Work"] as const;
-const selectedWorkGroups = ["Full-Stack", "Data", "Security & Network"] as const;
-
 export default function ProjectGrid() {
+  const featuredProjects = projects.filter((project) => project.featured);
+  const otherProjects = projects.filter((project) => !project.featured);
+
   return (
-    <section id="projects" className="space-y-16 pt-4">
-      <div>
-        <p className="mt-3 text-3xl font-semibold text-zinc-100 sm:text-4xl">
+    <section id="projects" className="space-y-8 pt-4">
+      <div className="flex flex-col gap-3">
+        <p className="text-xs font-mono uppercase tracking-[0.35em] text-zinc-500">
           Projects
+        </p>
+        <h3 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
+          Selected builds
+        </h3>
+        <p className="max-w-2xl text-sm leading-relaxed text-zinc-600 sm:text-base">
+          Product-oriented software, AI workflows, and data systems built to
+          solve business problems.
         </p>
       </div>
 
-      {categories.map((category) => {
-        const list = projects.filter((project) => project.category === category);
-        if (!list.length) {
-          return null;
-        }
+      <div className="space-y-10">
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
 
-        return (
-          <div key={category} className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-semibold text-zinc-100">{category}</h3>
+        {otherProjects.length ? (
+          <div className="space-y-4 border-t border-zinc-200 pt-10">
+            <div className="flex items-center justify-between gap-4">
+              <h4 className="text-xl font-semibold tracking-tight text-zinc-950">
+                Other projects
+              </h4>
               <span className="text-xs font-mono text-zinc-500">
-                {list.length} projects
+                {otherProjects.length} projects
               </span>
             </div>
-
-            {category === "Selected Work" ? (
-              <div className="space-y-8">
-                {selectedWorkGroups.map((group) => {
-                  const grouped = list.filter(
-                    (project) => project.subCategory === group
-                  );
-                  if (!grouped.length) {
-                    return null;
-                  }
-
-                  return (
-                    <div key={group} className="space-y-4">
-                      <p className="text-xs font-mono uppercase tracking-[0.3em] text-zinc-500">
-                        {group}
-                      </p>
-                      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                        {grouped.map((project) => (
-                          <ProjectCard key={project.title} project={project} />
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {list.map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
-              </div>
-            )}
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {otherProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
           </div>
-        );
-      })}
+        ) : null}
+      </div>
     </section>
   );
 }

@@ -15,9 +15,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hisham Khashman | Consultant & Full-Stack Engineer",
+  title: "Hisham Khashman | Technical Founder & Full-Stack Engineer",
   description:
-    "Consultant & Full-Stack Engineer focused on backend and data-driven applications.",
+    "Technical founder and full-stack engineer building AI-powered software, operational intelligence systems, and scalable SaaS products.",
   icons: {
     icon: "/favicon.svg"
   }
@@ -37,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${plexMono.variable} font-sans bg-night text-zinc-100`}
+        className={`${spaceGrotesk.variable} ${plexMono.variable} font-sans bg-white text-zinc-950`}
       >
         {children}
       </body>
