@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { profile } from "@/data/profile";
 import { getStackIcon } from "@/data/stackIcons";
+import NowBuildingStatus from "@/components/NowBuildingStatus";
 
 const navLinks = [
   { label: "Projects", href: "#projects" },
@@ -15,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex flex-col pt-16 pb-24 sm:pb-28"
+      className="relative flex flex-col pt-16 pb-12 sm:pb-16"
     >
       <header className="flex flex-wrap items-center justify-between gap-6">
         {/* <div className="flex items-center gap-3 text-sm font-mono text-zinc-600">
@@ -86,6 +87,7 @@ export default function Hero() {
                 Services
               </Link>
             </div>
+            <NowBuildingStatus />
           </div>
 
           <div className="relative flex justify-center">

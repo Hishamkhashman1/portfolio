@@ -10,7 +10,7 @@ export default function ForecastAlphaSection({
   image
 }: ForecastAlphaSectionProps) {
   return (
-    <section className="mt-4 space-y-4 border-t border-zinc-200 pt-16">
+    <section className="mt-0 space-y-4 border-t border-zinc-200 pt-8">
       <div className="flex flex-col gap-3">
         <p className="text-xs font-mono uppercase tracking-[0.35em] text-zinc-500">
           Business Venture

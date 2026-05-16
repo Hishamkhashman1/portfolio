@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-tech">
-      <main className="mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-12">
+      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-24 pt-12">
         <Hero />
         <ForecastAlphaSection
           liveUrl={forecastLiveUrl}
