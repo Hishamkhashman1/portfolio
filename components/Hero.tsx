@@ -13,6 +13,8 @@ const navLinks = [
 ];
 
 export default function Hero() {
+  const marqueeItems = [...profile.stack, ...profile.stack];
+
   return (
     <section
       id="top"
@@ -54,18 +56,28 @@ export default function Hero() {
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">
               {profile.summary}
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {profile.stack.map((item) => (
-                <span
-                  key={item}
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-mono text-zinc-700 shadow-sm"
-                >
-                  {getStackIcon(item) ? (
-                    <i className={`${getStackIcon(item)} text-sm`} aria-hidden />
-                  ) : null}
-                  <span>{item}</span>
-                </span>
-              ))}
+            <div className="mt-6">
+              <div className="tech-stack-marquee">
+                <div className="tech-stack-marquee__viewport">
+                  <div className="tech-stack-marquee__track">
+                    {marqueeItems.map((item, index) => (
+                      <span
+                        key={`${item}-${index}`}
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-mono text-zinc-700 shadow-sm"
+                        aria-hidden={index >= profile.stack.length}
+                      >
+                        {getStackIcon(item) ? (
+                          <i
+                            className={`${getStackIcon(item)} text-sm`}
+                            aria-hidden
+                          />
+                        ) : null}
+                        <span>{item}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
