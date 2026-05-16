@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import ProjectGrid from "@/components/ProjectGrid";
-import CVSection from "@/components/CVSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ForecastAlphaSection from "@/components/ForecastAlphaSection";
@@ -19,7 +18,6 @@ export default function Home() {
           image={forecastImage}
         />
         <ProjectGrid />
-        <CVSection />
         <ContactSection />
         <Footer />
       </main>

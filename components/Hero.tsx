@@ -18,10 +18,10 @@ export default function Hero() {
       className="relative flex flex-col pt-16 pb-24 sm:pb-28"
     >
       <header className="flex flex-wrap items-center justify-between gap-6">
-        <div className="flex items-center gap-3 text-sm font-mono text-zinc-600">
+        {/* <div className="flex items-center gap-3 text-sm font-mono text-zinc-600">
           <span className="inline-flex h-2 w-2 rounded-full bg-zinc-900 shadow-glow" />
           Available for consulting and product builds
-        </div>
+        </div> */}
         <nav className="flex flex-wrap items-center gap-6 text-sm text-zinc-700 sm:text-base">
           {navLinks.map((link) => (
             <a

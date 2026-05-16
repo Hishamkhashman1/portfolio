@@ -19,7 +19,7 @@ export default function CVSection() {
         </p>
       </div>
 
-      <div className="mt-6 max-w-3xl">
+      {/* <div className="mt-6 max-w-3xl">
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <div className="text-sm text-zinc-500">CV Highlights</div>
           <ul className="mt-4 space-y-3 text-sm text-zinc-800">
@@ -35,7 +35,7 @@ export default function CVSection() {
             <span aria-hidden="true">-&gt;</span>
           </a>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
