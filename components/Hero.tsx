@@ -39,7 +39,7 @@ export default function Hero() {
       </header>
 
       <div className="mt-5">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.35fr_0.65fr]">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.35fr_0.65fr]">
           <div className="max-w-3xl">
             {/* <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
               Hi, I&apos;m Hisham
