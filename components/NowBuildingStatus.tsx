@@ -72,7 +72,7 @@ export default function NowBuildingStatus() {
   }, [activeIndex]);
 
   return (
-    <section className="mt-5 max-w-2xl">
+    <section className="mt-8 max-w-2xl sm:mt-10">
       <p className="text-[11px] font-mono uppercase tracking-[0.4em] text-zinc-500">
         Now Building
       </p>

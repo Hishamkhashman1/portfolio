@@ -1463,6 +1463,10 @@ body {
 
 @media (min-width: 640px) {
 
+  .sm\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
   .sm\:h-56 {
     height: 14rem;
   }

@@ -58,7 +58,7 @@ export default function Hero() {
               {profile.stack.map((item) => (
                 <span
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-xs font-mono text-zinc-700 shadow-sm"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-mono text-zinc-700 shadow-sm"
                 >
                   {getStackIcon(item) ? (
                     <i className={`${getStackIcon(item)} text-sm`} aria-hidden />
