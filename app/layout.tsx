@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import AskHishamAssistant from "@/components/AskHishamAssistant";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${plexMono.variable} font-sans bg-white text-zinc-950`}
       >
         {children}
+        <AskHishamAssistant />
       </body>
     </html>
   );
