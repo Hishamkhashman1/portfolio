@@ -40,7 +40,7 @@ export default function Hero() {
 
       <div className="mt-5">
         <div className="grid items-start gap-10 lg:grid-cols-[1.35fr_0.65fr]">
-          <div className="max-w-3xl">
+          <div className="order-2 max-w-3xl lg:order-1">
             {/* <p className="text-sm font-mono uppercase tracking-[0.4em] text-electric">
               Hi, I&apos;m Hisham
             </p> */}
@@ -90,7 +90,7 @@ export default function Hero() {
             <NowBuildingStatus />
           </div>
 
-          <div className="relative flex justify-center">
+          <div className="relative order-1 flex justify-center lg:order-2">
             <div className="absolute -inset-8 rounded-full bg-zinc-200/70 blur-3xl" />
             <div className="relative rounded-full border border-zinc-200 bg-white p-2 shadow-glow">
               <Image

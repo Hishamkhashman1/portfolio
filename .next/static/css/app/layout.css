@@ -778,6 +778,12 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
+.order-1 {
+  order: 1;
+}
+.order-2 {
+  order: 2;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1547,6 +1553,14 @@ body {
 }
 
 @media (min-width: 1024px) {
+
+  .lg\:order-1 {
+    order: 1;
+  }
+
+  .lg\:order-2 {
+    order: 2;
+  }
 
   .lg\:min-h-\[560px\] {
     min-height: 560px;
