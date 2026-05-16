@@ -3,6 +3,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ForecastAlphaSection from "@/components/ForecastAlphaSection";
+import GitHubActivitySection from "@/components/GitHubActivitySection";
 
 export default function Home() {
   const forecastLiveUrl =
@@ -17,6 +18,7 @@ export default function Home() {
           liveUrl={forecastLiveUrl}
           image={forecastImage}
         />
+        <GitHubActivitySection username="Hishamkhashman1" />
         <ProjectGrid />
         <ContactSection />
         <Footer />
