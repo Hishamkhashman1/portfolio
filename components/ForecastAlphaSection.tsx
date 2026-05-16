@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { getSiteContent } from "@/data/siteContent";
+import { useLocale } from "@/components/LocaleProvider";
 
 type ForecastAlphaSectionProps = {
   liveUrl: string;
@@ -9,14 +13,17 @@ export default function ForecastAlphaSection({
   liveUrl,
   image
 }: ForecastAlphaSectionProps) {
+  const { locale } = useLocale();
+  const content = getSiteContent(locale);
+
   return (
     <section className="mt-0 space-y-4 border-t border-zinc-200 pt-8">
       <div className="flex flex-col gap-3">
         <p className="text-xs font-mono uppercase tracking-[0.35em] text-zinc-500">
-          Business Venture
+          {content.forecast.eyebrow}
         </p>
         <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-          Forecast Alpha
+          {content.forecast.title}
         </h2>
       </div>
 
@@ -26,12 +33,10 @@ export default function ForecastAlphaSection({
             <div className="max-w-2xl space-y-5">
               <div className="space-y-3">
                 <p className="text-sm font-mono uppercase tracking-[0.22em] text-zinc-500">
-                  Operational intelligence for connected business data
+                  {content.forecast.tagline}
                 </p>
                 <p className="max-w-xl text-base leading-relaxed text-zinc-600 sm:text-lg">
-                  Connect live business data, detect anomalies, forecast operational
-                  trends, and generate AI-assisted KPI systems from a single
-                  workspace.
+                  {content.forecast.summary}
                 </p>
               </div>
 
@@ -41,7 +46,7 @@ export default function ForecastAlphaSection({
                 target="_blank"
                 rel="noreferrer"
               >
-                View Platform
+                {content.forecast.cta}
               </a>
             </div>
           </div>

@@ -1,73 +1,36 @@
-import type { Metadata } from "next";
+"use client";
+
 import Footer from "@/components/Footer";
 import { profile } from "@/data/profile";
-
-export const metadata: Metadata = {
-  title: "Services | Hisham Khashman",
-  description:
-    "Technical systems, infrastructure, backend, DevOps, AI, data automation, and ERP support."
-};
-
-const services = [
-  {
-    title: "AI Systems & Automation",
-    description:
-      "AI-powered tools, workflow automation, and LLM integrations that improve efficiency and decision-making."
-  },
-  {
-    title: "DevOps & Deployment",
-    description:
-      "CI/CD pipelines, cloud deployments, and production issue resolution to keep systems reliable."
-  },
-  {
-    title: "Backend Systems Development",
-    description:
-      "API development, performance optimization, and integrations for scalable backend systems."
-  },
-  {
-    title: "Data & Process Automation",
-    description:
-      "Data pipelines and automation that reduce manual work and streamline operations."
-  },
-  {
-    title: "ERP Systems & Implementation",
-    description:
-      "Custom ERP workflows, system setup, system development and integrations aligned with your business processes."
-  }
-];
-
-const supportPoints = [
-  "Ongoing backend and infrastructure support",
-  "Bug fixes and continuous improvements",
-  "Fast response when issues arise"
-];
+import { getServicesPageContent } from "@/data/pageContent";
+import { useLocale } from "@/components/LocaleProvider";
 
 const whatsappHref =
   "https://wa.me/525551065958?text=Hi%20I%20found%20your%20website%20and%20would%20like%20to%20discuss%20your%20services";
 
 export default function ServicesPage() {
+  const { locale } = useLocale();
+  const content = getServicesPageContent(locale);
+
   return (
     <div className="min-h-screen bg-tech">
       <main className="mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-12">
         <section className="pt-16 pb-8">
           <div className="max-w-4xl">
             <p className="text-sm font-mono uppercase tracking-[0.4em] text-zinc-500">
-              Services
+              {content.heroEyebrow}
             </p>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">
-              Technical Systems & Infrastructure Support
+              {content.heroTitle}
             </h1>
             <p className="mt-5 max-w-3xl text-xl leading-relaxed text-zinc-600">
-              I help companies keep their systems stable, scalable, and running
-              smoothly - with practical backend, DevOps, and AI solutions.
+              {content.heroSummary}
             </p>
             <p className="mt-4 text-base leading-relaxed text-zinc-600">
-              Worked with teams across LATAM, USA, the Middle East, and
-              Japan.
+              {content.heroLocation}
             </p>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-zinc-600">
-              Supporting growing businesses that need reliable systems without
-              building a full internal tech team.
+              {content.heroSupport}
             </p>
           </div>
         </section>
@@ -75,15 +38,15 @@ export default function ServicesPage() {
         <section className="space-y-10">
           <div>
             <p className="text-sm font-mono uppercase tracking-[0.3em] text-zinc-500">
-              Services
+              {content.sectionEyebrow}
             </p>
             <h2 className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-              What I Do
+              {content.sectionTitle}
             </h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-            {services.map((service) => (
+            {content.services.map((service) => (
               <article
                 key={service.title}
                 className="group h-auto rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:border-zinc-400 hover:shadow-sm"
@@ -102,19 +65,17 @@ export default function ServicesPage() {
         <section className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
           <div className="max-w-4xl">
             <p className="text-sm font-mono uppercase tracking-[0.3em] text-zinc-500">
-              Ongoing Technical Support
+              {content.supportEyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">
-              Ongoing Technical Support
+              {content.supportTitle}
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-600">
-              I work with companies on a monthly retainer to ensure their
-              systems remain stable, efficient, and well-maintained - without
-              the need for a full-time hire.
+              {content.supportSummary}
             </p>
 
             <ul className="mt-6 space-y-3 text-sm text-zinc-700">
-              {supportPoints.map((point) => (
+              {content.supportPoints.map((point) => (
                 <li key={point} className="flex items-start gap-3">
                   <span className="mt-2 h-2 w-2 rounded-full bg-zinc-950 shadow-glow" />
                   <span>{point}</span>
@@ -123,7 +84,7 @@ export default function ServicesPage() {
             </ul>
 
             <p className="mt-6 text-sm font-mono uppercase tracking-[0.2em] text-zinc-500">
-              Plans start from $987/month
+              {content.supportPlanLabel}
             </p>
           </div>
         </section>
@@ -132,14 +93,13 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
               <p className="text-sm font-mono uppercase tracking-[0.3em] text-zinc-500">
-                Let&apos;s Work Together
+                {content.ctaEyebrow}
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">
-                Let&apos;s Work Together
+                {content.ctaTitle}
               </h2>
               <p className="mt-4 text-base leading-relaxed text-zinc-600">
-                If you&apos;re looking for reliable technical support and a
-                long-term partner, let&apos;s talk.
+                {content.ctaSummary}
               </p>
             </div>
 
@@ -160,7 +120,7 @@ export default function ServicesPage() {
                     <path d="M26.67 5.33A14.99 14.99 0 0 0 16.03 1C7.75 1 1 7.73 1 16c0 2.64.69 5.22 1.99 7.47L1 31l7.73-1.98A14.95 14.95 0 0 0 16 31c8.28 0 15-6.73 15-15 0-4.01-1.56-7.77-4.33-10.67zM16 28.25c-2.25 0-4.46-.6-6.39-1.73l-.46-.28-4.59 1.18 1.22-4.47-.3-.46A12.19 12.19 0 0 1 3.75 16C3.75 9.24 9.24 3.75 16 3.75S28.25 9.24 28.25 16 22.76 28.25 16 28.25z" />
                   </svg>
                 </span>
-                WhatsApp Me
+                {content.whatsappCta}
               </a>
               <a
                 href={profile.links.linkedin}
@@ -177,7 +137,7 @@ export default function ServicesPage() {
                     <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.39-1.85 3.63 0 4.3 2.39 4.3 5.5v6.24zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM3.56 20.45h3.56V9H3.56v11.45z" />
                   </svg>
                 </span>
-                Connect on LinkedIn
+                {content.linkedinCta}
               </a>
             </div>
           </div>

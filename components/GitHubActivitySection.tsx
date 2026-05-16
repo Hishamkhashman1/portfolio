@@ -1,15 +1,61 @@
-import { getGithubContributionDays } from "@/lib/github-activity";
+"use client";
+
+import { useEffect, useState } from "react";
+import type { ContributionDay } from "@/types/github-activity";
 import GitHubActivityField from "@/components/GitHubActivityField";
+import { getSiteContent } from "@/data/siteContent";
+import { useLocale } from "@/components/LocaleProvider";
 
 type GitHubActivitySectionProps = {
   username: string;
 };
 
-export default async function GitHubActivitySection({
+export default function GitHubActivitySection({
   username
 }: GitHubActivitySectionProps) {
+  const { locale } = useLocale();
+  const content = getSiteContent(locale);
+  const [contributionDays, setContributionDays] = useState<ContributionDay[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadActivity() {
+      setIsLoading(true);
+
+      try {
+        const response = await fetch(`/api/github-activity?username=${encodeURIComponent(username)}`);
+        const data = (await response.json()) as {
+          contributions?: ContributionDay[];
+        };
+
+        if (!response.ok || !Array.isArray(data.contributions)) {
+          throw new Error("Failed to load GitHub activity");
+        }
+
+        if (!cancelled) {
+          setContributionDays(data.contributions);
+        }
+      } catch {
+        if (!cancelled) {
+          setContributionDays([]);
+        }
+      } finally {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    loadActivity();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [username]);
+
   const profileUrl = `https://github.com/${username}`;
-  const contributionDays = await getGithubContributionDays(username);
   const activityStart = new Date("2025-10-01T00:00:00Z");
   const filteredDays = contributionDays.filter((day) => {
     const dayDate = new Date(`${day.date}T00:00:00Z`);
@@ -22,7 +68,7 @@ export default async function GitHubActivitySection({
         <div className="flex flex-col gap-4 p-5 sm:p-6">
           <div className="flex items-center justify-between gap-4">
             <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-500">
-              BUILDING ACTIVITY
+              {content.github.eyebrow}
             </p>
 
             <a
@@ -30,7 +76,7 @@ export default async function GitHubActivitySection({
               className="shrink-0 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-950"
               target="_blank"
               rel="noreferrer"
-              aria-label="View GitHub profile"
+              aria-label={content.github.profileLabel}
             >
               <svg
                 aria-hidden="true"
@@ -46,9 +92,15 @@ export default async function GitHubActivitySection({
           <div
             className="activity-field-viewport rounded-[18px] border border-zinc-200/70 bg-[linear-gradient(180deg,rgba(250,250,250,1)_0%,rgba(244,244,245,0.96)_100%)] p-3 sm:p-4"
             role="img"
-            aria-label={`Recent GitHub contribution activity for ${username}, starting in October 2025.`}
+            aria-label={content.github.aria}
           >
-            <GitHubActivityField days={filteredDays} />
+            {isLoading ? (
+              <div className="flex h-[132px] items-center justify-center rounded-[18px] border border-dashed border-zinc-200 text-sm text-zinc-500">
+                {content.github.loading}
+              </div>
+            ) : (
+              <GitHubActivityField days={filteredDays} />
+            )}
           </div>
         </div>
       </article>

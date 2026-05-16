@@ -1,4 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js"
+  "/about/page": "app/about/page.js",
+  "/api/assistant/route": "app/api/assistant/route.js",
+  "/api/github-activity/route": "app/api/github-activity/route.js",
+  "/page": "app/page.js",
+  "/services/page": "app/services/page.js",
+  "/download/cv/route": "app/download/cv/route.js"
 }

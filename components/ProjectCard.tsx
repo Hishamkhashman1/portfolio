@@ -22,17 +22,21 @@ const openLink = (url: string) => {
 };
 
 type ProjectCardProps = {
-  project: Project;
+  project: Project & {
+    liveLabel?: string;
+    repoLabel?: string;
+    privateLabel?: string;
+  };
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const primaryUrl = project.liveUrl || project.repoUrl || "";
   const hasPrimaryUrl = Boolean(primaryUrl);
-  const liveLabel = project.liveUrl
-    ? isExternal(project.liveUrl)
-      ? "Open Live"
-      : "Open"
-    : "Open Repo";
+  const primaryLabel = project.liveUrl
+    ? project.liveLabel || (isExternal(project.liveUrl) ? "Open Live" : "Open")
+    : project.repoUrl
+      ? project.liveLabel || "Open Repo"
+      : "";
 
   return (
     <article
@@ -91,7 +95,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex items-center justify-between pt-1 text-xs text-zinc-500">
-          <span className="font-mono">{liveLabel}</span>
+          <span className="font-mono">{primaryLabel}</span>
           {project.repoUrl ? (
             <button
               type="button"
@@ -101,11 +105,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               }}
               className="rounded-full border border-zinc-300 px-3 py-1 font-mono text-zinc-900 transition hover:border-zinc-500 hover:text-zinc-950"
             >
-              Repo
+              {project.repoLabel || "Repo"}
             </button>
           ) : (
             <span className="text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-              {project.badge ? "Private" : "Live"}
+              {project.badge ? project.privateLabel || "Private" : "Live"}
             </span>
           )}
         </div>

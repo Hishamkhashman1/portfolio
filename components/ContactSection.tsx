@@ -1,29 +1,35 @@
+"use client";
+
 import { profile } from "@/data/profile";
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import { Mail } from "lucide-react";
+import { getSiteContent } from "@/data/siteContent";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function ContactSection() {
+  const { locale } = useLocale();
+  const content = getSiteContent(locale);
   const contactMethods = [
     {
-      label: "Email",
+      label: content.contact.email,
       href: `mailto:${profile.email}`,
       icon: Mail,
       external: false
     },
     {
-      label: "WhatsApp",
+      label: content.contact.whatsapp,
       href: "https://wa.me/525551065958",
       icon: FaWhatsapp,
       external: true
     },
     {
-      label: "GitHub",
+      label: content.contact.github,
       href: profile.links.github,
       icon: FaGithub,
       external: true
     },
     {
-      label: "LinkedIn",
+      label: content.contact.linkedin,
       href: "https://www.linkedin.com/in/hishamkhashman/",
       icon: FaLinkedinIn,
       external: true
@@ -38,10 +44,10 @@ export default function ContactSection() {
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-xl">
           <p className="text-[10px] font-mono uppercase tracking-[0.35em] text-zinc-500">
-            Contact
+            {content.contact.eyebrow}
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-zinc-950 sm:text-4xl">
-            Let&apos;s Connect.
+            {content.contact.title}
           </h2>
         </div>
         <div className="grid w-full gap-3 sm:grid-cols-2 lg:max-w-2xl lg:flex-1 lg:justify-self-end">

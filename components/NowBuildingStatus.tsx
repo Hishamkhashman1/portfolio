@@ -1,15 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const statuses = [
-  "Forecast Alpha",
-  "SaaS billing system",
-  "anomaly detection workflows",
-  "collaborative analytics",
-  "operational intelligence tooling",
-  "AI-assisted KPI systems"
-];
+import { getSiteContent } from "@/data/siteContent";
+import { useLocale } from "@/components/LocaleProvider";
 
 const TYPING_SPEED = 35;
 const HOLD_MIN = 1500;
@@ -17,6 +10,9 @@ const HOLD_VARIANCE = 1200;
 const START_DELAY = 180;
 
 export default function NowBuildingStatus() {
+  const { locale } = useLocale();
+  const content = getSiteContent(locale);
+  const statuses = content.nowBuildingStatuses;
   const [activeIndex, setActiveIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
@@ -69,12 +65,16 @@ export default function NowBuildingStatus() {
         clearInterval(charTimer);
       }
     };
-  }, [activeIndex]);
+  }, [activeIndex, statuses]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [locale]);
 
   return (
     <section className="mt-8 max-w-2xl sm:mt-10">
       <p className="text-[11px] font-mono uppercase tracking-[0.4em] text-zinc-500">
-        Now Building
+        {content.hero.nowBuildingLabel}
       </p>
 
       <div className="mt-3 flex w-full items-center gap-3 rounded-2xl border border-zinc-200 bg-zinc-50/90 px-4 py-3 shadow-sm">
@@ -84,9 +84,7 @@ export default function NowBuildingStatus() {
         </span>
 
         <div className="min-w-0 flex-1 font-mono" aria-live="polite" aria-atomic="true">
-          <div className="text-[11px] leading-5 text-zinc-500">
-            currently_building:
-          </div>
+          <div className="text-[11px] leading-5 text-zinc-500">currently_building:</div>
           <div className="mt-0.5 flex min-h-[1.5rem] items-center gap-2 text-[13px] leading-6 text-zinc-700">
             <span className="text-zinc-400">&gt;</span>
             <span className="min-w-0 truncate">

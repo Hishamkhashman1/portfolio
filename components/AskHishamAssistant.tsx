@@ -51,9 +51,14 @@ function matchAnswer(query: string) {
   return directIntent.intent.answer;
 }
 
+function getAssistantApiUrl() {
+  return process.env.NEXT_PUBLIC_ASSISTANT_API_URL || "http://localhost:8000/assistant";
+}
+
 export default function AskHishamAssistant() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
+  const [isSending, setIsSending] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -72,18 +77,41 @@ export default function AskHishamAssistant() {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, open]);
 
-  function sendQuestion(question: string) {
+  async function sendQuestion(question: string) {
     const trimmed = question.trim();
-    if (!trimmed) return;
+    if (!trimmed || isSending) return;
 
-    const answer = matchAnswer(trimmed);
+    const nextMessages = [...messages, { role: "user", text: trimmed }];
 
-    setMessages((current) => [
-      ...current,
-      { role: "user", text: trimmed },
-      { role: "assistant", text: answer }
-    ]);
+    setMessages((current) => [...current, { role: "user", text: trimmed }]);
     setInput("");
+    setIsSending(true);
+
+    try {
+      const response = await fetch(getAssistantApiUrl(), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ messages: nextMessages })
+      });
+
+      const data = (await response.json()) as { answer?: string };
+
+      if (!response.ok) {
+        throw new Error(data.answer || "Assistant request failed");
+      }
+
+      const answer = data.answer?.trim() || assistantKnowledge.fallback;
+
+      setMessages((current) => [...current, { role: "assistant", text: answer }]);
+    } catch {
+      const answer = matchAnswer(trimmed);
+
+      setMessages((current) => [...current, { role: "assistant", text: answer }]);
+    } finally {
+      setIsSending(false);
+    }
   }
 
   if (!mounted) {
@@ -108,7 +136,7 @@ export default function AskHishamAssistant() {
         aria-controls="ask-hisham-panel"
       >
         <MessageCircle className="h-4 w-4 text-zinc-700" />
-        Ask Hisham
+        Ask Hisham AI
       </button>
 
       <div
@@ -152,6 +180,13 @@ export default function AskHishamAssistant() {
               </div>
             </div>
           ))}
+          {isSending ? (
+            <div className="flex justify-start">
+              <div className="max-w-[85%] rounded-2xl border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm leading-relaxed text-zinc-500">
+                Thinking...
+              </div>
+            </div>
+          ) : null}
         </div>
 
         <div className="border-t border-zinc-100 px-4 pb-4 pt-3">
@@ -166,7 +201,8 @@ export default function AskHishamAssistant() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Ask about experience, projects, or contact..."
-              className="w-full rounded-2xl border border-zinc-200 bg-white px-3 py-3 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-400"
+              disabled={isSending}
+              className="w-full rounded-2xl border border-zinc-200 bg-white px-3 py-3 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-400 disabled:cursor-not-allowed disabled:bg-zinc-50"
             />
           </form>
         </div>
