@@ -13,7 +13,7 @@ export default function ForecastAlphaSection({
     <section className="mt-4 space-y-4 border-t border-zinc-200 pt-16">
       <div className="flex flex-col gap-3">
         <p className="text-xs font-mono uppercase tracking-[0.35em] text-zinc-500">
-          Featured case study
+          Business Venture
         </p>
         <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
           Forecast Alpha
