@@ -26,9 +26,10 @@ def nlp_text(last_message):
 words = nlp_text(last_message).split()
 
 def matching_percent(words,seed_data):
+    fillers = ["if","or","and","why","when","where","what"] #add up all possible fillers
     count = 0
     for w in words:
-        if w in seed_data:
+        if w in seed_data and w not in fillers:
             count +=1
     if count > 0:
         match_level = count // len(seed_data)
