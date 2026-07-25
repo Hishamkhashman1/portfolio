@@ -1,4 +1,5 @@
 from typing import Literal
+from datetime import datetime
 from pydantic import BaseModel, Field
 
 class ChatMessage(BaseModel):
@@ -7,6 +8,7 @@ class ChatMessage(BaseModel):
 
 class ChatRequest(BaseModel):
     messages: list[ChatMessage]
+    request_time: datetime
 
 class ChatResponse(BaseModel):
     answer: str 
