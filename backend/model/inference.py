@@ -8,11 +8,14 @@ def user_message(messages):
     user_messages = []
     for message in messages:
         if message.role == "user":
-            user_messages.append(message)
+            user_messages.append(message.content)
 
     last_message = user_messages[-1]
-
-    return last_message
+    
+    if len(last_message) >= 1:
+        return last_message
+    else:
+        return "No user messages detected"
 
 
 def nlp_text(last_message):
@@ -32,9 +35,9 @@ def matching_percent(words,seed_data):
         if w in seed_data and w not in fillers:
             count +=1
     if count > 0:
-        match_level = count // len(seed_data)
+        match_level = count / len(seed_data)
     
-    return match_level
+        return match_level
 
 def response(match_level,response):
     if match_level >= confidence:
