@@ -12,12 +12,12 @@ with open(path_json, 'r', encoding='utf-8') as file:
 
 #print(conversations_data)
 
-cleaned_data = []
+
 
 def cleaning_data(conversations_data):
-
+    cleaned_data = []
     for items in conversations_data:
-        if 'input_text' in items and 'target_text' in items and items != None:
+        if items != None and 'input_text' in items and 'target_text' in items:
             cleaned_data.append(items)
 
     return cleaned_data
