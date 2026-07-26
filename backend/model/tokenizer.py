@@ -24,8 +24,8 @@ def build_vocab(final_cleaned):
 
 #print(build_vocab(final_cleaned))
 
-def encode(final_cleaned, token_to_id):
-    tokens = normalize_text(final_cleaned)
+def encode(text, token_to_id):
+    tokens = normalize_text(text)
     encoded = []
 
     for token in tokens:
@@ -33,3 +33,5 @@ def encode(final_cleaned, token_to_id):
             encoded.append(token_to_id[token])
         else:
             encoded.append(token_to_id["<unk>"])
+    
+    return encoded
