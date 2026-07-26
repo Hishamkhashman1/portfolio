@@ -3,7 +3,8 @@ import json
 from pathlib import Path
 
 
-path_json = "backend/data/conversations.json"
+path_json = Path(__file__).resolve().parents[1] / "data" / "conversations.json"
+
 
 
 with open(path_json, 'r', encoding='utf-8') as file:
