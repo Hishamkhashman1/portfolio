@@ -19,6 +19,17 @@ def cleaning_data(conversations_data):
     for items in conversations_data:
         if items != None and 'input_text' in items and 'target_text' in items:
             cleaned_data.append(items)
+    
+    final_cleaned = []
 
-    return cleaned_data
-# print (cleaning_data(conversations_data))
+
+    for i in range(len(cleaned_data)):
+        text_a = cleaned_data[i]['input_text'].strip()
+        text_b = cleaned_data[i]['target_text'].strip()
+
+        if text_a and text_b:
+            final_cleaned.append(cleaned_data[i])
+
+    return final_cleaned
+
+#print (cleaning_data(conversations_data))
