@@ -9,24 +9,25 @@ def user_message(messages):
     for message in messages:
         if message.role == "user":
             user_messages.append(message.content)
+    if len(user_messages) == 0:
+        return "No user messages"
+    else: 
+        last_message = user_messages[-1]
 
-    last_message = user_messages[-1]
+    return last_message
     
-    if len(last_message) >= 1:
-        return last_message
-    else:
-        return "No user messages detected"
-
+ 
 
 def nlp_text(last_message):
     lc_text = last_message.lower()   # this makes everything lowercase ..duh
     rwsnlt_text = re.sub(r'\s+', ' ', lc_text).strip() #this removes extra whitespaces, newlines and tabs
     normalized_text = re.sub(r'[^\w\s]', '', rwsnlt_text) # this removes punctuation and special chars (keeps numbs and letters dooog)
+    
+    words = normalized_text.split()
+    
+    return words
 
-    return normalized_text
 
-
-words = nlp_text(last_message).split()
 
 def matching_percent(words,seed_data):
     fillers = ["if","or","and","why","when","where","what"] #add up all possible fillers
@@ -36,8 +37,10 @@ def matching_percent(words,seed_data):
             count +=1
     if count > 0:
         match_level = count / len(seed_data)
+    else:
+        match_level = 0
     
-        return match_level
+    return match_level
 
 def response(match_level,response):
     if match_level >= confidence:
