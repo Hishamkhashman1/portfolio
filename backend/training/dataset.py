@@ -28,7 +28,7 @@ def cleaning_data(conversations_data):
         text_b = cleaned_data[i]['target_text'].strip()
 
         if text_a and text_b:
-            final_cleaned.append(cleaned_data[i])
+            final_cleaned.append((text_a,text_b))
 
     return final_cleaned
 
