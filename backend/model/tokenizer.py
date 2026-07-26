@@ -1,38 +1,25 @@
-from training.dataset import cleaning_data, conversations_data
+from backend.training.dataset import cleaning_data, conversations_data
+import re
 
 final_cleaned = cleaning_data(conversations_data)
+
+
+def normalize_text(sample_text):
+    lower_text = sample_text.lower()
+    no_punct_text = re.sub(r"[^\w\s]", "", lower_text)
+    clean_text = re.sub(r"\s+", " ", no_punct_text).strip()
+    return clean_text.split()
 
 
 def build_vocab(final_cleaned):
     token_to_id = {}
 
     for input_text, target_text in final_cleaned.items():
-        for text in (input_text,target_text):
-            for token in text.lower().split():
+        for text in (input_text, target_text):
+            for token in normalize_text(text):
                 if token not in token_to_id:
                     token_to_id[token] = len(token_to_id)
 
     return token_to_id
 
-print (build_vocab(final_cleaned))
-
-
-
-  # def build_vocab(cleaned_items):
-  #     token_to_id = {"<unk>": 0}
-  #
-  #     for item in cleaned_items:
-  #         for text in (item["input_text"], item["target_text"]):
-  #             for token in text.lower().split():
-  #                 if token not in token_to_id:
-  #                     token_to_id[token] = len(token_to_id)
-  #
-  #     return token_to_id
-
-      #
-      # for input_text, target_text in cleaned_data.items():
-      #     for text in (input_text, target_text):
-      #         for token in text.lower().split():
-      #             if token not in token_to_id:
-      #                 token_to_id[token] = len(token_to_id)
-
+#print(build_vocab(final_cleaned))
