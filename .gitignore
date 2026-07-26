@@ -14,4 +14,4 @@ yarn-error.log*
 pnpm-debug.log*
 .DS_
 .venv
-
+__pycache__/
