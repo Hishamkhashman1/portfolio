@@ -12,7 +12,7 @@ def normalize_text(sample_text):
 
 
 def build_vocab(final_cleaned):
-    token_to_id = {}
+    token_to_id = {"<unk>":0}
 
     for input_text, target_text in final_cleaned.items():
         for text in (input_text, target_text):
@@ -23,3 +23,13 @@ def build_vocab(final_cleaned):
     return token_to_id
 
 #print(build_vocab(final_cleaned))
+
+def encode(final_cleaned, token_to_id):
+    tokens = normalize_text(final_cleaned)
+    encoded = []
+
+    for token in tokens:
+        if token in token_to_id:
+            encoded.append(token_to_id[token])
+        else:
+            encoded.append(token_to_id["<unk>"])
