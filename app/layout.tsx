@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import AskHishamAssistant from "@/components/AskHishamAssistant";
 import LocaleProvider from "@/components/LocaleProvider";
 
 const spaceGrotesk = Space_Grotesk({
@@ -43,7 +42,6 @@ export default function RootLayout({
       >
         <LocaleProvider>
           {children}
-          <AskHishamAssistant />
         </LocaleProvider>
       </body>
     </html>
