@@ -33,3 +33,24 @@ def cleaning_data(conversations_data):
     return final_cleaned
 
 #print (cleaning_data(conversations_data))
+
+#this function purpose is to generate list for training , cleaning_data is generating dict for easier and faster lookup...
+def build_for_training(conversations_data):
+      samples_for_training = []
+
+      for item in conversations_data:
+          if not item:
+              continue
+
+          input_text = item.get("input_text", "").strip()
+          target_text = item.get("target_text", "").strip()
+
+          if not input_text or not target_text:
+              continue
+
+          samples_for_training.append({
+              "input_text": input_text,
+              "target_text": target_text,
+          })
+
+      return samples_for_training
