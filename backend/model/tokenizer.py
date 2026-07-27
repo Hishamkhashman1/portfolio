@@ -35,3 +35,15 @@ def encode(text, token_to_id):
             encoded.append(token_to_id["<unk>"])
     
     return encoded
+
+def decode(ids, token_to_id):
+    id_to_token = {token_id: token for token, token_id in token_to_id.items()}
+    tokens = []
+
+    for token_id in ids:
+        if token_id in id_to_token:
+            tokens.append(id_to_token[token_id])
+        else:
+            tokens.append("<unk>")
+
+    return " ".join(tokens)
