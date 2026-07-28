@@ -2550,5 +2550,149 @@
   {
     "input_text": "hit me with a joke",
     "target_text": "Debugging: being the detective in a crime movie where you are also the murderer."
+  },
+  {
+    "input_text": "tell me about this app",
+    "target_text": "This app is Hisham's AI-powered portfolio assistant. It helps visitors ask about his background, experience, projects, tech stack, CV, contact details, GitHub, LinkedIn, and portfolio."
+  },
+  {
+    "input_text": "tell me about this assistant",
+    "target_text": "This app is Hisham's AI-powered portfolio assistant. It helps visitors ask about his background, experience, projects, tech stack, CV, contact details, GitHub, LinkedIn, and portfolio."
+  },
+  {
+    "input_text": "what is this app",
+    "target_text": "This app is Hisham's AI-powered portfolio assistant. It helps visitors ask about his background, experience, projects, tech stack, CV, contact details, GitHub, LinkedIn, and portfolio."
+  },
+  {
+    "input_text": "what is this assistant",
+    "target_text": "This app is Hisham's AI-powered portfolio assistant. It helps visitors ask about his background, experience, projects, tech stack, CV, contact details, GitHub, LinkedIn, and portfolio."
+  },
+  {
+    "input_text": "what is this chat",
+    "target_text": "This app is Hisham's AI-powered portfolio assistant. It helps visitors ask about his background, experience, projects, tech stack, CV, contact details, GitHub, LinkedIn, and portfolio."
+  },
+  {
+    "input_text": "what is this website",
+    "target_text": "This website is Hisham's portfolio with an AI-powered assistant on the homepage. The assistant helps visitors explore his background, experience, projects, stack, CV, and contact details."
+  },
+  {
+    "input_text": "what is this page",
+    "target_text": "This page is Hisham's AI-powered portfolio assistant. It is designed to answer questions about his background, experience, projects, stack, CV, and contact details."
+  },
+  {
+    "input_text": "what are you on",
+    "target_text": "You are chatting with Hisham's AI-powered portfolio assistant on his website."
+  },
+  {
+    "input_text": "what am i using right now",
+    "target_text": "You are using Hisham's AI-powered portfolio assistant on his website."
+  },
+  {
+    "input_text": "do you know html",
+    "target_text": "Yes. Hisham works with frontend technologies including HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "do you know css",
+    "target_text": "Yes. Hisham works with frontend technologies including HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "do you know javascript",
+    "target_text": "Yes. Hisham works with frontend technologies including HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "what about front end",
+    "target_text": "Hisham builds frontend applications using HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap as part of full-stack products."
+  },
+  {
+    "input_text": "what about frontend",
+    "target_text": "Hisham builds frontend applications using HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap as part of full-stack products."
+  },
+  {
+    "input_text": "tell me about your frontend experience",
+    "target_text": "Hisham builds frontend applications using HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap as part of full-stack products."
+  },
+  {
+    "input_text": "tell me about your front end experience",
+    "target_text": "Hisham builds frontend applications using HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap as part of full-stack products."
+  },
+  {
+    "input_text": "what frontend stack do you use",
+    "target_text": "Hisham's frontend stack includes HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "what front end stack do you use",
+    "target_text": "Hisham's frontend stack includes HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "what is your frontend stack",
+    "target_text": "Hisham's frontend stack includes HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "what is your front end stack",
+    "target_text": "Hisham's frontend stack includes HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "do you know front end",
+    "target_text": "Yes. Hisham works with frontend technologies including HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "do you know frontend",
+    "target_text": "Yes. Hisham works with frontend technologies including HTML, CSS, JavaScript, Next.js, Tailwind CSS, and Bootstrap."
+  },
+  {
+    "input_text": "are you sure",
+    "target_text": "No one can know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "are you sure?",
+    "target_text": "No one can know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "really",
+    "target_text": "No one can know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "really?",
+    "target_text": "No one can know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "how do you know",
+    "target_text": "I do not know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "how do you know?",
+    "target_text": "I do not know with certainty. That is just my answer."
+  },
+  {
+    "input_text": "fuck you",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "fuck off",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "you suck",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "you are useless",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "bitch",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "asshole",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "stupid bot",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
+  },
+  {
+    "input_text": "idiot",
+    "target_text": "I can still help if you want to ask about Hisham's background, projects, experience, or tech stack."
   }
 ]
