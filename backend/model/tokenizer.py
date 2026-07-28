@@ -1,4 +1,4 @@
-from backend.training.dataset import cleaning_data, conversations_data
+from training.dataset import cleaning_data, conversations_data
 import re
 
 final_cleaned = cleaning_data(conversations_data)

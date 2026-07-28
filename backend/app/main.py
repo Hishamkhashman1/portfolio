@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.app.config import get_allowed_origins, get_service_name
-from backend.app.schemas import ChatRequest, ChatResponse, HealthResponse
-from backend.model.portfolio_llm import answer_from_messages
+from app.config import get_allowed_origins, get_service_name
+from app.schemas import ChatRequest, ChatResponse, HealthResponse
+from model.portfolio_llm import answer_from_messages
 
 app = FastAPI(title="Hisham AI Backend", version="1.0.0")
 

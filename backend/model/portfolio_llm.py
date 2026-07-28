@@ -8,7 +8,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Sequence
 
-from backend.model.tokenizer import normalize_text
+from model.tokenizer import normalize_text
 
 try:
     import torch
