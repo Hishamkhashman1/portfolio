@@ -15,8 +15,12 @@ if __package__ is None or __package__ == "":
         sys.path.insert(0, str(project_root))
 
 
-from backend.model.tokenizer import build_vocab, normalize_text
-from backend.training.dataset import build_for_training, cleaning_data, conversations_data
+try:
+    from model.tokenizer import build_vocab, normalize_text
+    from training.dataset import build_for_training, cleaning_data, conversations_data
+except ModuleNotFoundError:  # pragma: no cover - repo-root execution
+    from backend.model.tokenizer import build_vocab, normalize_text
+    from backend.training.dataset import build_for_training, cleaning_data, conversations_data
 
 
 ARTIFACT_PATH = Path(__file__).resolve().parents[1] / "model" / "artifacts" / "portfolio_retriever.json"

@@ -1,4 +1,7 @@
-from training.dataset import cleaning_data, conversations_data
+try:
+    from training.dataset import cleaning_data, conversations_data
+except ModuleNotFoundError:  # pragma: no cover - repo-root execution
+    from backend.training.dataset import cleaning_data, conversations_data
 import re
 
 final_cleaned = cleaning_data(conversations_data)

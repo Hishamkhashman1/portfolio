@@ -8,7 +8,10 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Sequence
 
-from model.tokenizer import normalize_text
+try:
+    from model.tokenizer import normalize_text
+except ModuleNotFoundError:  # pragma: no cover - repo-root execution
+    from backend.model.tokenizer import normalize_text
 
 try:
     import torch
