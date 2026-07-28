@@ -18,6 +18,8 @@ uvicorn app.main:app --host 127.0.0.1 --port 8000
 - Set `ASSISTANT_CORS_ORIGINS` to your frontend origin if needed
 - Set `ASSISTANT_BACKEND_URL` in the frontend environment to the deployed backend URL
 
+##Delete this file
+
 Useful endpoints:
 - `GET /`
 - `GET /health`
