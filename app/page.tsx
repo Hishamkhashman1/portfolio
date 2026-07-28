@@ -1,25 +1,12 @@
-import Hero from "@/components/Hero";
-import ProjectGrid from "@/components/ProjectGrid";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import ForecastAlphaSection from "@/components/ForecastAlphaSection";
-import GitHubActivitySection from "@/components/GitHubActivitySection";
+import type { Metadata } from "next";
+import AssistantScene from "@/components/AssistantScene";
+
+export const metadata: Metadata = {
+  title: "Hisham Khashman | AI Assistant",
+  description:
+    "Ask Hisham about his background, projects, experience, and current work."
+};
 
 export default function Home() {
-  const forecastLiveUrl =
-    "https://www.forecastalpha.it.com/";
-  const forecastImage = "/projects/forecast.png";
-
-  return (
-    <div className="min-h-screen bg-tech">
-      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-24 pt-12">
-        <Hero />
-        <ForecastAlphaSection liveUrl={forecastLiveUrl} image={forecastImage} />
-        <GitHubActivitySection username="Hishamkhashman1" />
-        <ProjectGrid />
-        <ContactSection />
-        <Footer />
-      </main>
-    </div>
-  );
+  return <AssistantScene />;
 }

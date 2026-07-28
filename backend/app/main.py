@@ -1,5 +1,7 @@
 from fastapi import FastAPI
-from schemas import HealthResponse, ChatRequest, ChatResponse
+
+from backend.app.schemas import ChatRequest, ChatResponse, HealthResponse
+from backend.model.portfolio_llm import answer_from_messages
 
 app = FastAPI()
 
@@ -9,12 +11,5 @@ def health_status():
 
 @app.post("/chat")
 def chat_manage(payload: ChatRequest):
-    return ChatResponse(answer="placeholder")
-
-
-
-
-
-
-
-
+    answer = answer_from_messages(payload.messages)
+    return ChatResponse(answer=answer)

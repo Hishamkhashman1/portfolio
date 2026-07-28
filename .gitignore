@@ -15,3 +15,4 @@ pnpm-debug.log*
 .DS_
 .venv
 __pycache__/
+backend/model/artifacts/portfolio_flan_t5/

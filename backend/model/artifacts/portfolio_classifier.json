@@ -1,0 +1,4456 @@
+{
+  "model_type": "multinomial_naive_bayes",
+  "alpha": 1.0,
+  "token_to_id": {
+    "<unk>": 0,
+    "im": 1,
+    "an": 2,
+    "engineer": 3,
+    "do": 4,
+    "you": 5,
+    "know": 6,
+    "postgresql": 7,
+    "did": 8,
+    "always": 9,
+    "want": 10,
+    "to": 11,
+    "be": 12,
+    "a": 13,
+    "software": 14,
+    "what": 15,
+    "business": 16,
+    "domains": 17,
+    "have": 18,
+    "worked": 19,
+    "in": 20,
+    "build": 21,
+    "the": 22,
+    "data": 23,
+    "pipelines": 24,
+    "for": 25,
+    "forecast": 26,
+    "alpha": 27,
+    "nice": 28,
+    "portfolio": 29,
+    "are": 30,
+    "building": 31,
+    "how": 32,
+    "does": 33,
+    "your": 34,
+    "education": 35,
+    "support": 36,
+    "career": 37,
+    "with": 38,
+    "finance": 39,
+    "technologies": 40,
+    "were": 41,
+    "used": 42,
+    "kifor": 43,
+    "match": 44,
+    "would": 45,
+    "describe": 46,
+    "yourself": 47,
+    "as": 48,
+    "developer": 49,
+    "is": 50,
+    "current": 51,
+    "focus": 52,
+    "hows": 53,
+    "it": 54,
+    "going": 55,
+    "biggest": 56,
+    "project": 57,
+    "on": 58,
+    "why": 59,
+    "like": 60,
+    "ai": 61,
+    "learn": 62,
+    "from": 63,
+    "living": 64,
+    "england": 65,
+    "monitoring": 66,
+    "can": 67,
+    "i": 68,
+    "ask": 69,
+    "keras": 70,
+    "where": 71,
+    "studied": 72,
+    "internationally": 73,
+    "summarize": 74,
+    "background": 75,
+    "about": 76,
+    "japan": 77,
+    "introduce": 78,
+    "at": 79,
+    "pwc": 80,
+    "executives": 81,
+    "doing": 82,
+    "now": 83,
+    "personal": 84,
+    "assistant": 85,
+    "sql": 86,
+    "frontend": 87,
+    "countries": 88,
+    "influenced": 89,
+    "professional": 90,
+    "development": 91,
+    "approach": 92,
+    "learning": 93,
+    "new": 94,
+    "solving": 95,
+    "complex": 96,
+    "problems": 97,
+    "help": 98,
+    "me": 99,
+    "kind": 100,
+    "of": 101,
+    "become": 102,
+    "who": 103,
+    "integrations": 104,
+    "built": 105,
+    "strongest": 106,
+    "qualities": 107,
+    "collaborated": 108,
+    "international": 109,
+    "teams": 110,
+    "type": 111,
+    "machine": 112,
+    "model": 113,
+    "use": 114,
+    "stock": 115,
+    "forecasting": 116,
+    "tell": 117,
+    "projects": 118,
+    "enjoy": 119,
+    "studying": 120,
+    "generate": 121,
+    "dashboards": 122,
+    "power": 123,
+    "bi": 124,
+    "parts": 125,
+    "products": 126,
+    "scratch": 127,
+    "study": 128,
+    "work": 129,
+    "pulse": 130,
+    "labs": 131,
+    "walk": 132,
+    "through": 133,
+    "relational": 134,
+    "databases": 135,
+    "reporting": 136,
+    "previous": 137,
+    "experience": 138,
+    "translate": 139,
+    "into": 140,
+    "engineering": 141,
+    "good": 142,
+    "evening": 143,
+    "bye": 144,
+    "profession": 145,
+    "get": 146,
+    "bachelors": 147,
+    "degree": 148,
+    "student": 149,
+    "managed": 150,
+    "operations": 151,
+    "main": 152,
+    "stages": 153,
+    "makes": 154,
+    "hisham": 155,
+    "unique": 156,
+    "startups": 157,
+    "improved": 158,
+    "processes": 159,
+    "design": 160,
+    "architecture": 161,
+    "we": 162,
+    "talk": 163,
+    "hertz": 164,
+    "working": 165,
+    "these": 166,
+    "days": 167,
+    "learned": 168,
+    "changing": 169,
+    "careers": 170,
+    "should": 171,
+    "start": 172,
+    "anomaly": 173,
+    "detection": 174,
+    "systems": 175,
+    "bilingual": 176,
+    "journey": 177,
+    "monitor": 178,
+    "metrics": 179,
+    "detected": 180,
+    "fraud": 181,
+    "using": 182,
+    "cloud": 183,
+    "services": 184,
+    "preferred": 185,
+    "programming": 186,
+    "language": 187,
+    "backend": 188,
+    "robotic": 189,
+    "process": 190,
+    "automation": 191,
+    "solutions": 192,
+    "led": 193,
+    "python": 194,
+    "consulting": 195,
+    "scalable": 196,
+    "agile": 197,
+    "becoming": 198,
+    "apis": 199,
+    "sales": 200,
+    "analytics": 201,
+    "lstm": 202,
+    "bootstrap": 203,
+    "excites": 204,
+    "artificial": 205,
+    "intelligence": 206,
+    "full": 207,
+    "stack": 208,
+    "applications": 209,
+    "flask": 210,
+    "philosophy": 211,
+    "part": 212,
+    "least": 213,
+    "industries": 214,
+    "anywhere": 215,
+    "speak": 216,
+    "portuguese": 217,
+    "leave": 218,
+    "blue": 219,
+    "prism": 220,
+    "accenture": 221,
+    "tailwind": 222,
+    "css": 223,
+    "specialty": 224,
+    "multiple": 225,
+    "user": 226,
+    "roles": 227,
+    "framework": 228,
+    "most": 229,
+    "unifin": 230,
+    "delivered": 231,
+    "training": 232,
+    "before": 233,
+    "transcription": 234,
+    "certification": 235,
+    "something": 236,
+    "interesting": 237,
+    "and": 238,
+    "important": 239,
+    "has": 240,
+    "path": 241,
+    "been": 242,
+    "transition": 243,
+    "value": 244,
+    "designed": 245,
+    "passionate": 246,
+    "professionally": 247,
+    "adapting": 248,
+    "cultures": 249,
+    "technology": 250,
+    "masters": 251,
+    "heroku": 252,
+    "technical": 253,
+    "whats": 254,
+    "up": 255,
+    "distinguishes": 256,
+    "thats": 257,
+    "all": 258,
+    "enterprise": 259,
+    "supabase": 260,
+    "analyze": 261,
+    "schemas": 262,
+    "sources": 263,
+    "problem": 264,
+    "solve": 265,
+    "csv": 266,
+    "files": 267,
+    "surprise": 268,
+    "hello": 269,
+    "based": 270,
+    "khashman": 271,
+    "created": 272,
+    "goodbye": 273,
+    "english": 274,
+    "tools": 275,
+    "languages": 276,
+    "saas": 277,
+    "platform": 278,
+    "attend": 279,
+    "le": 280,
+    "wagon": 281,
+    "difficult": 282,
+    "assistants": 283,
+    "curious": 284,
+    "meet": 285,
+    "when": 286,
+    "wanted": 287,
+    "evaluation": 288,
+    "day": 289,
+    "developed": 290,
+    "influence": 291,
+    "open": 292,
+    "operational": 293,
+    "deployed": 294,
+    "sap": 295,
+    "goals": 296,
+    "gained": 297,
+    "drives": 298,
+    "little": 299,
+    "numpy": 300,
+    "scikit": 301,
+    "objective": 302,
+    "differ": 303,
+    "workspaces": 304,
+    "was": 305,
+    "recommend": 306,
+    "strong": 307,
+    "candidate": 308,
+    "authentication": 309,
+    "interested": 310,
+    "success": 311,
+    "keeps": 312,
+    "motivated": 313,
+    "instead": 314,
+    "another": 315,
+    "app": 316,
+    "client": 317,
+    "give": 318,
+    "overview": 319,
+    "chat": 320,
+    "morning": 321,
+    "git": 322,
+    "common": 323,
+    "theme": 324,
+    "across": 325,
+    "thank": 326,
+    "add": 327,
+    "company": 328,
+    "switch": 329,
+    "gives": 330,
+    "global": 331,
+    "perspective": 332,
+    "workflow": 333,
+    "manage": 334,
+    "ruby": 335,
+    "rails": 336,
+    "connects": 337,
+    "studies": 338,
+    "mapping": 339,
+    "questions": 340,
+    "fastapi": 341,
+    "production": 342,
+    "right": 343,
+    "develop": 344,
+    "certifications": 345,
+    "completed": 346,
+    "motivates": 347,
+    "code": 348,
+    "kpis": 349,
+    "modern": 350,
+    "web": 351,
+    "nextjs": 352,
+    "linux": 353,
+    "choose": 354,
+    "durham": 355,
+    "university": 356,
+    "mexico": 357,
+    "many": 358,
+    "years": 359,
+    "summarization": 360,
+    "management": 361,
+    "offices": 362,
+    "interests": 363,
+    "think": 364,
+    "some": 365,
+    "not": 366,
+    "stay": 367,
+    "different": 368,
+    "other": 369,
+    "engineers": 370,
+    "automated": 371,
+    "internal": 372,
+    "workflows": 373,
+    "thanks": 374,
+    "junior": 375,
+    "or": 376,
+    "senior": 377,
+    "localiza": 378,
+    "looking": 379,
+    "next": 380,
+    "everything": 381,
+    "hi": 382,
+    "there": 383,
+    "suited": 384,
+    "afternoon": 385,
+    "government": 386,
+    "clients": 387,
+    "understand": 388,
+    "well": 389,
+    "greenfield": 390,
+    "today": 391,
+    "customer": 392,
+    "satisfaction": 393,
+    "frameworks": 394,
+    "look": 395,
+    "designing": 396,
+    "direction": 397,
+    "strength": 398,
+    "see": 399,
+    "five": 400,
+    "long": 401,
+    "term": 402,
+    "insights": 403,
+    "financial": 404,
+    "just": 405,
+    "around": 406,
+    "this": 407,
+    "cool": 408,
+    "cleansing": 409,
+    "docker": 410,
+    "quick": 411,
+    "introduction": 412,
+    "prefer": 413,
+    "managing": 414,
+    "oauth": 415,
+    "role": 416,
+    "graduate": 417,
+    "merit": 418,
+    "perform": 419,
+    "feature": 420,
+    "question": 421,
+    "google": 422,
+    "sheets": 423,
+    "remember": 424,
+    "conversations": 425,
+    "businesses": 426,
+    "experiences": 427,
+    "fit": 428,
+    "together": 429,
+    "someone": 430,
+    "hire": 431,
+    "trained": 432,
+    "hishams": 433,
+    "nexus": 434,
+    "tours": 435,
+    "traditional": 436,
+    "switcher": 437,
+    "pursue": 438,
+    "tensorflow": 439
+  },
+  "vocab_size": 440,
+  "total_documents": 346,
+  "default_answer": "My certifications include Backend Development (Python) from Boot.dev, Google Machine Learning Core Modules, and Google Agile Project Management.",
+  "classes": {
+    "Great! Feel free to ask technical questions about architecture, backend development, APIs, machine learning, or Hisham's projects.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "im": 1,
+        "an": 1,
+        "engineer": 1
+      }
+    },
+    "Yes. PostgreSQL is one of the databases I work with.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "postgresql": 1
+      }
+    },
+    "Programming had been a long-time interest of mine, but I first built a career in consulting and business before deciding to transition into software engineering full time.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "always": 1,
+        "want": 1,
+        "to": 1,
+        "be": 1,
+        "a": 1,
+        "software": 1,
+        "engineer": 1
+      }
+    },
+    "I have experience in finance, consulting, transportation, tourism, government, AI, SaaS, business intelligence, and enterprise software.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "business": 1,
+        "domains": 1,
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "in": 1
+      }
+    },
+    "Yes. I designed data pipelines that support analytics, reporting, forecasting, and AI-driven workflows.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "the": 1,
+        "data": 1,
+        "pipelines": 1,
+        "for": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Thank you! I'm glad you like it.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "nice": 1,
+        "portfolio": 1
+      }
+    },
+    "I am building Forecast Alpha, a SaaS platform that transforms connected business data into dashboards, KPIs, forecasts, anomaly detection, alerts, and AI-generated insights.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "you": 1,
+        "building": 1
+      }
+    },
+    "My finance education helps me understand business models, financial performance, and decision making, while my software engineering education gives me the ability to design and build technical solutions. Together they support my focus on business-oriented software and operational intelligence.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "how": 1,
+        "does": 1,
+        "your": 2,
+        "education": 1,
+        "support": 1,
+        "career": 1
+      }
+    },
+    "Yes. Finance has been a significant part of my education and professional career through consulting, business intelligence, and enterprise performance roles.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "finance": 1
+      }
+    },
+    "Kifor Match was built primarily with Ruby on Rails and follows a role-based application architecture.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "technologies": 1,
+        "were": 1,
+        "used": 1,
+        "in": 1,
+        "kifor": 1,
+        "match": 1
+      }
+    },
+    "I'm a curious and product-oriented developer who enjoys understanding problems deeply, designing thoughtful solutions, and continuously improving both the software and my own skills.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "how": 1,
+        "would": 1,
+        "you": 1,
+        "describe": 1,
+        "yourself": 1,
+        "as": 1,
+        "a": 1,
+        "developer": 1
+      }
+    },
+    "My current focus is building AI-powered operational intelligence software, scalable backend systems, APIs, and SaaS products.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "current": 1,
+        "focus": 1
+      }
+    },
+    "It's going well! Thanks for asking. What can I help you with today?": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "hows": 1,
+        "it": 1,
+        "going": 1
+      }
+    },
+    "Forecast Alpha is my largest software engineering project, encompassing frontend, backend, infrastructure, integrations, analytics, authentication, and AI-powered operational intelligence.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "the": 1,
+        "biggest": 1,
+        "project": 1,
+        "you": 1,
+        "have": 1,
+        "worked": 1,
+        "on": 1
+      }
+    },
+    "I see AI as a powerful tool for helping people make better decisions and automate repetitive work. I'm particularly interested in practical AI applications that solve real operational problems.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "ai": 1
+      }
+    },
+    "Living and studying in England taught me independence, adaptability, and how to operate confidently in an international environment.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "learn": 1,
+        "from": 1,
+        "living": 1,
+        "in": 1,
+        "england": 1
+      }
+    },
+    "Yes. Continuous monitoring of operational metrics is a core feature.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "monitoring": 1
+      }
+    },
+    "You can ask me about my experience, projects, technologies, career journey, education, software engineering philosophy, Forecast Alpha, or anything related to my professional background.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "can": 1,
+        "i": 1,
+        "ask": 1,
+        "you": 1
+      }
+    },
+    "Yes. I have used Keras together with TensorFlow to build machine learning models.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "keras": 1
+      }
+    },
+    "I studied Financial Management at Durham University in England and later studied AI Software Full-Stack Development at Le Wagon Tokyo in Japan.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "where": 1,
+        "have": 1,
+        "you": 1,
+        "studied": 1,
+        "internationally": 1
+      }
+    },
+    "I studied finance and financial management before building a career in consulting, business intelligence, and operations. I worked at organizations including PwC, Accenture, UNIFIN, Hertz, and Localiza. I later studied AI Software Full-Stack Development in Tokyo and transitioned into software engineering, where I now build full-stack and AI-powered products.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "summarize": 1,
+        "your": 1,
+        "background": 1
+      }
+    },
+    "I appreciate Japan's attention to detail, craftsmanship, respect for quality, and engineering culture. Those values align well with how I like to approach software development.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "about": 1,
+        "japan": 1
+      }
+    },
+    "I am a software engineer and technical founder with a background in consulting and enterprise operations. I enjoy building scalable software, APIs, AI applications, and operational intelligence platforms.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "introduce": 1,
+        "yourself": 1
+      }
+    },
+    "I built Forecast Alpha to help businesses transform connected operational data into actionable insights through AI-powered dashboards, KPIs, forecasts, alerts, and analytics.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "At PwC I helped establish a Project Management Office for a Saudi government entity, developed governance frameworks, improved reporting processes, and supported executive stakeholders.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "at": 1,
+        "pwc": 1
+      }
+    },
+    "Yes. Throughout my consulting and operations career I regularly delivered executive reporting, dashboards, recommendations, and strategic insights.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "executives": 1
+      }
+    },
+    "I am currently building Forecast Alpha and developing my career as a Full-Stack Software Engineer. My work focuses on backend systems, APIs, data integrations, analytics, AI-assisted workflows, and SaaS product development.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "you": 1,
+        "doing": 1,
+        "now": 1
+      }
+    },
+    "The AI Personal Assistant is a meeting and knowledge assistant with transcription, memory, summarization, and contextual question-answering capabilities.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "ai": 1,
+        "personal": 1,
+        "assistant": 1
+      }
+    },
+    "Yes. SQL is one of my primary technologies for backend development and data management.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "sql": 1
+      }
+    },
+    "Yes. I also developed the frontend application and user experience.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "the": 1,
+        "frontend": 1,
+        "for": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Yes. Throughout my career I have presented dashboards, reports, recommendations, and strategic insights to executive stakeholders.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "executives": 1
+      }
+    },
+    "My professional development has been shaped by studying in England and Japan and by working across Mexico, Saudi Arabia, and international teams.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "countries": 1,
+        "have": 1,
+        "influenced": 1,
+        "your": 1,
+        "professional": 1,
+        "development": 1
+      }
+    },
+    "I prefer learning by building. I understand concepts more deeply when I apply them in real projects rather than studying them only in theory.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "how": 1,
+        "do": 1,
+        "you": 1,
+        "approach": 1,
+        "learning": 1,
+        "new": 1,
+        "technologies": 1
+      }
+    },
+    "Yes. Solving complex business and technical problems is one of the reasons I enjoy software engineering.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "solving": 1,
+        "complex": 1,
+        "problems": 1
+      }
+    },
+    "Absolutely. I'll do my best to answer questions about Hisham and his work.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "can": 1,
+        "you": 1,
+        "help": 1,
+        "me": 1
+      }
+    },
+    "I want to continue growing as a software engineer by building scalable products, improving system design skills, and delivering AI-powered solutions that solve meaningful business problems.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "engineer": 1,
+        "do": 1,
+        "you": 1,
+        "want": 1,
+        "to": 1,
+        "become": 1
+      }
+    },
+    "I'm Hisham's AI portfolio assistant. I can answer questions about his background, projects, experience, technologies, and career.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "who": 1,
+        "are": 1,
+        "you": 1
+      }
+    },
+    "I can answer questions about my career, software engineering experience, technical skills, projects, education, consulting background, and the products I've built.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "can": 1,
+        "you": 1,
+        "help": 1,
+        "me": 1,
+        "with": 1
+      }
+    },
+    "I have built integrations for PostgreSQL, HubSpot, Google Sheets, CSV imports, OAuth providers, and other business systems.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "integrations": 1,
+        "have": 1,
+        "you": 1,
+        "built": 1
+      }
+    },
+    "My strongest qualities are analytical problem solving, adaptability, business understanding, product thinking, and the ability to connect technical implementation with real operational needs.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "your": 1,
+        "strongest": 1,
+        "professional": 1,
+        "qualities": 1
+      }
+    },
+    "Yes. I have worked with international teams across consulting, software engineering, and corporate operations.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "collaborated": 1,
+        "with": 1,
+        "international": 1,
+        "teams": 1
+      }
+    },
+    "I want to become an engineer who combines strong technical skills with a deep understanding of business problems, enabling me to build software that has a meaningful real-world impact.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "type": 1,
+        "of": 1,
+        "engineer": 1,
+        "do": 1,
+        "you": 1,
+        "want": 1,
+        "to": 1,
+        "become": 1
+      }
+    },
+    "The project uses Long Short-Term Memory (LSTM) neural networks for time-series prediction.": {
+      "document_count": 1,
+      "total_tokens": 10,
+      "token_counts": {
+        "what": 1,
+        "machine": 1,
+        "learning": 1,
+        "model": 1,
+        "did": 1,
+        "you": 1,
+        "use": 1,
+        "for": 1,
+        "stock": 1,
+        "forecasting": 1
+      }
+    },
+    "Yes. I designed and developed the Kifor Match application.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "kifor": 1,
+        "match": 1
+      }
+    },
+    "My software projects cover full-stack SaaS, backend services, machine learning, analytics, workflow management, and AI assistants. Forecast Alpha is the largest, while Kifor Match, Stock Forecasting LSTM, and the AI Personal Assistant demonstrate different parts of my full-stack and data experience.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "your": 1,
+        "software": 1,
+        "projects": 1
+      }
+    },
+    "The project uses TensorFlow, Keras, Pandas, feature engineering, and time-series forecasting techniques.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "technologies": 1,
+        "does": 1,
+        "the": 1,
+        "stock": 1,
+        "forecasting": 1,
+        "project": 1,
+        "use": 1
+      }
+    },
+    "Yes. I have built forecasting systems using machine learning and have also worked extensively with business forecasting and planning.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "forecasting": 1
+      }
+    },
+    "Yes. Studying in England was an important experience that combined academic development with personal growth and international exposure.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "enjoy": 1,
+        "studying": 1,
+        "in": 1,
+        "england": 1
+      }
+    },
+    "Yes. Forecast Alpha generates dashboards and reporting workflows based on connected operational data.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "generate": 1,
+        "dashboards": 1
+      }
+    },
+    "Yes. I designed and managed Power BI dashboards for executive reporting during my professional career.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "used": 1,
+        "power": 1,
+        "bi": 1
+      }
+    },
+    "I built the platform across frontend development, backend APIs, infrastructure, authentication, integrations, analytics, onboarding, monitoring, and deployment.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "parts": 1,
+        "of": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "did": 1,
+        "you": 1,
+        "build": 1
+      }
+    },
+    "Building from scratch gives me the opportunity to design the architecture, make technical decisions, and watch an idea become a working product.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "building": 1,
+        "products": 1,
+        "from": 1,
+        "scratch": 1
+      }
+    },
+    "I studied AI Software Full-Stack Development at Le Wagon Tokyo, earned an MA in Financial Management from Durham University, and a BBA in Finance from Al Yamamah University.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "where": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1
+      }
+    },
+    "Yes. I build forecasting systems, anomaly detection solutions, and AI-powered applications using machine learning techniques.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "work": 1,
+        "with": 1,
+        "machine": 1,
+        "learning": 1
+      }
+    },
+    "For Pulse Labs I developed internal data automation tools and processed datasets used for AI model evaluation.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "for": 1,
+        "pulse": 1,
+        "labs": 1
+      }
+    },
+    "I began with an academic foundation in finance, including a Master's degree in Financial Management from Durham University in England. I then worked in management consulting at PwC and finance and enterprise performance consulting at Accenture. After that, I moved into business intelligence and operational leadership roles at UNIFIN, Hertz, and Localiza in Mexico. I eventually formalized my transition into technology through AI Software Full-Stack Development studies at Le Wagon Tokyo. Today I work as a Full-Stack Software Engineer and build Forecast Alpha.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "walk": 1,
+        "me": 1,
+        "through": 1,
+        "your": 1,
+        "background": 1
+      }
+    },
+    "Yes. My projects primarily use relational databases such as PostgreSQL.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "relational": 1,
+        "databases": 1
+      }
+    },
+    "Yes. Reporting systems, dashboards, and executive reporting have been central to many of my roles.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "reporting": 1
+      }
+    },
+    "My previous experience helps me understand requirements, identify the real problem behind a request, communicate with stakeholders, evaluate business value, work with operational data, and design software around realistic workflows.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "how": 1,
+        "does": 1,
+        "your": 1,
+        "previous": 1,
+        "experience": 1,
+        "translate": 1,
+        "into": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "Good evening! Thanks for stopping by. Feel free to ask me anything.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "good": 1,
+        "evening": 1
+      }
+    },
+    "Thanks for visiting my portfolio. Have a great day, and I hope we get the chance to work together!": {
+      "document_count": 1,
+      "total_tokens": 1,
+      "token_counts": {
+        "bye": 1
+      }
+    },
+    "I am a Full-Stack Software Engineer and Technical Founder.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "profession": 1
+      }
+    },
+    "I earned a Bachelor of Business Administration in Finance from Al Yamamah University.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "where": 1,
+        "did": 1,
+        "you": 1,
+        "get": 1,
+        "your": 1,
+        "bachelors": 1,
+        "degree": 1
+      }
+    },
+    "Welcome! Hisham's career path is a bit unconventional, so if you're interested in learning software engineering or changing careers, there are plenty of experiences to explore.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "im": 1,
+        "a": 1,
+        "student": 1
+      }
+    },
+    "Yes. My background includes managing regional operations, process improvement, customer experience, and operational performance.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "managed": 1,
+        "operations": 1
+      }
+    },
+    "The main stages of my career are finance education, management consulting, business intelligence, operations leadership, full-stack software engineering, and technical entrepreneurship.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "the": 1,
+        "main": 1,
+        "stages": 1,
+        "of": 1,
+        "your": 1,
+        "career": 1
+      }
+    },
+    "His combination of consulting, finance, operations, business intelligence, and modern software engineering gives him a broader perspective than a traditional software engineering career path.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "makes": 1,
+        "hisham": 1,
+        "unique": 1
+      }
+    },
+    "I enjoy startups because they require learning quickly, wearing multiple hats, and building products from the ground up.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "startups": 1
+      }
+    },
+    "Yes. Throughout my consulting and operations career I have redesigned workflows, optimized business processes, and introduced automation.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "improved": 1,
+        "business": 1,
+        "processes": 1
+      }
+    },
+    "Yes. I designed the overall architecture, including backend services, frontend, authentication, integrations, and infrastructure.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "design": 1,
+        "the": 1,
+        "architecture": 1,
+        "of": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "We can talk about software engineering, AI, Forecast Alpha, previous companies, consulting, education, technologies, career changes, or future goals.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "can": 1,
+        "we": 1,
+        "talk": 1,
+        "about": 1
+      }
+    },
+    "Yes. I served as General Manager of Operations at Hertz.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "at": 1,
+        "hertz": 1
+      }
+    },
+    "My main focus is Forecast Alpha, an AI-powered operational intelligence platform. I am developing the product across backend APIs, frontend workflows, authentication, data integrations, analytics, anomaly detection, forecasting, dashboards, and deployment.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "you": 1,
+        "working": 1,
+        "on": 1,
+        "these": 1,
+        "days": 1
+      }
+    },
+    "Changing careers taught me that previous experience is valuable. My consulting and operations background gives me context that complements my software engineering skills.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "have": 1,
+        "you": 1,
+        "learned": 1,
+        "from": 1,
+        "changing": 1,
+        "careers": 1
+      }
+    },
+    "A good place to start is asking Hisham to introduce himself or asking about Forecast Alpha, his career journey, or his software engineering experience.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "where": 1,
+        "should": 1,
+        "i": 1,
+        "start": 1
+      }
+    },
+    "I studied AI Software Full-Stack Development at Le Wagon Tokyo, where I focused on modern web development, backend engineering, and AI applications.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "where": 1,
+        "did": 1,
+        "you": 1,
+        "learn": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "Yes. I have developed anomaly detection systems for operational and transactional business data.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "anomaly": 1,
+        "detection": 1,
+        "systems": 1
+      }
+    },
+    "Yes. I am bilingual in English and Spanish.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "bilingual": 1
+      }
+    },
+    "I currently work as the Technical Founder and Full-Stack Engineer at Forecast Alpha.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "where": 1,
+        "do": 1,
+        "you": 1,
+        "work": 1
+      }
+    },
+    "My career journey has been about moving progressively closer to building solutions. I started by studying how businesses and finance work, then advised organizations as a consultant, later managed analytics and operations directly, and eventually became a software engineer so I could build the tools themselves.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "how": 1,
+        "would": 1,
+        "you": 1,
+        "summarize": 1,
+        "your": 1,
+        "career": 1,
+        "journey": 1
+      }
+    },
+    "Yes. Monitoring business metrics is one of the core capabilities of the platform.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "monitor": 1,
+        "business": 1,
+        "metrics": 1
+      }
+    },
+    "I developed an anomaly detection system that successfully identified confirmed fraud cases within client transaction data.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "detected": 1,
+        "fraud": 1,
+        "using": 1,
+        "machine": 1,
+        "learning": 1
+      }
+    },
+    "I have experience using AWS, Google Cloud Platform, Supabase, Heroku, and Vercel.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "cloud": 1,
+        "services": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1
+      }
+    },
+    "Python is my primary programming language, although I also work extensively with Ruby, JavaScript, and SQL.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "preferred": 1,
+        "programming": 1,
+        "language": 1
+      }
+    },
+    "Backend engineering lets me focus on architecture, business logic, APIs, and system design, which are the parts of software development I enjoy the most.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "backend": 1,
+        "engineering": 1
+      }
+    },
+    "Yes. I developed RPA solutions that automated finance processes using Blue Prism and Automation Anywhere.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "robotic": 1,
+        "process": 1,
+        "automation": 1,
+        "solutions": 1
+      }
+    },
+    "Yes. I have led software development initiatives, PMO implementations, operational improvement projects, and AI product development.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "led": 1,
+        "projects": 1
+      }
+    },
+    "Yes. Python is one of the primary technologies used to build Forecast Alpha.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "python": 1
+      }
+    },
+    "I enjoy thinking about how different components interact, how systems scale, and how to keep software maintainable as it grows.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "about": 1,
+        "architecture": 1
+      }
+    },
+    "Yes. I worked as a Management Consultant at PwC and later in Finance and Enterprise Performance Consulting at Accenture.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "in": 1,
+        "consulting": 1
+      }
+    },
+    "Yes. I design scalable backend systems, APIs, and analytics platforms.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "scalable": 1,
+        "systems": 1
+      }
+    },
+    "Backend development appeals to me because I enjoy designing systems, implementing business logic, building APIs, and solving technical problems that make applications work reliably.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "backend": 1,
+        "development": 1
+      }
+    },
+    "Yes. I completed Google's Agile Project Management certification.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "studied": 1,
+        "agile": 1
+      }
+    },
+    "I am continuously developing as a software engineer with a focus on backend architecture, AI applications, scalable systems, and SaaS product development.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "engineer": 1,
+        "are": 1,
+        "you": 1,
+        "becoming": 1
+      }
+    },
+    "Kifor Match is a Ruby on Rails application that manages donor and charity workflows, including requests, offer approvals, and fulfillment tracking.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "kifor": 1,
+        "match": 1
+      }
+    },
+    "Yes. I regularly design and build REST APIs, backend services, authentication systems, and business integrations.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "build": 1,
+        "apis": 1
+      }
+    },
+    "Yes. My work at UNIFIN included sales reporting, credit analysis, lead quality improvement, and executive analytics.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "sales": 1,
+        "analytics": 1
+      }
+    },
+    "LSTM stands for Long Short-Term Memory, a type of recurrent neural network commonly used for sequential and time-series data.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "an": 1,
+        "lstm": 1
+      }
+    },
+    "Yes. Bootstrap is one of the frontend frameworks I have worked with.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "bootstrap": 1
+      }
+    },
+    "What excites me most is applying AI to solve practical business problems rather than using it simply because it's fashionable.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "excites": 1,
+        "you": 1,
+        "about": 1,
+        "artificial": 1,
+        "intelligence": 1
+      }
+    },
+    "Yes. I have designed and developed multiple full-stack applications using Python, Ruby on Rails, JavaScript, SQL, and modern web technologies.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "full": 1,
+        "stack": 1,
+        "applications": 1
+      }
+    },
+    "Yes. Flask is one of the frameworks I have experience with.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "flask": 1
+      }
+    },
+    "At Hertz I improved operational workflows, increased customer satisfaction, optimized fleet utilization, and supported regional strategic initiatives.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "at": 1,
+        "hertz": 1
+      }
+    },
+    "I believe software should solve real problems, remain maintainable, scale as requirements evolve, and provide measurable value to its users.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "engineering": 1,
+        "philosophy": 1
+      }
+    },
+    "The hardest part for me is the very beginning of a project when everything is still empty. Once the architecture starts taking shape and the business logic becomes more interesting, I really enjoy the work.": {
+      "document_count": 1,
+      "total_tokens": 10,
+      "token_counts": {
+        "what": 1,
+        "part": 1,
+        "of": 1,
+        "software": 1,
+        "development": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "the": 1,
+        "least": 1
+      }
+    },
+    "I have worked in consulting, finance, banking, transportation, tourism, operations, AI, SaaS, and enterprise software.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "industries": 1,
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "in": 1
+      }
+    },
+    "Yes. I built RPA solutions using Automation Anywhere during my time at Accenture.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "used": 1,
+        "automation": 1,
+        "anywhere": 1
+      }
+    },
+    "Yes. I have working proficiency in Portuguese.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "speak": 1,
+        "portuguese": 1
+      }
+    },
+    "I enjoyed consulting because it taught me how businesses operate, but I wanted to become the person building the technology instead of only advising on it. Software engineering lets me create solutions directly.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "leave": 1,
+        "consulting": 1
+      }
+    },
+    "Python is my strongest programming language.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "strongest": 1,
+        "programming": 1,
+        "language": 1
+      }
+    },
+    "Yes. Forecast Alpha includes forecasting functionality to help organizations anticipate future trends and performance.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "forecasting": 1
+      }
+    },
+    "Yes. At Accenture I developed robotic process automation solutions using Blue Prism.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "blue": 1,
+        "prism": 1
+      }
+    },
+    "At Accenture I developed RPA solutions, contributed to SAP implementation projects, mapped business processes, and identified workflow automation opportunities.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "at": 1,
+        "accenture": 1
+      }
+    },
+    "Yes. Tailwind CSS is one of the frontend technologies I use.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "tailwind": 1,
+        "css": 1
+      }
+    },
+    "My specialties include Python development, backend APIs, operational intelligence platforms, machine learning applications, and scalable SaaS architecture.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "specialty": 1
+      }
+    },
+    "Yes. Kifor Match was designed as a role-based application supporting different types of users.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "kifor": 1,
+        "match": 1,
+        "support": 1,
+        "multiple": 1,
+        "user": 1,
+        "roles": 1
+      }
+    },
+    "I have studied and worked across several international environments. I earned my Master's degree at Durham University in England, worked at PwC in Saudi Arabia, developed much of my career in Mexico, and completed AI Software Full-Stack Development studies in Tokyo. These experiences strengthened my adaptability and cross-cultural communication.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "your": 1,
+        "international": 1,
+        "experience": 1
+      }
+    },
+    "I primarily use Next.js for frontend development.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "frontend": 1,
+        "framework": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "the": 1,
+        "most": 1
+      }
+    },
+    "Forecast Alpha combines my experience in consulting, operations, analytics, and software engineering into one platform. The goal is to help organizations understand their operational data and make better decisions.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "are": 1,
+        "you": 1,
+        "building": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Yes. I worked as Regional Business Intelligence Manager at UNIFIN.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "at": 1,
+        "unifin": 1
+      }
+    },
+    "Yes. Operations management and operational improvement have been central themes throughout my career.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "operations": 1
+      }
+    },
+    "Yes. I designed and delivered training programs to improve team performance and business outcomes.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "delivered": 1,
+        "training": 1
+      }
+    },
+    "My background combines consulting, finance, enterprise operations, business intelligence, and software engineering.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "background": 1
+      }
+    },
+    "Before transitioning into software engineering, I studied finance and financial management.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "before": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "Yes. Transcription is one of its core capabilities.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "your": 1,
+        "ai": 1,
+        "personal": 1,
+        "assistant": 1,
+        "support": 1,
+        "transcription": 1
+      }
+    },
+    "Yes. I have built forecasting applications using machine learning models and time-series analysis.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "forecasting": 1,
+        "systems": 1
+      }
+    },
+    "Yes. Analytics applications are a recurring theme across my software engineering projects.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "analytics": 1,
+        "applications": 1
+      }
+    },
+    "Yes. Business intelligence has been a significant part of my career through dashboards, KPIs, analytics, reporting, and operational insights.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "business": 1,
+        "intelligence": 1
+      }
+    },
+    "Yes. I completed the Backend Development (Python) program from Boot.dev.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "have": 1,
+        "python": 1,
+        "certification": 1
+      }
+    },
+    "One interesting aspect of Hisham's background is that he has studied in both England and Japan while working professionally across Saudi Arabia and Mexico, giving him a unique combination of international business and engineering experience.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "something": 1,
+        "interesting": 1
+      }
+    },
+    "The two experiences represent different stages of my career. England strengthened my understanding of finance and business, while Japan helped me turn that experience into practical software engineering skills.": {
+      "document_count": 1,
+      "total_tokens": 11,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "finance": 1,
+        "in": 2,
+        "england": 1,
+        "and": 1,
+        "software": 1,
+        "japan": 1
+      }
+    },
+    "My most important projects include Forecast Alpha, Kifor Match, a Stock Forecasting LSTM system, an AI Personal Assistant, an anomaly detection project for transactional data, and internal data automation tools used in an AI evaluation program.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "your": 1,
+        "most": 1,
+        "important": 1,
+        "projects": 1
+      }
+    },
+    "My career path has not been completely traditional. I moved from finance into consulting, then business intelligence and operations, and finally into software engineering. However, each stage connects naturally because they all involve understanding systems, solving problems, improving performance, and making better use of data.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "has": 1,
+        "your": 1,
+        "career": 1,
+        "path": 1,
+        "been": 1,
+        "like": 1
+      }
+    },
+    "After building a career solving business problems through consulting and operations, I transitioned into software engineering to build scalable software solutions that solve those problems directly.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "transition": 1,
+        "into": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "I value curiosity, continuous learning, clean architecture, practical solutions, and building software that creates measurable value.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "value": 1,
+        "as": 1,
+        "an": 1,
+        "engineer": 1
+      }
+    },
+    "My experience includes leading projects, coordinating cross-functional teams, and managing operational initiatives.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "managed": 1,
+        "teams": 1
+      }
+    },
+    "Yes. Analytics is one of the platform's core capabilities.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "analytics": 1
+      }
+    },
+    "Yes. I have designed application architectures covering backend services, APIs, authentication, databases, frontend applications, and cloud deployments.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "designed": 1,
+        "software": 1,
+        "architecture": 1
+      }
+    },
+    "I am passionate about building useful software, understanding systems deeply, solving complex problems, and applying AI and data to real operational challenges.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "you": 1,
+        "passionate": 1,
+        "about": 1,
+        "professionally": 1
+      }
+    },
+    "Yes. I build frontend applications when needed, especially as part of complete full-stack solutions.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "frontend": 1,
+        "development": 1
+      }
+    },
+    "Yes. I have studied and worked in several countries, including England, Japan, Mexico, and Saudi Arabia, which has taught me to adapt to different cultures and professional environments.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "have": 1,
+        "experience": 1,
+        "adapting": 1,
+        "to": 1,
+        "new": 1,
+        "cultures": 1
+      }
+    },
+    "I enjoy technology because it allows ideas to become real products. Every project is an opportunity to solve a new problem and learn something new.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "excites": 1,
+        "you": 1,
+        "about": 1,
+        "technology": 1
+      }
+    },
+    "Yes. I earned a Master of Arts in Financial Management from Durham University with Merit.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "have": 1,
+        "a": 1,
+        "masters": 1,
+        "degree": 1
+      }
+    },
+    "Yes. I have deployed applications using Heroku.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "heroku": 1
+      }
+    },
+    "I have collaborated with cross-functional teams including engineering, operations, finance, legal, purchasing, consulting, and executive leadership.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "type": 1,
+        "of": 1,
+        "teams": 1,
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1
+      }
+    },
+    "My technical experience includes full-stack web development, Python backend systems, FastAPI, Ruby on Rails, JavaScript, SQL, PostgreSQL, REST APIs, OAuth authentication, Docker, cloud deployments, data pipelines, machine learning, forecasting, anomaly detection, and AI-powered workflows.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "your": 1,
+        "technical": 1,
+        "experience": 1
+      }
+    },
+    "Not much! Just here helping visitors learn more about Hisham.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "whats": 1,
+        "up": 1
+      }
+    },
+    "What distinguishes me is the combination of technical execution and business depth. I am not only familiar with software development; I also understand finance, consulting, analytics, operational workflows, project governance, and executive decision making.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "distinguishes": 1,
+        "you": 1,
+        "professionally": 1
+      }
+    },
+    "Thanks for visiting! If you think of another question later, I'll be here.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "thats": 1,
+        "all": 1
+      }
+    },
+    "Yes. My background includes enterprise software development, consulting, analytics platforms, and business automation.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "enterprise": 1,
+        "software": 1
+      }
+    },
+    "Yes. Supabase is part of the technology stack I use for modern SaaS applications.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "supabase": 1
+      }
+    },
+    "Yes. Forecast Alpha includes AI-assisted schema analysis to better understand connected business data.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "analyze": 1,
+        "schemas": 1
+      }
+    },
+    "Yes. Forecast Alpha integrates multiple business data sources including PostgreSQL, HubSpot, Google Sheets, and CSV imports.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "multiple": 1,
+        "data": 1,
+        "sources": 1
+      }
+    },
+    "It helps organize meetings and knowledge by combining transcription, summarization, memory, and contextual question answering.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "problem": 1,
+        "does": 1,
+        "the": 1,
+        "ai": 1,
+        "personal": 1,
+        "assistant": 1,
+        "solve": 1
+      }
+    },
+    "Yes. CSV imports are one of the supported methods for connecting business data.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "csv": 1,
+        "files": 1
+      }
+    },
+    "Of course! Go ahead.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "can": 1,
+        "i": 1,
+        "ask": 1,
+        "you": 1,
+        "something": 1
+      }
+    },
+    "Here's something interesting: Hisham's career started in finance and consulting before transitioning into software engineering. That combination strongly influences the products he builds today.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "surprise": 1,
+        "me": 1
+      }
+    },
+    "Hi! I'm Hisham. It's nice to meet you. Feel free to ask me anything about my background, experience, projects, software engineering, or the technologies I work with.": {
+      "document_count": 1,
+      "total_tokens": 1,
+      "token_counts": {
+        "hello": 1
+      }
+    },
+    "I have built operational intelligence software, backend APIs, data integrations, dashboards, forecasting systems, anomaly detection tools, a donor and charity management platform, an AI meeting assistant, and internal automation tools.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "systems": 1,
+        "have": 1,
+        "you": 1,
+        "built": 1
+      }
+    },
+    "Yes. I'm an AI-powered conversational assistant designed specifically for Hisham's portfolio.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "based": 1,
+        "on": 1,
+        "ai": 1
+      }
+    },
+    "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with a background in consulting, finance, enterprise operations, and business intelligence. He is currently building Forecast Alpha, an AI-powered operational intelligence platform.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "who": 1,
+        "is": 1,
+        "hisham": 1,
+        "khashman": 1
+      }
+    },
+    "Yes. Monitoring operational metrics is part of my experience building Forecast Alpha and analytics platforms.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "created": 1,
+        "monitoring": 1,
+        "systems": 1
+      }
+    },
+    "Goodbye! Thanks for stopping by, and best of luck with everything.": {
+      "document_count": 1,
+      "total_tokens": 1,
+      "token_counts": {
+        "goodbye": 1
+      }
+    },
+    "Yes. English is one of my native languages.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "speak": 1,
+        "english": 1
+      }
+    },
+    "I regularly use Docker, Git, GitHub, Linux, Supabase, Vercel, AWS, Google Cloud Platform, and modern software development tools.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "tools": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1
+      }
+    },
+    "I speak English and Spanish at a native level, Portuguese at a working proficiency, and Japanese at a limited working level.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "languages": 1,
+        "can": 1,
+        "you": 1,
+        "speak": 1
+      }
+    },
+    "Yes. Forecast Alpha is being developed as an AI-powered SaaS platform for operational intelligence.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "is": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "a": 1,
+        "saas": 1,
+        "platform": 1
+      }
+    },
+    "Yes. I completed the AI Software Full-Stack Development program at Le Wagon Tokyo.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "attend": 1,
+        "le": 1,
+        "wagon": 1
+      }
+    },
+    "I primarily work with PostgreSQL, SQL databases, Supabase, Google Sheets integrations, and CSV-based datasets.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "databases": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1
+      }
+    },
+    "I usually break the problem into smaller pieces, understand the architecture first, and then solve one component at a time before integrating everything together.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "how": 1,
+        "do": 1,
+        "you": 1,
+        "approach": 1,
+        "difficult": 1,
+        "technical": 1,
+        "problems": 1
+      }
+    },
+    "Yes. One of my projects is an AI Personal Assistant focused on meetings, transcription, memory, and contextual question answering.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "ai": 1,
+        "assistants": 1
+      }
+    },
+    "Great! Curiosity usually leads to the best conversations. What would you like to know?": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "im": 1,
+        "curious": 1
+      }
+    },
+    "Likewise! I'm glad you're here.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "good": 1,
+        "to": 1,
+        "meet": 1,
+        "you": 1
+      }
+    },
+    "Yes. Forecast Alpha uses AI to recommend KPIs, analyze schemas, generate business insights, and support operational decision making.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "artificial": 1,
+        "intelligence": 1
+      }
+    },
+    "My interest in programming started years before my career transition, but eventually I decided I wanted software engineering to become my primary profession.": {
+      "document_count": 1,
+      "total_tokens": 11,
+      "token_counts": {
+        "when": 1,
+        "did": 1,
+        "you": 2,
+        "know": 1,
+        "wanted": 1,
+        "to": 1,
+        "become": 1,
+        "a": 1,
+        "software": 1,
+        "engineer": 1
+      }
+    },
+    "Yes. My work for Pulse Labs included preparing and processing datasets for AI model evaluation.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "ai": 1,
+        "data": 1,
+        "evaluation": 1
+      }
+    },
+    "It's going well! I'm always ready to talk about software engineering, projects, and Hisham's professional background.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "hows": 1,
+        "your": 1,
+        "day": 1,
+        "going": 1
+      }
+    },
+    "My business experience includes management consulting, finance, operations, business intelligence, project management, enterprise performance, and software engineering.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "business": 1,
+        "experience": 1,
+        "do": 1,
+        "you": 1,
+        "have": 1
+      }
+    },
+    "Yes. I have built reporting systems through dashboards, KPI monitoring, and business intelligence platforms.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "developed": 1,
+        "reporting": 1,
+        "systems": 1
+      }
+    },
+    "Studying in England broadened my perspective and strengthened my ability to adapt to different cultures, academic environments, and ways of thinking.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "how": 1,
+        "did": 1,
+        "studying": 1,
+        "in": 1,
+        "england": 1,
+        "influence": 1,
+        "you": 1
+      }
+    },
+    "Yes. I am open to software engineering, consulting, and technical leadership opportunities.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "open": 1,
+        "to": 1,
+        "work": 1
+      }
+    },
+    "Operational intelligence combines connected business data, analytics, KPIs, monitoring, forecasting, and AI-generated insights to improve business decision making.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "operational": 1,
+        "intelligence": 1
+      }
+    },
+    "Yes. I have deployed applications using Docker, AWS, Google Cloud Platform, Heroku, Supabase, and Vercel.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "deployed": 1,
+        "applications": 1
+      }
+    },
+    "Yes. At Accenture I supported SAP implementation projects through process mapping, stakeholder collaboration, and implementation planning.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "work": 1,
+        "with": 1,
+        "sap": 1
+      }
+    },
+    "My goal is to continue growing as a software engineer and technical product builder, contribute to meaningful systems, deepen my architecture skills, and build software that creates measurable real-world value.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "your": 1,
+        "career": 1,
+        "goals": 1
+      }
+    },
+    "Building Forecast Alpha has involved designing a production SaaS architecture, developing full-stack applications, building APIs, implementing authentication, integrating multiple data sources, and creating AI-powered operational intelligence workflows.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "experience": 1,
+        "have": 1,
+        "you": 1,
+        "gained": 1,
+        "from": 1,
+        "building": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Forecast Alpha uses Python, FastAPI, PostgreSQL, SQL, Next.js, Tailwind CSS, Supabase, and modern cloud infrastructure.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "the": 1,
+        "technology": 1,
+        "stack": 1,
+        "of": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "I'm motivated by building useful products, continuously improving as an engineer, and creating software that solves meaningful business challenges.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "drives": 1,
+        "your": 1,
+        "career": 1
+      }
+    },
+    "I am a software engineer with an international background spanning Mexico, England, Saudi Arabia, and Japan. I began my career in finance and consulting, moved into business intelligence and operational leadership, and eventually transitioned into full-stack software engineering. I now build AI-powered SaaS products and backend systems.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "a": 1,
+        "little": 1,
+        "about": 1,
+        "you": 1
+      }
+    },
+    "Yes. NumPy is one of the scientific computing libraries I use.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "numpy": 1
+      }
+    },
+    "Yes. I use scikit-learn for machine learning and data analysis.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "scikit": 1,
+        "learn": 1
+      }
+    },
+    "My goal is to continue building scalable software products and AI-powered systems that help organizations make better decisions.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "career": 1,
+        "objective": 1
+      }
+    },
+    "I know about Hisham's professional experience, education, projects, technologies, certifications, and career journey.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "know": 1
+      }
+    },
+    "England was primarily focused on finance, analytical thinking, and academic development, while Japan represented my transition into practical software engineering and AI product development.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "how": 1,
+        "did": 1,
+        "studying": 1,
+        "in": 1,
+        "england": 1,
+        "and": 1,
+        "japan": 1,
+        "differ": 1
+      }
+    },
+    "Yes. I worked in Finance and Enterprise Performance Consulting at Accenture.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "at": 1,
+        "accenture": 1
+      }
+    },
+    "Forecast Alpha includes a multi-tenant workspace architecture to support multiple organizations.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "multiple": 1,
+        "workspaces": 1
+      }
+    },
+    "Studying in England gave me a rigorous academic experience and helped me develop independence, adaptability, and an international perspective.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "was": 1,
+        "your": 1,
+        "experience": 1,
+        "studying": 1,
+        "in": 1,
+        "england": 1
+      }
+    },
+    "Yes. My career has included work across Mexico, Saudi Arabia, Japan, and international cross-functional teams.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "internationally": 1
+      }
+    },
+    "Before transitioning into software engineering I worked in consulting, finance, enterprise performance, operations, and business intelligence.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "before": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "Yes. I enjoy continuously learning new technologies and applying them to solve practical business problems.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "learning": 1,
+        "new": 1,
+        "technologies": 1
+      }
+    },
+    "I enjoy solving business, operational, and technical problems through software engineering, automation, analytics, and AI.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "problems": 1,
+        "do": 1,
+        "you": 1,
+        "solve": 1
+      }
+    },
+    "Many visitors ask about Forecast Alpha, Hisham's transition into software engineering, his international experience, or the technologies he enjoys working with.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "would": 1,
+        "you": 1,
+        "recommend": 1,
+        "i": 1,
+        "ask": 1
+      }
+    },
+    "I am a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, business intelligence, and enterprise operations. I previously worked at PwC and Accenture and later held operational and analytics leadership roles in Mexico. I transitioned into software engineering to build solutions directly and now develop AI-powered SaaS platforms, backend systems, APIs, and data-driven applications. I am currently building Forecast Alpha, an operational intelligence platform for connected business data.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "yourself": 1
+      }
+    },
+    "I offer an unusual combination of hands-on software engineering and more than ten years of business experience. I can understand a problem from the perspective of users, operations, management, data, and technology, then help turn that understanding into a practical software solution.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "makes": 1,
+        "you": 1,
+        "a": 1,
+        "strong": 1,
+        "candidate": 1
+      }
+    },
+    "Forecast Alpha includes OAuth authentication using providers such as Google and GitHub.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "authentication": 1,
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1
+      }
+    },
+    "I've always enjoyed understanding how things work. Technology became the perfect combination of analytical thinking, creativity, and problem solving.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "become": 1,
+        "interested": 1,
+        "in": 1,
+        "technology": 1
+      }
+    },
+    "Success means building software that people genuinely find useful while continuously improving my technical skills.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "success": 1,
+        "to": 1,
+        "you": 1,
+        "as": 1,
+        "an": 1,
+        "engineer": 1
+      }
+    },
+    "Yes. I completed Google's Machine Learning Core Modules and have built several machine learning projects.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "studied": 1,
+        "machine": 1,
+        "learning": 1
+      }
+    },
+    "You could ask about Hisham's projects, technical stack, why he changed careers, why he studied in England and Japan, or anything about his professional journey.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "should": 1,
+        "i": 1,
+        "ask": 1,
+        "you": 1
+      }
+    },
+    "Forecast Alpha works with connected operational and business data from multiple integrated sources.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "type": 1,
+        "of": 1,
+        "data": 1,
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "work": 1,
+        "with": 1
+      }
+    },
+    "Continuous learning and building useful products motivate me. Every project teaches me something new.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "what": 1,
+        "keeps": 1,
+        "you": 1,
+        "motivated": 1
+      }
+    },
+    "Forecast Alpha combines nearly every part of my professional background: consulting, finance, analytics, AI, software engineering, and operational improvement.": {
+      "document_count": 1,
+      "total_tokens": 10,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "instead": 1,
+        "of": 1,
+        "another": 1,
+        "app": 1
+      }
+    },
+    "My client work includes software engineering, anomaly detection, AI data processing, business intelligence, consulting, and enterprise transformation projects.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "client": 1,
+        "projects": 1,
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "on": 1
+      }
+    },
+    "My career began in finance and management consulting, continued through business intelligence and operations leadership, and evolved into software engineering and technology entrepreneurship. Today I combine those areas by building software for analytics, operational intelligence, forecasting, automation, and business decision making.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "give": 1,
+        "me": 1,
+        "an": 1,
+        "overview": 1,
+        "of": 1,
+        "your": 1,
+        "career": 1
+      }
+    },
+    "Absolutely! Ask me anything about Hisham's experience, projects, technology stack, or career.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "can": 1,
+        "we": 1,
+        "chat": 1
+      }
+    },
+    "Good morning! I hope you're having a great day. How can I help?": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "good": 1,
+        "morning": 1
+      }
+    },
+    "Yes. I use Git and GitHub extensively for version control and collaboration.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "git": 1
+      }
+    },
+    "Forecast Alpha integrates with PostgreSQL, HubSpot, Google Sheets, CSV imports, and authentication providers.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "integrations": 1,
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1
+      }
+    },
+    "Forecast Alpha is being prepared to support collaborative team workflows and shared operational monitoring.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "teams": 1
+      }
+    },
+    "I studied Financial Management at Durham University and graduated with Merit.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "in": 1,
+        "england": 1
+      }
+    },
+    "Yes. Analytics has been a consistent part of my work through dashboards, KPIs, forecasting, anomaly detection, and business intelligence.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "analytics": 1
+      }
+    },
+    "My experience spans more than ten years across consulting, finance, business intelligence, enterprise operations, and software engineering. At PwC and Accenture, I worked on PMO implementation, governance, process improvement, RPA, and SAP-related initiatives. At UNIFIN, Hertz, and Localiza, I worked with analytics, operations, performance improvement, dashboards, and expansion projects. More recently, I have built full-stack applications, APIs, machine learning systems, anomaly detection tools, and the Forecast Alpha SaaS platform.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "your": 1,
+        "experience": 1
+      }
+    },
+    "Yes. Backend engineering is one of my primary areas of focus.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "designed": 1,
+        "backend": 1,
+        "systems": 1
+      }
+    },
+    "Forecast Alpha helps businesses consolidate operational data from multiple sources and transform it into meaningful dashboards, forecasts, alerts, and AI-assisted insights.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "problem": 1,
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "solve": 1
+      }
+    },
+    "Yes. I'm an AI assistant built to help visitors learn more about Hisham's professional experience and software engineering work.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "an": 1,
+        "ai": 1
+      }
+    },
+    "Yes. I have built executive dashboards, operational dashboards, and analytics reporting systems.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "created": 1,
+        "business": 1,
+        "dashboards": 1
+      }
+    },
+    "The common theme is using analysis, data, processes, and technology to solve practical organizational problems.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "the": 1,
+        "common": 1,
+        "theme": 1,
+        "across": 1,
+        "your": 1,
+        "career": 1
+      }
+    },
+    "My pleasure! I'm always happy to help.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "thank": 1,
+        "you": 1
+      }
+    },
+    "I can help a company design and build practical software while keeping the business objective clear. My experience allows me to contribute across backend development, APIs, data, analytics, automation, product thinking, and cross-functional communication.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "value": 1,
+        "can": 1,
+        "you": 1,
+        "add": 1,
+        "to": 1,
+        "a": 1,
+        "company": 1
+      }
+    },
+    "I was built by Hisham as part of his portfolio to demonstrate software engineering, AI integration, and conversational interfaces.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "who": 1,
+        "built": 1,
+        "you": 1
+      }
+    },
+    "I studied finance and later completed a Master's degree in Financial Management in England. I began my professional career at PwC in Saudi Arabia, working on PMO and government transformation initiatives. I later joined Accenture in Mexico, where I worked on RPA, SAP, process mapping, and enterprise performance. I then held business intelligence and operations roles at UNIFIN, Hertz, and Localiza. After years of programming as an interest and practical tool, I transitioned fully into software engineering, studied in Tokyo, and began building Forecast Alpha and other software products.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "walk": 1,
+        "me": 1,
+        "through": 1,
+        "your": 1,
+        "career": 1
+      }
+    },
+    "My previous career taught me how businesses operate, but I wanted to become the person building the technology that solves those business problems. Software engineering was a natural transition.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "switch": 1,
+        "careers": 1
+      }
+    },
+    "My global perspective comes from studying in England and Japan, working in Mexico and Saudi Arabia, and collaborating with international teams throughout my career.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "gives": 1,
+        "you": 1,
+        "a": 1,
+        "global": 1,
+        "perspective": 1
+      }
+    },
+    "It manages donation requests, offer approvals, and fulfillment workflows.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "workflow": 1,
+        "does": 1,
+        "kifor": 1,
+        "match": 1,
+        "manage": 1
+      }
+    },
+    "Yes. Ruby on Rails is one of the frameworks I use for full-stack web applications.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "ruby": 1,
+        "on": 1,
+        "rails": 1
+      }
+    },
+    "My studies in England gave me a strong foundation in finance and business decision making, while my studies in Japan gave me the technical skills to build software solutions around those business problems.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "connects": 1,
+        "your": 1,
+        "studies": 1,
+        "in": 1,
+        "england": 1,
+        "and": 1,
+        "japan": 1
+      }
+    },
+    "Yes. Process mapping was an important part of my consulting work, particularly during SAP implementation projects.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "process": 1,
+        "mapping": 1
+      }
+    },
+    "Yes. I have designed scalable data pipelines supporting analytics, AI applications, and operational intelligence platforms.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "data": 1,
+        "pipelines": 1
+      }
+    },
+    "You can ask about Hisham's career journey, motivations, education, professional experiences, and engineering philosophy.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "can": 1,
+        "i": 1,
+        "ask": 1,
+        "personal": 1,
+        "questions": 1
+      }
+    },
+    "Yes. FastAPI is used as part of the backend architecture.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "fastapi": 1
+      }
+    },
+    "Yes. My experience includes production-oriented software, SaaS platforms, internal business systems, and client applications.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "production": 1,
+        "software": 1
+      }
+    },
+    "I chose England because I wanted an international education in a country with a strong academic tradition. Studying there also gave me the opportunity to experience a different culture and develop a more global perspective.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "why": 1,
+        "england": 1
+      }
+    },
+    "I see AI as a practical tool that can help people make better decisions, automate repetitive work, and uncover insights from data.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "ai": 1
+      }
+    },
+    "Yes. I have built multiple applications from the initial architecture through deployment.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "applications": 1,
+        "from": 1,
+        "scratch": 1
+      }
+    },
+    "My main focus is building production-ready software, particularly AI-powered SaaS platforms, backend systems, APIs, and operational intelligence products.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "main": 1,
+        "focus": 1,
+        "right": 1,
+        "now": 1
+      }
+    },
+    "My career developed from understanding businesses to managing operations and eventually building technology. Finance taught me how organizations measure value, consulting taught me how to analyze complex problems, operational roles taught me how systems perform in the real world, and software engineering gave me the ability to build solutions directly.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "how": 1,
+        "did": 1,
+        "your": 1,
+        "career": 1,
+        "develop": 1
+      }
+    },
+    "Forecast Alpha is built using Python, FastAPI, PostgreSQL, Next.js, Tailwind CSS, Supabase, SQL, and modern cloud infrastructure.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "technologies": 1,
+        "power": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "My certifications include Backend Development (Python) from Boot.dev, Google Machine Learning Core Modules, and Google Agile Project Management.": {
+      "document_count": 2,
+      "total_tokens": 10,
+      "token_counts": {
+        "what": 2,
+        "certifications": 2,
+        "have": 2,
+        "you": 2,
+        "completed": 1,
+        "do": 1
+      }
+    },
+    "Yes. Supabase is part of the platform's infrastructure.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "supabase": 1
+      }
+    },
+    "I enjoy building practical software that helps people make better decisions, automate workflows, and solve real operational challenges.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "motivates": 1,
+        "your": 1,
+        "software": 1,
+        "projects": 1
+      }
+    },
+    "I primarily write software in Python, Ruby, JavaScript, and SQL.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "languages": 1,
+        "do": 1,
+        "you": 1,
+        "code": 1,
+        "in": 1
+      }
+    },
+    "My primary programming languages are Python, Ruby, JavaScript, and SQL.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "programming": 1,
+        "languages": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1
+      }
+    },
+    "Yes. KPI design, monitoring, reporting, and analysis have been recurring responsibilities throughout my career.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "kpis": 1
+      }
+    },
+    "Yes. It is built using a modern web stack including FastAPI, Next.js, Tailwind CSS, PostgreSQL, SQL, and Supabase.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "modern": 1,
+        "web": 1,
+        "technologies": 1
+      }
+    },
+    "Yes. Next.js is part of my frontend development stack.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "nextjs": 1
+      }
+    },
+    "Yes. Tailwind CSS is part of the frontend technology stack.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "tailwind": 1,
+        "css": 1
+      }
+    },
+    "Yes. Linux is one of my primary development environments.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "linux": 1
+      }
+    },
+    "Yes. Next.js is used for the frontend application.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "use": 1,
+        "nextjs": 1
+      }
+    },
+    "Stock Forecasting LSTM is a machine learning project that predicts time-series data using LSTM neural networks.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "the": 1,
+        "stock": 1,
+        "forecasting": 1,
+        "lstm": 1,
+        "project": 1
+      }
+    },
+    "I chose Durham University because of its strong academic reputation and the opportunity to study financial management in an international environment.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "choose": 1,
+        "durham": 1,
+        "university": 1
+      }
+    },
+    "Mexico has been an important part of both my personal and professional life. Much of my consulting, operations, and software engineering experience was built there, and it's one of the countries where I have established my career.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "why": 1,
+        "mexico": 1
+      }
+    },
+    "I have more than ten years of professional experience across consulting, operations, finance, business intelligence, and software engineering.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "how": 1,
+        "many": 1,
+        "years": 1,
+        "of": 1,
+        "experience": 1,
+        "do": 1,
+        "you": 1,
+        "have": 1
+      }
+    },
+    "After more than a decade in consulting, finance, and enterprise operations, I realized I wanted to build the software that solves business problems instead of only recommending solutions. Software engineering allows me to turn ideas into products that people can use every day.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "become": 1,
+        "a": 1,
+        "software": 1,
+        "engineer": 1
+      }
+    },
+    "Yes. It summarizes conversations and meeting content.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "your": 1,
+        "ai": 1,
+        "personal": 1,
+        "assistant": 1,
+        "support": 1,
+        "summarization": 1
+      }
+    },
+    "I am Hisham Khashman, a Full-Stack Software Engineer and Technical Founder specializing in AI-powered operational intelligence, backend systems, APIs, and SaaS products.": {
+      "document_count": 1,
+      "total_tokens": 3,
+      "token_counts": {
+        "who": 1,
+        "are": 1,
+        "you": 1
+      }
+    },
+    "Yes. I have experience establishing and managing PMO structures in both consulting and corporate environments.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "project": 1,
+        "management": 1,
+        "offices": 1
+      }
+    },
+    "I particularly enjoy designing software architecture, implementing backend systems, solving complex problems, and building AI-powered applications.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "part": 1,
+        "of": 1,
+        "software": 1,
+        "engineering": 1,
+        "interests": 1,
+        "you": 1,
+        "the": 1,
+        "most": 1
+      }
+    },
+    "Good software solves a real problem, is easy to maintain, performs reliably, and remains understandable as it grows.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "think": 1,
+        "makes": 1,
+        "good": 1,
+        "software": 1
+      }
+    },
+    "You might ask about Hisham's projects, why he became a software engineer, what technologies he enjoys, what he learned from consulting, or what he's currently building.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "some": 1,
+        "good": 1,
+        "questions": 1
+      }
+    },
+    "I enjoyed consulting, but I found myself more interested in creating solutions than only recommending them. Building software allows me to have a direct impact.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "not": 1,
+        "stay": 1,
+        "in": 1,
+        "consulting": 1
+      }
+    },
+    "Kifor Match was designed to improve the management of donations by providing structured workflows for charities and donors.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "kifor": 1,
+        "match": 1
+      }
+    },
+    "Yes. I worked as a Management Consultant at PwC in Riyadh, Saudi Arabia.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "for": 1,
+        "pwc": 1
+      }
+    },
+    "My background combines more than ten years of consulting, finance, operations, and business intelligence with modern software engineering. That combination helps me understand both business problems and technical implementation.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "what": 1,
+        "makes": 1,
+        "your": 1,
+        "background": 1,
+        "different": 1,
+        "from": 1,
+        "other": 1,
+        "software": 1,
+        "engineers": 1
+      }
+    },
+    "Yes. I have automated workflows in consulting, finance, operations, and AI-related projects.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "automated": 1,
+        "internal": 1,
+        "workflows": 1
+      }
+    },
+    "I enjoy building AI-powered SaaS platforms, operational intelligence systems, backend APIs, analytics applications, and developer tools.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "software": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "building": 1
+      }
+    },
+    "You're very welcome! If you have any more questions, feel free to ask.": {
+      "document_count": 1,
+      "total_tokens": 1,
+      "token_counts": {
+        "thanks": 1
+      }
+    },
+    "I am a Full-Stack Software Engineer with more than ten years of experience across consulting, finance, enterprise operations, and software engineering. I currently build AI-powered SaaS platforms and scalable backend applications.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "tell": 1,
+        "me": 1,
+        "about": 1,
+        "yourself": 1
+      }
+    },
+    "My software engineering career is newer than my overall professional career, but I bring more than ten years of experience solving complex business and operational problems. I evaluate opportunities based on the actual technical responsibilities rather than relying only on a conventional seniority label.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "junior": 1,
+        "or": 1,
+        "senior": 1
+      }
+    },
+    "Yes. I worked at Localiza & Co leading PMO expansion initiatives in Mexico.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "at": 1,
+        "localiza": 1
+      }
+    },
+    "Yes. FastAPI is one of my primary backend frameworks.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "fastapi": 1
+      }
+    },
+    "I am looking for opportunities where I can contribute as a hands-on software engineer while using my broader experience in business, consulting, analytics, and operations. I am particularly interested in backend, full-stack, AI, SaaS, and enterprise technology work.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "you": 1,
+        "looking": 1,
+        "for": 1,
+        "next": 1
+      }
+    },
+    "It was great chatting with you. Thanks for taking the time to learn more about Hisham.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "thats": 1,
+        "everything": 1
+      }
+    },
+    "Hi! Welcome to Hisham's portfolio. I'm here to answer questions about his experience, projects, technologies, and career journey. What would you like to know?": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "hi": 1,
+        "there": 1
+      }
+    },
+    "I am suited for Full-Stack Engineer, Backend Engineer, Python Engineer, Software Engineer, AI Engineer, Solutions Engineer, Technical Consultant, and product-oriented engineering roles. My broader business background can also be valuable in technical leadership and enterprise technology positions.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "type": 1,
+        "of": 1,
+        "roles": 1,
+        "are": 1,
+        "you": 1,
+        "suited": 1,
+        "for": 1
+      }
+    },
+    "Good afternoon! Nice to meet you. What would you like to know?": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "good": 1,
+        "afternoon": 1
+      }
+    },
+    "Yes. While at PwC I worked on a government consulting engagement in Saudi Arabia.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "work": 1,
+        "with": 1,
+        "government": 1,
+        "clients": 1
+      }
+    },
+    "I focus primarily on backend engineering, full-stack web development, AI-powered applications, APIs, data engineering, and SaaS platforms.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "kind": 1,
+        "of": 1,
+        "software": 1,
+        "engineer": 1,
+        "are": 1,
+        "you": 1
+      }
+    },
+    "I chose to study in Tokyo because I wanted an immersive software engineering experience while living in a country whose culture and engineering mindset I admire.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "in": 1,
+        "japan": 1
+      }
+    },
+    "Yes. I designed and developed the backend services, APIs, and data architecture.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "the": 1,
+        "backend": 1,
+        "for": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Software engineering combines two things I enjoy most: solving complex problems and building tangible products. I wanted to move from recommending solutions to creating them.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "choose": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "I have experience in consulting, finance, banking, transportation, tourism, government, SaaS, AI, business intelligence, and enterprise operations.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "industries": 1,
+        "do": 1,
+        "you": 1,
+        "understand": 1,
+        "well": 1
+      }
+    },
+    "Yes. Forecast Alpha is an example of a greenfield project that I designed and built from the ground up.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "on": 1,
+        "greenfield": 1,
+        "projects": 1
+      }
+    },
+    "Yes. I enjoy taking ideas from concept to production by designing, developing, and iterating on complete software products.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "building": 1,
+        "products": 1,
+        "from": 1,
+        "scratch": 1
+      }
+    },
+    "Yes. I have implemented OAuth authentication systems as part of Forecast Alpha.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "built": 1,
+        "authentication": 1,
+        "systems": 1
+      }
+    },
+    "Hello! It's great to meet you. Feel free to ask me anything about Hisham.": {
+      "document_count": 1,
+      "total_tokens": 2,
+      "token_counts": {
+        "hello": 1,
+        "there": 1
+      }
+    },
+    "I'm doing great, thanks for asking! What would you like to know about Hisham?": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "how": 1,
+        "are": 1,
+        "you": 1,
+        "today": 1
+      }
+    },
+    "Yes. At Hertz I implemented operational improvements that increased customer satisfaction and market performance.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "improved": 1,
+        "customer": 1,
+        "satisfaction": 1
+      }
+    },
+    "At PwC I contributed to a large government transformation initiative focused on project governance, PMO implementation, strategic alignment, and executive reporting.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "projects": 1,
+        "did": 1,
+        "you": 1,
+        "work": 1,
+        "on": 1,
+        "at": 1,
+        "pwc": 1
+      }
+    },
+    "I work with FastAPI, Ruby on Rails, Flask, Next.js, Bootstrap, and Tailwind CSS.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "frameworks": 1,
+        "do": 1,
+        "you": 1,
+        "know": 1
+      }
+    },
+    "I enjoy solving complex problems and designing systems. My favorite part is turning an empty project into a working product through architecture, backend logic, APIs, and iterative development.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "enjoy": 1,
+        "most": 1,
+        "about": 1,
+        "software": 1,
+        "engineering": 1
+      }
+    },
+    "I try to design software that is simple to understand, maintainable, scalable, and focused on solving real user problems rather than unnecessary complexity.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "do": 1,
+        "you": 1,
+        "look": 1,
+        "for": 1,
+        "when": 1,
+        "designing": 1,
+        "software": 1
+      }
+    },
+    "At UNIFIN I designed Power BI dashboards, generated strategic business insights, improved lead quality through data acquisition and cleansing, and delivered staff training.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "do": 1,
+        "at": 1,
+        "unifin": 1
+      }
+    },
+    "My current direction is software engineering and technical product development. I am especially interested in roles where I can combine backend engineering, full-stack development, AI, data, architecture, and business understanding.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "current": 1,
+        "professional": 1,
+        "direction": 1
+      }
+    },
+    "My biggest strength is understanding the broader problem before writing the solution. I can connect software architecture and business logic with the actual needs of users and organizations.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "biggest": 1,
+        "strength": 1,
+        "as": 1,
+        "an": 1,
+        "engineer": 1
+      }
+    },
+    "I hold a Master of Arts in Financial Management from Durham University.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "masters": 1,
+        "degree": 1,
+        "do": 1,
+        "you": 1,
+        "have": 1
+      }
+    },
+    "I hope to continue building successful software products while growing into a stronger software architect and technical leader.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "where": 1,
+        "do": 1,
+        "you": 1,
+        "see": 1,
+        "yourself": 1,
+        "in": 1,
+        "five": 1,
+        "years": 1
+      }
+    },
+    "I primarily build backend services using FastAPI and Ruby on Rails.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "what": 1,
+        "backend": 1,
+        "framework": 1,
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "the": 1,
+        "most": 1
+      }
+    },
+    "My long-term goal is to build impactful software products, continue learning, contribute to open source, and create technology that solves meaningful business problems.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "are": 1,
+        "your": 1,
+        "long": 1,
+        "term": 1,
+        "goals": 1
+      }
+    },
+    "Yes. Forecast Alpha generates AI-assisted business insights from connected operational data.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "generate": 1,
+        "business": 1,
+        "insights": 1
+      }
+    },
+    "I wanted a deeper understanding of corporate finance, strategy, and decision making. Those skills continue to influence how I approach software products today.": {
+      "document_count": 1,
+      "total_tokens": 10,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "get": 1,
+        "a": 1,
+        "masters": 1,
+        "degree": 1,
+        "in": 1,
+        "financial": 1,
+        "management": 1
+      }
+    },
+    "Welcome! Take your time exploring. If something catches your attention, I'd be happy to explain it.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "im": 1,
+        "just": 1,
+        "looking": 1,
+        "around": 1
+      }
+    },
+    "I designed and developed Forecast Alpha end-to-end, including the frontend, backend, infrastructure, authentication, integrations, analytics, onboarding, and deployment workflows.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "yourself": 1
+      }
+    },
+    "Instead of asking visitors to read a résumé, Hisham wanted to create an interactive experience where people could ask questions naturally and explore his background through conversation.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "hisham": 1,
+        "build": 1,
+        "you": 1
+      }
+    },
+    "Thank you! Hisham built this portfolio to make learning about his experience more interactive than a traditional résumé.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "this": 1,
+        "portfolio": 1,
+        "is": 1,
+        "cool": 1
+      }
+    },
+    "Yes. At UNIFIN I improved lead quality through data acquisition and data cleansing processes.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "have": 1,
+        "you": 1,
+        "worked": 1,
+        "with": 1,
+        "data": 1,
+        "cleansing": 1
+      }
+    },
+    "Yes. Docker is part of my development and deployment workflow.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "docker": 1
+      }
+    },
+    "I studied AI Software Full-Stack Development, covering full-stack engineering, backend development, databases, APIs, and artificial intelligence.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "at": 1,
+        "le": 1,
+        "wagon": 1
+      }
+    },
+    "I like building software that solves real business problems. Seeing an idea evolve into something people can actually use is one of the most rewarding parts of engineering.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "what": 1,
+        "motivates": 1,
+        "you": 1,
+        "to": 1,
+        "build": 1,
+        "software": 1
+      }
+    },
+    "I am a Full-Stack Software Engineer and Technical Founder focused on Python, FastAPI, Ruby on Rails, AI applications, and operational intelligence. Before moving fully into software engineering, I built a career across consulting, finance, analytics, and operations.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "give": 1,
+        "me": 1,
+        "a": 1,
+        "quick": 1,
+        "introduction": 1
+      }
+    },
+    "Professionally, I would describe myself as a product-oriented Full-Stack Software Engineer with a strong backend focus and extensive business experience. I understand both how organizations operate and how to design and build the systems that support them.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "how": 1,
+        "would": 1,
+        "you": 1,
+        "describe": 1,
+        "yourself": 1,
+        "professionally": 1
+      }
+    },
+    "I enjoy management when it's necessary, but I find the most satisfaction in designing and building solutions myself.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "prefer": 1,
+        "building": 1,
+        "instead": 1,
+        "of": 1,
+        "managing": 1
+      }
+    },
+    "Yes. Forecast Alpha includes anomaly detection capabilities for monitoring operational and business metrics.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "anomaly": 1,
+        "detection": 1
+      }
+    },
+    "Yes. I have built OAuth authentication using providers including Google and GitHub.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "work": 1,
+        "with": 1,
+        "oauth": 1
+      }
+    },
+    "I serve as the Technical Founder and Full-Stack Engineer responsible for designing and developing the platform.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "is": 1,
+        "your": 1,
+        "role": 1,
+        "at": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "Yes. I graduated from Durham University with Merit.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "graduate": 1,
+        "with": 1,
+        "merit": 1
+      }
+    },
+    "Yes. Feature engineering was part of the Stock Forecasting LSTM project.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "perform": 1,
+        "feature": 1,
+        "engineering": 1
+      }
+    },
+    "Sure! Try asking 'Why did you become a software engineer?' or 'Tell me about Forecast Alpha.' Those usually lead to interesting conversations.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "can": 1,
+        "you": 1,
+        "recommend": 1,
+        "a": 1,
+        "question": 1
+      }
+    },
+    "Yes. Forecast Alpha supports Google Sheets as one of its connected data sources.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "does": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "support": 1,
+        "google": 1,
+        "sheets": 1
+      }
+    },
+    "Yes. Docker is part of my deployment and development workflow.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "docker": 1
+      }
+    },
+    "It was designed with memory capabilities to provide contextual assistance.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "does": 1,
+        "your": 1,
+        "ai": 1,
+        "personal": 1,
+        "assistant": 1,
+        "remember": 1,
+        "conversations": 1
+      }
+    },
+    "Sure! What's your question?": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "i": 1,
+        "have": 1,
+        "a": 1,
+        "question": 1
+      }
+    },
+    "My background is deeply rooted in solving business problems, so I naturally enjoy building software that improves operations, analytics, and decision making.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "why": 1,
+        "do": 1,
+        "you": 1,
+        "like": 1,
+        "building": 1,
+        "software": 1,
+        "for": 1,
+        "businesses": 1
+      }
+    },
+    "Thank you! I hope you have a wonderful day as well.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "have": 1,
+        "a": 1,
+        "nice": 1,
+        "day": 1
+      }
+    },
+    "Yes. I designed and implemented the backend APIs that power the platform.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "the": 1,
+        "apis": 1,
+        "for": 1,
+        "forecast": 1,
+        "alpha": 1
+      }
+    },
+    "They fit together through problem solving. Finance taught me how value is measured, consulting taught me structured analysis, business intelligence taught me how to work with data, operations taught me how processes behave in practice, and software engineering allows me to turn those insights into products.": {
+      "document_count": 1,
+      "total_tokens": 8,
+      "token_counts": {
+        "how": 1,
+        "do": 1,
+        "all": 1,
+        "your": 1,
+        "different": 1,
+        "experiences": 1,
+        "fit": 1,
+        "together": 1
+      }
+    },
+    "Yes. I have experience working with Google Cloud Platform.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "know": 1,
+        "google": 1,
+        "cloud": 1
+      }
+    },
+    "Someone should hire me because I can bridge the gap between business requirements and technical implementation. I bring practical engineering skills, international experience, strong analytical thinking, and a history of solving complex operational problems.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "should": 1,
+        "someone": 1,
+        "hire": 1,
+        "you": 1
+      }
+    },
+    "Yes. My purpose is to answer questions about Hisham's professional background, projects, education, and career using information he has provided.": {
+      "document_count": 1,
+      "total_tokens": 6,
+      "token_counts": {
+        "are": 1,
+        "you": 1,
+        "trained": 1,
+        "on": 1,
+        "hishams": 1,
+        "experience": 1
+      }
+    },
+    "I was interested in understanding how businesses operate, make decisions, and create value. Finance gave me a strong analytical foundation that still helps me as a software engineer.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "study": 1,
+        "finance": 1
+      }
+    },
+    "For Nexus Tours I developed an anomaly detection system that identified confirmed fraud cases within transactional data.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "what": 1,
+        "did": 1,
+        "you": 1,
+        "build": 1,
+        "for": 1,
+        "nexus": 1,
+        "tours": 1
+      }
+    },
+    "I did not begin learning technology only when I changed careers. Programming, automation, SQL, data analysis, and technical problem solving had already been part of my work and interests for years. The career transition was about making software engineering my primary focus and taking those skills much deeper.": {
+      "document_count": 1,
+      "total_tokens": 9,
+      "token_counts": {
+        "why": 1,
+        "are": 1,
+        "you": 1,
+        "different": 1,
+        "from": 1,
+        "a": 1,
+        "traditional": 1,
+        "career": 1,
+        "switcher": 1
+      }
+    },
+    "I wanted exposure to different cultures, academic systems, and ways of thinking. Studying internationally helped me develop a broader and more adaptable professional perspective.": {
+      "document_count": 1,
+      "total_tokens": 7,
+      "token_counts": {
+        "why": 1,
+        "did": 1,
+        "you": 1,
+        "pursue": 1,
+        "an": 1,
+        "international": 1,
+        "education": 1
+      }
+    },
+    "Yes. I have used TensorFlow and Keras to build time-series forecasting systems.": {
+      "document_count": 1,
+      "total_tokens": 4,
+      "token_counts": {
+        "do": 1,
+        "you": 1,
+        "use": 1,
+        "tensorflow": 1
+      }
+    },
+    "I have experience building software products, backend APIs, data pipelines, forecasting systems, anomaly detection tools, dashboards, and business applications. Before becoming a software engineer, I also gained extensive experience in management consulting, finance, project governance, business intelligence, and operational leadership.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "what": 1,
+        "experience": 1,
+        "do": 1,
+        "you": 1,
+        "have": 1
+      }
+    },
+    "Forecast Alpha is being developed as a cloud-based SaaS platform.": {
+      "document_count": 1,
+      "total_tokens": 5,
+      "token_counts": {
+        "is": 1,
+        "forecast": 1,
+        "alpha": 1,
+        "cloud": 1,
+        "based": 1
+      }
+    }
+  },
+  "created_at": "2026-07-28T00:00:00Z",
+  "train_size": 346,
+  "validation_size": 86,
+  "validation_metrics": {
+    "accuracy": 0.0,
+    "average_score": -32.21720564405989
+  }
+}

@@ -1,50 +1,323 @@
-from app.schemas import ChatMessage, ChatRequest
-import re
-# add import for seeded data of questions and their answers
+from __future__ import annotations
 
-confidence = 0.7
+import json
+import math
+from collections import Counter
+from functools import lru_cache
+from pathlib import Path
+from typing import Any, Sequence
 
-def user_message(messages):
-    user_messages = []
-    for message in messages:
-        if message.role == "user":
-            user_messages.append(message.content)
-    if len(user_messages) == 0:
-        return "No user messages"
-    else: 
-        last_message = user_messages[-1]
-
-    return last_message
-    
- 
-
-def nlp_text(last_message):
-    lc_text = last_message.lower()   # this makes everything lowercase ..duh
-    rwsnlt_text = re.sub(r'\s+', ' ', lc_text).strip() #this removes extra whitespaces, newlines and tabs
-    normalized_text = re.sub(r'[^\w\s]', '', rwsnlt_text) # this removes punctuation and special chars (keeps numbs and letters dooog)
-    
-    words = normalized_text.split()
-    
-    return words
+from backend.model.tokenizer import normalize_text
 
 
+ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_retriever.json"
+FALLBACK_ANSWER = "I'm still learning that part of Hisham's portfolio."
+MIN_MATCH_SCORE = 0.18
 
-def matching_percent(words,seed_data):
-    fillers = ["if","or","and","why","when","where","what"] #add up all possible fillers
-    count = 0
-    for w in words:
-        if w in seed_data and w not in fillers:
-            count +=1
-    if count > 0:
-        match_level = count / len(seed_data)
-    else:
-        match_level = 0
-    
-    return match_level
 
-def response(match_level,response):
-    if match_level >= confidence:
-        return response
-    else:
-        return "I am not sure, sorry! I am still learning"
+def latest_user_message(messages: Sequence[Any]) -> str:
+    for message in reversed(messages):
+        if getattr(message, "role", None) == "user":
+            content = getattr(message, "content", "").strip()
+            if content:
+                return content
 
+    return ""
+
+
+@lru_cache(maxsize=1)
+def load_artifact() -> dict[str, Any]:
+    if not ARTIFACT_PATH.exists():
+        return {}
+
+    with ARTIFACT_PATH.open("r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def vectorize_text(text: str, token_to_id: dict[str, int], idf: dict[str, float]) -> dict[str, float]:
+    tokens = [token for token in normalize_text(text) if token in token_to_id and token != "<unk>"]
+    if not tokens:
+        return {}
+
+    counts = Counter(tokens)
+    token_count = len(tokens)
+    vector: dict[str, float] = {}
+    norm_sq = 0.0
+
+    for token, count in counts.items():
+        weight = (count / token_count) * idf.get(token, 0.0)
+        if weight <= 0.0:
+            continue
+
+        vector[token] = weight
+        norm_sq += weight * weight
+
+    if norm_sq == 0.0:
+        return {}
+
+    norm = math.sqrt(norm_sq)
+    return {token: weight / norm for token, weight in vector.items()}
+
+
+def cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
+    if not left or not right:
+        return 0.0
+
+    if len(left) > len(right):
+        left, right = right, left
+
+    return sum(weight * right.get(token, 0.0) for token, weight in left.items())
+
+
+def predict_answer(query: str) -> tuple[str, float]:
+    artifact = load_artifact()
+    if not artifact:
+        return FALLBACK_ANSWER, 0.0
+
+    token_to_id = artifact.get("token_to_id", {})
+    idf = artifact.get("idf", {})
+    documents = artifact.get("documents", [])
+
+    query_vector = vectorize_text(query, token_to_id, idf)
+    if not query_vector or not documents:
+        return FALLBACK_ANSWER, 0.0
+
+    best_answer = FALLBACK_ANSWER
+    best_score = 0.0
+
+    for document in documents:
+        score = cosine_similarity(query_vector, document.get("vector", {}))
+        if score > best_score:
+            best_score = score
+            best_answer = document.get("target_text", FALLBACK_ANSWER)
+
+    if best_score < MIN_MATCH_SCORE:
+        return FALLBACK_ANSWER, best_score
+
+    return best_answer, best_score
+
+
+def answer_from_messages(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return FALLBACK_ANSWER
+
+    answer, _score = predict_answer(query)
+    return answer
+
+
+ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_retriever.json"
+MIN_MATCH_SCORE = 0.18
+
+
+@lru_cache(maxsize=1)
+def load_artifact() -> dict[str, Any]:
+    if not ARTIFACT_PATH.exists():
+        return {}
+
+    with ARTIFACT_PATH.open("r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def predict_answer(query: str) -> tuple[str, float]:
+    artifact = load_artifact()
+    if not artifact:
+        return FALLBACK_ANSWER, 0.0
+
+    token_to_id = artifact.get("token_to_id", {})
+    idf = artifact.get("idf", {})
+    documents = artifact.get("documents", [])
+
+    query_vector = vectorize_text(query, token_to_id, idf)
+    if not query_vector or not documents:
+        return FALLBACK_ANSWER, 0.0
+
+    best_answer = FALLBACK_ANSWER
+    best_score = 0.0
+
+    for document in documents:
+        score = cosine_similarity(query_vector, document.get("vector", {}))
+        if score > best_score:
+            best_score = score
+            best_answer = document.get("target_text", FALLBACK_ANSWER)
+
+    if best_score < MIN_MATCH_SCORE:
+        return FALLBACK_ANSWER, best_score
+
+    return best_answer, best_score
+
+
+def answer_from_messages(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return FALLBACK_ANSWER
+
+    answer, _score = predict_answer(query)
+    return answer
+
+
+ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_retriever.json"
+MIN_MATCH_SCORE = 0.18
+
+
+@lru_cache(maxsize=1)
+def load_artifact() -> dict[str, Any]:
+    if not ARTIFACT_PATH.exists():
+        return {}
+
+    with ARTIFACT_PATH.open("r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def predict_answer(query: str) -> tuple[str, float]:
+    artifact = load_artifact()
+    if not artifact:
+        return FALLBACK_ANSWER, 0.0
+
+    token_to_id = artifact.get("token_to_id", {})
+    idf = artifact.get("idf", {})
+    documents = artifact.get("documents", [])
+
+    query_vector = vectorize_text(query, token_to_id, idf)
+    if not query_vector or not documents:
+        return FALLBACK_ANSWER, 0.0
+
+    best_answer = FALLBACK_ANSWER
+    best_score = 0.0
+
+    for document in documents:
+        score = cosine_similarity(query_vector, document.get("vector", {}))
+        if score > best_score:
+            best_score = score
+            best_answer = document.get("target_text", FALLBACK_ANSWER)
+
+    if best_score < MIN_MATCH_SCORE:
+        return FALLBACK_ANSWER, best_score
+
+    return best_answer, best_score
+
+
+def answer_from_messages(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return FALLBACK_ANSWER
+
+    answer, _score = predict_answer(query)
+    return answer
+
+
+ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_classifier.json"
+MIN_MATCH_SCORE = float("-inf")
+
+
+@lru_cache(maxsize=1)
+def load_artifact() -> dict[str, Any]:
+    if not ARTIFACT_PATH.exists():
+        return {}
+
+    with ARTIFACT_PATH.open("r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def predict_answer(query: str) -> tuple[str, float]:
+    artifact = load_artifact()
+    if not artifact:
+        return FALLBACK_ANSWER, float("-inf")
+
+    token_to_id = artifact.get("token_to_id", {})
+    classes = artifact.get("classes", {})
+    alpha = float(artifact.get("alpha", 1.0))
+    vocab_size = max(int(artifact.get("vocab_size", len(token_to_id))), 1)
+    total_documents = max(int(artifact.get("total_documents", 0)), 1)
+    default_answer = artifact.get("default_answer", FALLBACK_ANSWER)
+
+    tokens = [token for token in normalize_text(query) if token in token_to_id and token != "<unk>"]
+    if not tokens:
+        return default_answer, float("-inf")
+
+    query_counts = Counter(tokens)
+    best_answer = default_answer
+    best_score = float("-inf")
+
+    for answer, stats in classes.items():
+        document_count = int(stats.get("document_count", 0))
+        total_tokens = int(stats.get("total_tokens", 0))
+        token_counts = stats.get("token_counts", {})
+
+        if document_count <= 0:
+            continue
+
+        score = math.log(document_count / total_documents)
+        denominator = total_tokens + alpha * vocab_size
+
+        for token, count in query_counts.items():
+            token_count = int(token_counts.get(token, 0))
+            score += count * math.log((token_count + alpha) / denominator)
+
+        if score > best_score:
+            best_score = score
+            best_answer = answer
+
+    if best_score == float("-inf"):
+        return default_answer, best_score
+
+    return best_answer, best_score
+
+
+def answer_from_messages(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return FALLBACK_ANSWER
+
+    answer, _score = predict_answer(query)
+    return answer
+
+
+ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_retriever.json"
+MIN_MATCH_SCORE = 0.18
+
+
+@lru_cache(maxsize=1)
+def load_artifact() -> dict[str, Any]:
+    if not ARTIFACT_PATH.exists():
+        return {}
+
+    with ARTIFACT_PATH.open("r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def predict_answer(query: str) -> tuple[str, float]:
+    artifact = load_artifact()
+    if not artifact:
+        return FALLBACK_ANSWER, 0.0
+
+    token_to_id = artifact.get("token_to_id", {})
+    idf = artifact.get("idf", {})
+    documents = artifact.get("documents", [])
+
+    query_vector = vectorize_text(query, token_to_id, idf)
+    if not query_vector or not documents:
+        return FALLBACK_ANSWER, 0.0
+
+    best_answer = FALLBACK_ANSWER
+    best_score = 0.0
+
+    for document in documents:
+        score = cosine_similarity(query_vector, document.get("vector", {}))
+        if score > best_score:
+            best_score = score
+            best_answer = document.get("target_text", FALLBACK_ANSWER)
+
+    if best_score < MIN_MATCH_SCORE:
+        return FALLBACK_ANSWER, best_score
+
+    return best_answer, best_score
+
+
+def answer_from_messages(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return FALLBACK_ANSWER
+
+    answer, _score = predict_answer(query)
+    return answer
