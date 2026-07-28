@@ -12,7 +12,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-.DS_
+.DS_Store
 .venv
+backend/.venv
 __pycache__/
 backend/model/artifacts/portfolio_flan_t5/
