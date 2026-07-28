@@ -5786,5 +5786,197 @@
   {
     "input_text": "is hisham available for a meeting",
     "target_text": "You can check Hisham's availability and schedule a 30-minute meeting here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "specific project examples",
+    "target_text": "Specific project examples: Forecast Alpha, an AI-powered operational intelligence SaaS; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; AI Personal Assistant, a FastAPI assistant with transcription, memory, summaries, and Q&A; Stock Forecasting LSTM, a Python ML forecasting pipeline; BugSquancher, a Python CLI for failed command analysis; Rick and Morty API, a FastAPI and PostgreSQL service; LinguaLogic, a Rails gamified language-learning app; SEO Cyber Tool, a Rails SEO reporting tool; ML Data Analysis Suite, a Python desktop analytics app; Who's Snooping, a local network visibility tool; World Cup 2026 Tracker, a JavaScript fixture tracker; and Movie Favorite Watch List, a Rails movie list app."
+  },
+  {
+    "input_text": "full stack project examples",
+    "target_text": "Full-stack examples include Forecast Alpha, built across frontend, backend, authentication, data integrations, analytics, AI workflows, and deployment; Kifor Match, a Ruby on Rails and PostgreSQL donor-to-charity workflow MVP; LinguaLogic, a Rails app with role-based flows, interactive lessons, Devise, Stimulus, Turbo, PostgreSQL, and i18n; Movie Favorite Watch List, a Rails app with API integration, PostgreSQL, Stimulus, and Turbo; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product."
+  },
+  {
+    "input_text": "give me example of projects",
+    "target_text": "Examples of Hisham's projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "give me examples of projects",
+    "target_text": "Examples of Hisham's projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "give me example of projects where you demonstrated your full stack expertise",
+    "target_text": "Strong full-stack examples: Forecast Alpha, where I built SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; LinguaLogic, a Rails app with Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL; Movie Favorite Watch List, a Rails app with API integration and PostgreSQL; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product."
+  },
+  {
+    "input_text": "give me examples of projects where you demonstrated your full stack expertise",
+    "target_text": "Strong full-stack examples: Forecast Alpha, where I built SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; LinguaLogic, a Rails app with Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL; Movie Favorite Watch List, a Rails app with API integration and PostgreSQL; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product."
+  },
+  {
+    "input_text": "what projects show your full stack experience",
+    "target_text": "Projects that show my full-stack experience include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and Rick and Morty API. They cover frontend, backend, APIs, databases, authentication, workflows, deployment, and data integrations."
+  },
+  {
+    "input_text": "what projects show hisham's full stack experience",
+    "target_text": "Projects that show Hisham's full-stack experience include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and Rick and Morty API. They cover frontend, backend, APIs, databases, authentication, workflows, deployment, and data integrations."
+  },
+  {
+    "input_text": "show me project examples",
+    "target_text": "Project examples: Forecast Alpha for AI-powered SaaS and operational intelligence; Kifor Match for Rails and PostgreSQL workflow design; AI Personal Assistant for FastAPI and AI assistant workflows; Stock Forecasting LSTM for Python ML; BugSquancher for Python CLI tooling; Rick and Morty API for FastAPI and PostgreSQL; LinguaLogic for Rails, i18n, Devise, Stimulus, Turbo, Phaser.js, and PostgreSQL."
+  },
+  {
+    "input_text": "list your projects",
+    "target_text": "My projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "list hisham's projects",
+    "target_text": "Hisham's projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "what are your project examples",
+    "target_text": "Project examples include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "what are hisham's project examples",
+    "target_text": "Hisham's project examples include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "give me concrete project examples",
+    "target_text": "Concrete examples: Forecast Alpha is an AI-powered SaaS for operational intelligence; Kifor Match is a Rails and PostgreSQL nonprofit matching workflow; AI Personal Assistant is a FastAPI assistant for meetings, memory, summaries, and Q&A; Stock Forecasting LSTM is a Python ML forecasting pipeline; BugSquancher is a Python CLI that analyzes failed shell commands; Rick and Morty API is a FastAPI and PostgreSQL service."
+  },
+  {
+    "input_text": "give me specific project examples",
+    "target_text": "Specific examples: Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "what full stack apps have you built",
+    "target_text": "Full-stack apps I have built include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and this portfolio assistant. They involve frontend interfaces, backend logic, APIs, databases, authentication or workflows, and deployment."
+  },
+  {
+    "input_text": "what full-stack apps have you built",
+    "target_text": "Full-stack apps I have built include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and this portfolio assistant. They involve frontend interfaces, backend logic, APIs, databases, authentication or workflows, and deployment."
+  },
+  {
+    "input_text": "what are your strongest projects",
+    "target_text": "My strongest projects are Forecast Alpha for AI-powered SaaS and operational intelligence, Kifor Match for Rails and PostgreSQL workflow design, AI Personal Assistant for FastAPI and AI assistant architecture, and Stock Forecasting LSTM for machine learning and time-series forecasting."
+  },
+  {
+    "input_text": "what are hisham's strongest projects",
+    "target_text": "Hisham's strongest projects are Forecast Alpha for AI-powered SaaS and operational intelligence, Kifor Match for Rails and PostgreSQL workflow design, AI Personal Assistant for FastAPI and AI assistant architecture, and Stock Forecasting LSTM for machine learning and time-series forecasting."
+  },
+  {
+    "input_text": "which projects should i look at",
+    "target_text": "Start with Forecast Alpha for product and AI SaaS work, Kifor Match for full-stack Rails workflows, AI Personal Assistant for FastAPI and assistant behavior, Stock Forecasting LSTM for ML, and BugSquancher for developer tooling."
+  },
+  {
+    "input_text": "which github projects should i check",
+    "target_text": "Good GitHub projects to check include Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "give me rails project examples",
+    "target_text": "Rails project examples include Kifor Match, a donor-to-charity matching workflow with PostgreSQL; LinguaLogic, a gamified language-learning platform using Devise, Stimulus, Turbo, Phaser.js, i18n, and PostgreSQL; Movie Favorite Watch List, a Rails app with API integration and PostgreSQL; and SEO Cyber Tool, a Rails SEO reporting tool."
+  },
+  {
+    "input_text": "give me python project examples",
+    "target_text": "Python project examples include AI Personal Assistant with FastAPI and AI workflows, Stock Forecasting LSTM with Keras, Pandas, NumPy, and Scikit-learn, BugSquancher as a CLI error-analysis workflow, Rick and Morty API with FastAPI and PostgreSQL, and ML Data Analysis Suite with Pandas, Matplotlib, Seaborn, Scikit-learn, PyQt5, and FPDF."
+  },
+  {
+    "input_text": "give me ai project examples",
+    "target_text": "AI project examples include Forecast Alpha for AI-powered operational intelligence, AI Personal Assistant for transcription, memory, summarization, and Q&A workflows, Stock Forecasting LSTM for time-series ML, and ML Data Analysis Suite for analytics and machine learning workflows."
+  },
+  {
+    "input_text": "give me backend project examples",
+    "target_text": "Backend examples include Forecast Alpha APIs and data integrations, AI Personal Assistant with FastAPI, Rick and Morty API with FastAPI and PostgreSQL, Kifor Match with Rails and PostgreSQL, and BugSquancher with Python, shell workflows, and PostgreSQL."
+  },
+  {
+    "input_text": "give me frontend project examples",
+    "target_text": "Frontend examples include Forecast Alpha's SaaS interface, LinguaLogic's interactive learning flows, Movie Favorite Watch List's Rails views with Stimulus and Turbo, SEO Cyber Tool's reporting interface, World Cup 2026 Tracker using JavaScript, HTML, and CSS, and this portfolio assistant."
+  },
+  {
+    "input_text": "is this app an example of your work",
+    "target_text": "Yes. This portfolio assistant is itself an example of my work: a Next.js frontend connected to a FastAPI backend, a supervised conversation dataset, retrieval-based response logic, mobile chat UI, deployment on Vercel and FastAPI Cloud, and continuous iteration based on real user testing."
+  },
+  {
+    "input_text": "is this assistant an example of your work",
+    "target_text": "Yes. This assistant is a live project example: it combines a minimal chat frontend, FastAPI backend, curated training data, retrieval logic, memory-style follow-up handling, link rendering, mobile optimization, and production deployment."
+  },
+  {
+    "input_text": "is the app we are chatting on one of your projects",
+    "target_text": "Yes. The app you are chatting on is one of my projects. It is an AI-powered portfolio assistant built with Next.js on the frontend and FastAPI on the backend, using a curated conversation dataset and retrieval logic."
+  },
+  {
+    "input_text": "is this chat one of your projects",
+    "target_text": "Yes. This chat is one of my projects. It demonstrates full-stack work, AI assistant behavior, backend routing, supervised examples, deployment, mobile UI adjustments, and iterative product improvement."
+  },
+  {
+    "input_text": "tell me about this app as a project",
+    "target_text": "This app is a project example: a portfolio assistant built with Next.js, React, Tailwind CSS, a FastAPI backend, supervised conversation data, retrieval scoring, follow-up handling, URL rendering, and deployment across Vercel and FastAPI Cloud."
+  },
+  {
+    "input_text": "tell me about this assistant as a project",
+    "target_text": "This assistant is a project example that turns a static portfolio into an interactive AI-style chat. It uses a Next.js frontend, FastAPI backend, conversation training data, retrieval logic, memory-style follow-ups, and production deployment."
+  },
+  {
+    "input_text": "what does this app demonstrate",
+    "target_text": "This app demonstrates full-stack engineering, conversational UX, frontend design, backend API design, retrieval-based AI behavior, supervised dataset iteration, mobile optimization, deployment, and practical product thinking."
+  },
+  {
+    "input_text": "what does this assistant demonstrate",
+    "target_text": "This assistant demonstrates full-stack engineering, conversational UX, backend APIs, retrieval-based responses, supervised conversation data, follow-up handling, mobile behavior, and production deployment."
+  },
+  {
+    "input_text": "does this portfolio assistant count as a project",
+    "target_text": "Yes. This portfolio assistant counts as a project because it has a real frontend, backend, data layer, inference logic, deployment pipeline, and user-facing product behavior."
+  },
+  {
+    "input_text": "include this app as a project example",
+    "target_text": "This app is definitely a project example. It shows Hisham's ability to build a full-stack AI-style assistant with Next.js, FastAPI, supervised data, retrieval logic, mobile UI handling, and deployment."
+  },
+  {
+    "input_text": "give me examples including this app",
+    "target_text": "Examples include this portfolio assistant, Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List."
+  },
+  {
+    "input_text": "give me full stack examples including this app",
+    "target_text": "Full-stack examples include this portfolio assistant, Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and Rick and Morty API. This assistant itself uses Next.js, React, Tailwind CSS, FastAPI, supervised conversation data, retrieval logic, and deployment."
+  },
+  {
+    "input_text": "is this website a full stack project",
+    "target_text": "Yes. This website is a full-stack project: the landing page is a Next.js chat UI, the backend is FastAPI, the assistant uses a curated conversation dataset and retrieval artifact, and the frontend talks to the backend through an API route."
+  },
+  {
+    "input_text": "is this portfolio a full stack project",
+    "target_text": "Yes. This portfolio is a full-stack project because it combines a Next.js frontend, FastAPI backend, conversation data, retrieval logic, API proxying, deployment, and mobile chat behavior."
+  },
+  {
+    "input_text": "is this chat a full stack project",
+    "target_text": "Yes. This chat is a full-stack project: React and Next.js on the frontend, FastAPI on the backend, a trained retrieval artifact from conversations.json, and deployed services connected through an API route."
+  },
+  {
+    "input_text": "what stack does this app use",
+    "target_text": "This app uses Next.js, React, Tailwind CSS, a Vercel frontend, a FastAPI backend, supervised conversation data, a retrieval artifact, and FastAPI Cloud deployment."
+  },
+  {
+    "input_text": "what stack is this assistant built with",
+    "target_text": "This assistant is built with Next.js, React, Tailwind CSS, FastAPI, Python, conversations.json as the supervised source of truth, a retrieval artifact, and deployment through Vercel and FastAPI Cloud."
+  },
+  {
+    "input_text": "what stack is this chat built with",
+    "target_text": "This chat is built with Next.js, React, Tailwind CSS, FastAPI, Python, a supervised conversations.json dataset, retrieval scoring, and deployment on Vercel plus FastAPI Cloud."
+  },
+  {
+    "input_text": "what did you build in this app",
+    "target_text": "In this app, I built the chat landing page, mobile-responsive conversation UI, API proxy, FastAPI backend, supervised conversation dataset, retrieval training artifact, follow-up routing, link handling, and deployment setup."
+  },
+  {
+    "input_text": "what did hisham build in this app",
+    "target_text": "In this app, Hisham built the chat landing page, mobile-responsive conversation UI, API proxy, FastAPI backend, supervised conversation dataset, retrieval training artifact, follow-up routing, link handling, and deployment setup."
+  },
+  {
+    "input_text": "how does this app show full stack expertise",
+    "target_text": "This app shows full-stack expertise because it combines frontend UX, responsive chat layout, backend API design, supervised data modeling, retrieval inference, deployment, environment configuration, and real production debugging."
+  },
+  {
+    "input_text": "how does this assistant show full stack expertise",
+    "target_text": "This assistant shows full-stack expertise through its Next.js frontend, FastAPI backend, API route proxy, supervised data artifact, retrieval logic, follow-up handling, mobile keyboard fixes, and production deployment."
   }
 ]
