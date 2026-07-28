@@ -5789,27 +5789,27 @@
   },
   {
     "input_text": "specific project examples",
-    "target_text": "Specific project examples: Forecast Alpha, an AI-powered operational intelligence SaaS; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; AI Personal Assistant, a FastAPI assistant with transcription, memory, summaries, and Q&A; Stock Forecasting LSTM, a Python ML forecasting pipeline; BugSquancher, a Python CLI for failed command analysis; Rick and Morty API, a FastAPI and PostgreSQL service; LinguaLogic, a Rails gamified language-learning app; SEO Cyber Tool, a Rails SEO reporting tool; ML Data Analysis Suite, a Python desktop analytics app; Who's Snooping, a local network visibility tool; World Cup 2026 Tracker, a JavaScript fixture tracker; and Movie Favorite Watch List, a Rails movie list app. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Specific project examples:\n- Forecast Alpha: AI-powered operational intelligence SaaS.\n- Kifor Match: Ruby on Rails and PostgreSQL donor-to-charity matching MVP.\n- AI Personal Assistant: FastAPI assistant with transcription, memory, summaries, and Q&A.\n- Stock Forecasting LSTM: Python ML forecasting pipeline.\n- BugSquancher: Python CLI for failed command analysis.\n- Rick and Morty API: FastAPI and PostgreSQL service.\n- LinguaLogic: Rails gamified language-learning app.\n- SEO Cyber Tool: Rails SEO reporting tool.\n- ML Data Analysis Suite: Python desktop analytics app.\n- This portfolio assistant: Next.js frontend, FastAPI backend, retrieval logic, and deployment.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "full stack project examples",
-    "target_text": "Full-stack examples include Forecast Alpha, built across frontend, backend, authentication, data integrations, analytics, AI workflows, and deployment; Kifor Match, a Ruby on Rails and PostgreSQL donor-to-charity workflow MVP; LinguaLogic, a Rails app with role-based flows, interactive lessons, Devise, Stimulus, Turbo, PostgreSQL, and i18n; Movie Favorite Watch List, a Rails app with API integration, PostgreSQL, Stimulus, and Turbo; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Full-stack examples:\n- This portfolio assistant: Next.js, React, Tailwind CSS, FastAPI, supervised conversation data, retrieval logic, API proxying, mobile chat behavior, Vercel, and FastAPI Cloud.\n- Forecast Alpha: frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment.\n- Kifor Match: Ruby on Rails and PostgreSQL donor-to-charity workflow MVP.\n- LinguaLogic: Rails, Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL.\n- Movie Favorite Watch List: Rails app with API integration, PostgreSQL, Stimulus, and Turbo.\n- SEO Cyber Tool: Rails and JavaScript SEO reporting product.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "give me example of projects",
-    "target_text": "Examples of Hisham's projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Examples of Hisham's projects:\n- This portfolio assistant.\n- Forecast Alpha.\n- Kifor Match.\n- AI Personal Assistant.\n- Stock Forecasting LSTM.\n- BugSquancher.\n- Rick and Morty API.\n- LinguaLogic.\n- SEO Cyber Tool.\n- ML Data Analysis Suite.\n- Who's Snooping.\n- World Cup 2026 Tracker.\n- Movie Favorite Watch List.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "give me examples of projects",
-    "target_text": "Examples of Hisham's projects include Forecast Alpha, Kifor Match, AI Personal Assistant, Stock Forecasting LSTM, BugSquancher, Rick and Morty API, LinguaLogic, SEO Cyber Tool, ML Data Analysis Suite, Who's Snooping, World Cup 2026 Tracker, and Movie Favorite Watch List. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Examples of Hisham's projects:\n- This portfolio assistant.\n- Forecast Alpha.\n- Kifor Match.\n- AI Personal Assistant.\n- Stock Forecasting LSTM.\n- BugSquancher.\n- Rick and Morty API.\n- LinguaLogic.\n- SEO Cyber Tool.\n- ML Data Analysis Suite.\n- Who's Snooping.\n- World Cup 2026 Tracker.\n- Movie Favorite Watch List.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "give me example of projects where you demonstrated your full stack expertise",
-    "target_text": "Strong full-stack examples: Forecast Alpha, where I built SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; LinguaLogic, a Rails app with Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL; Movie Favorite Watch List, a Rails app with API integration and PostgreSQL; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Strong full-stack examples:\n- This portfolio assistant: chat UI, API proxy, FastAPI backend, retrieval artifact, follow-up routing, mobile keyboard handling, and deployment.\n- Forecast Alpha: SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment.\n- Kifor Match: Rails and PostgreSQL donor-to-charity matching MVP.\n- LinguaLogic: Rails, Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL.\n- Movie Favorite Watch List: Rails app with API integration and PostgreSQL.\n- SEO Cyber Tool: Rails and JavaScript SEO reporting product.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "give me examples of projects where you demonstrated your full stack expertise",
-    "target_text": "Strong full-stack examples: Forecast Alpha, where I built SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment; Kifor Match, a Rails and PostgreSQL donor-to-charity matching MVP; LinguaLogic, a Rails app with Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL; Movie Favorite Watch List, a Rails app with API integration and PostgreSQL; and SEO Cyber Tool, a Rails and JavaScript SEO reporting product. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Strong full-stack examples:\n- This portfolio assistant: chat UI, API proxy, FastAPI backend, retrieval artifact, follow-up routing, mobile keyboard handling, and deployment.\n- Forecast Alpha: SaaS workflows across frontend, backend APIs, authentication, data integrations, dashboards, analytics, AI-assisted insights, and deployment.\n- Kifor Match: Rails and PostgreSQL donor-to-charity matching MVP.\n- LinguaLogic: Rails, Devise, i18n, Stimulus, Turbo, Phaser.js, and PostgreSQL.\n- Movie Favorite Watch List: Rails app with API integration and PostgreSQL.\n- SEO Cyber Tool: Rails and JavaScript SEO reporting product.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "what projects show your full stack experience",
@@ -5849,11 +5849,11 @@
   },
   {
     "input_text": "what full stack apps have you built",
-    "target_text": "Full-stack apps I have built include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and this portfolio assistant. They involve frontend interfaces, backend logic, APIs, databases, authentication or workflows, and deployment. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Full-stack apps I have built:\n- This portfolio assistant: Next.js, FastAPI, retrieval data, mobile chat UI, and deployment.\n- Forecast Alpha: AI-powered SaaS for operational intelligence.\n- Kifor Match: Rails and PostgreSQL nonprofit workflow MVP.\n- LinguaLogic: Rails gamified language-learning platform.\n- Movie Favorite Watch List: Rails app with API integration.\n- SEO Cyber Tool: Rails and JavaScript reporting tool.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "what full-stack apps have you built",
-    "target_text": "Full-stack apps I have built include Forecast Alpha, Kifor Match, LinguaLogic, Movie Favorite Watch List, SEO Cyber Tool, and this portfolio assistant. They involve frontend interfaces, backend logic, APIs, databases, authentication or workflows, and deployment. You can view the full portfolio here: https://hishamkhashman.dev/portfolio"
+    "target_text": "Full-stack apps I have built:\n- This portfolio assistant: Next.js, FastAPI, retrieval data, mobile chat UI, and deployment.\n- Forecast Alpha: AI-powered SaaS for operational intelligence.\n- Kifor Match: Rails and PostgreSQL nonprofit workflow MVP.\n- LinguaLogic: Rails gamified language-learning platform.\n- Movie Favorite Watch List: Rails app with API integration.\n- SEO Cyber Tool: Rails and JavaScript reporting tool.\nPortfolio: https://hishamkhashman.dev/portfolio"
   },
   {
     "input_text": "what are your strongest projects",

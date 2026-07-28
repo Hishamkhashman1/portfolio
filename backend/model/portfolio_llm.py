@@ -185,8 +185,10 @@ DIRECT_QUERY_ALIASES = {
     "give me examples of projects": "specific project examples",
     "full stack projects": "full stack project examples",
     "full-stack projects": "full stack project examples",
+    "fullstack projects": "full stack project examples",
     "full stack examples": "full stack project examples",
     "full-stack examples": "full stack project examples",
+    "fullstack examples": "full stack project examples",
     "forecast alpha": "forecast alpha",
     "hobbies": "what do you like outside work",
     "interests": "what do you like outside work",
@@ -403,7 +405,7 @@ def topic_query_from_text(text: str) -> str | None:
         (("what should i ask", "where should we start", "what should we talk", "suggest a question", "i dont know what to ask", "i don't know what to ask"), "what should i ask first"),
         (("what do you like", "what does hisham like", "hobbies", "interests", "personal interests", "outside work", "free time", "spare time", "for fun", "model making", "learning languages"), "what do you like outside work"),
         (("give me example of projects", "give me examples of projects", "example of projects", "examples of projects", "project examples", "example projects", "specific projects", "show me projects", "list projects", "what projects have you built"), "specific project examples"),
-        (("full stack expertise", "full-stack expertise", "full stack projects", "full-stack projects", "demonstrated your full stack", "demonstrated your full-stack", "full stack examples", "full-stack examples"), "full stack project examples"),
+        (("full stack expertise", "full-stack expertise", "fullstack expertise", "full stack projects", "full-stack projects", "fullstack projects", "demonstrated your full stack", "demonstrated your full-stack", "demonstrated your fullstack", "full stack examples", "full-stack examples", "fullstack examples"), "full stack project examples"),
         (("ask me anything", "ask me about", "what can i ask", "what can you answer", "background, experience", "github, linkedin"), "what can i ask you about"),
         (("tell you more about his work", "tell me more about his work", "more about his work", "his work"), "tell me more about his work"),
         (("strengths and weaknesses", "strength and weaknesses", "strengths weaknesses"), "what are your strengths and weaknesses"),
@@ -480,6 +482,10 @@ def expand_follow_up_query(messages: Sequence[Any]) -> str:
     if direct_query:
         return direct_query
 
+    current_topic_query = topic_query_from_text(normalized_query)
+    if current_topic_query:
+        return current_topic_query
+
     if not is_short_follow_up(normalized_query):
         return query
 
@@ -487,10 +493,6 @@ def expand_follow_up_query(messages: Sequence[Any]) -> str:
     previous_user = previous_user_message(messages).lower()
     combined_context = f"{previous_user} {previous_assistant}".strip()
     remembered_topic = infer_conversation_topic(messages)
-
-    current_topic_query = topic_query_from_text(normalized_query)
-    if current_topic_query:
-        return current_topic_query
 
     if normalized_query in {"anything?", "really?", "like what?", "for example?", "what do you mean?"}:
         contextual_query = topic_query_from_text(combined_context)
