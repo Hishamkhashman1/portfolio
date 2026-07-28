@@ -3562,5 +3562,33 @@
   {
     "input_text": "tell me about your strengths and weaknesses",
     "target_text": "My strengths are backend engineering, full-stack development, software architecture, APIs, AI-powered systems, and building products from scratch. My main weakness is that I can spend too much time refining details, so I keep working on balancing quality with speed."
+  },
+  {
+    "input_text": "thanks a lot",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "thank you so much",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "appreciate it",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "appreciate you",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "much appreciated",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "thanks hisham",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
+  },
+  {
+    "input_text": "thank you hisham",
+    "target_text": "You're welcome. Ask me anything else about Hisham whenever you want."
   }
 ]

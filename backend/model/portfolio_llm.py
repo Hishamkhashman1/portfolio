@@ -57,6 +57,34 @@ TOPIC_PIVOT_PREFIXES = (
     "how about ",
     "and ",
 )
+REFERENTIAL_FOLLOW_UPS = {
+    "it",
+    "that",
+    "this",
+    "that one",
+    "this one",
+    "the link",
+    "link",
+    "can i see it",
+    "can i see that",
+    "can i see this",
+    "show it",
+    "show me it",
+    "show me that",
+    "show me this",
+    "send it",
+    "send me it",
+    "send me that",
+    "share it",
+    "share that",
+    "share this",
+    "open it",
+    "open that",
+    "where is it",
+    "where is that",
+    "download it",
+    "can i download it",
+}
 GREETING_PREFIXES = (
     "hello",
     "hi",
@@ -67,6 +95,48 @@ GREETING_PREFIXES = (
     "good afternoon",
     "good evening",
 )
+DIRECT_QUERY_ALIASES = {
+    "thanks": "thanks",
+    "thank you": "thank you",
+    "thank you so much": "thank you",
+    "thanks a lot": "thanks",
+    "appreciate it": "thank you",
+    "portfolio": "portfolio",
+    "your portfolio": "your portfolio",
+    "my portfolio": "my portfolio",
+    "portfolio link": "portfolio link",
+    "cv": "cv",
+    "resume": "resume",
+    "your cv": "your cv",
+    "your resume": "your resume",
+    "cv link": "cv link",
+    "resume link": "resume link",
+    "linkedin": "linkedin",
+    "your linkedin": "your linkedin",
+    "linkedin link": "linkedin link",
+    "github": "github",
+    "your github": "your github",
+    "github link": "github link",
+    "contact": "contact",
+    "contact details": "contact details",
+    "email": "email",
+    "whatsapp": "whatsapp",
+    "frontend": "frontend",
+    "front end": "front end",
+    "backend": "backend",
+    "html": "html",
+    "css": "css",
+    "javascript": "javascript",
+    "ai": "ai",
+    "education": "education",
+    "background": "background",
+    "experience": "experience",
+    "strengths": "what are your strengths",
+    "weaknesses": "what are your weaknesses",
+    "strengths and weaknesses": "what are your strengths and weaknesses",
+    "current role": "what is your current role",
+    "job": "what is your current role",
+}
 
 REWRITE_PROMPT_TEMPLATE = (
     "You rewrite portfolio answers without adding facts.\n"
@@ -183,11 +253,75 @@ def is_short_follow_up(query: str) -> bool:
     if normalized.startswith(GREETING_PREFIXES):
         return False
 
+    canonical = canonicalize_query(normalized)
     return (
         normalized in SHORT_FOLLOW_UPS
+        or canonical in REFERENTIAL_FOLLOW_UPS
         or len(normalized.split()) <= 2
         or normalized.startswith(TOPIC_PIVOT_PREFIXES)
     )
+
+
+def canonicalize_query(query: str) -> str:
+    normalized = " ".join(query.lower().split())
+    return normalized.strip(" ?!.>,<;:")
+
+
+def direct_query_alias(query: str) -> str | None:
+    return DIRECT_QUERY_ALIASES.get(canonicalize_query(query))
+
+
+def topic_query_from_text(text: str) -> str | None:
+    normalized = canonicalize_query(text)
+    padded = f" {normalized} "
+
+    topic_rules = [
+        (("ask me anything", "ask me about", "what can i ask", "what can you answer", "background, experience", "github, linkedin"), "what can i ask you about"),
+        (("tell you more about his work", "tell me more about his work", "more about his work", "his work"), "tell me more about his work"),
+        (("strengths and weaknesses", "strength and weaknesses", "strengths weaknesses"), "what are your strengths and weaknesses"),
+        (("weakness", "weaknesses", "weak point", "weak points", "improving", "need to improve"), "what are your weaknesses"),
+        (("strength", "strengths", "strongest", "best skills", "strong points"), "what are your strengths"),
+        (("work for", "employed", "freelance", "freelancing", "work for yourself", "current role", "role now", "job now"), "what is your current role"),
+        (("portfolio",), "portfolio"),
+        ((" cv ", "resume"), "cv"),
+        (("linkedin",), "linkedin"),
+        (("github",), "github"),
+        (("contact", "email", "whatsapp", "reach", "get in touch", "message"), "contact"),
+        (("frontend", "front end", "html", "css", "javascript"), "frontend"),
+        (("backend", "api", "fastapi", "rails", "postgresql", "sql"), "backend"),
+        ((" ai ", "artificial intelligence", "machine learning", "forecasting", "anomaly detection"), "ai"),
+        (("education", "school", "university", "degree", "study", "studied"), "education"),
+        (("experience", "career", "background"), "experience"),
+        (("forecast alpha",), "forecast alpha"),
+        (("die", "death", "after death"), "what happens when we die"),
+        (("work", "build", "projects"), "tell me more about his work"),
+    ]
+
+    for markers, expanded_query in topic_rules:
+        if any(marker in padded for marker in markers):
+            return expanded_query
+
+    return None
+
+
+def infer_conversation_topic(messages: Sequence[Any]) -> str | None:
+    seen_latest_user = False
+
+    for message in reversed(messages):
+        role = getattr(message, "role", None)
+        content = getattr(message, "content", "").strip()
+        if not content:
+            continue
+
+        if role == "user" and not seen_latest_user:
+            seen_latest_user = True
+            continue
+
+        topic_query = topic_query_from_text(content)
+        if topic_query:
+            return topic_query
+
+    return None
 
 
 def expand_follow_up_query(messages: Sequence[Any]) -> str:
@@ -196,38 +330,35 @@ def expand_follow_up_query(messages: Sequence[Any]) -> str:
         return ""
 
     normalized_query = " ".join(query.lower().split())
+    direct_query = direct_query_alias(normalized_query)
+    if direct_query:
+        return direct_query
+
     if not is_short_follow_up(normalized_query):
         return query
 
     previous_assistant = previous_assistant_message(messages).lower()
     previous_user = previous_user_message(messages).lower()
     combined_context = f"{previous_user} {previous_assistant}".strip()
+    remembered_topic = infer_conversation_topic(messages)
 
-    topic_rules = [
-        (("ask me anything", "ask me about", "background, experience, projects", "professional background"), "what can i ask you about"),
-        ((" ai ", "artificial intelligence", "machine learning", "forecasting", "anomaly detection"), "tell me about your ai experience"),
-        (("linkedin",), "what is your linkedin"),
-        (("github",), "what is your github"),
-        (("cv", "resume"), "do you have a cv"),
-        (("contact", "email", "whatsapp", "reach", "get in touch"), "how can i contact hisham"),
-        (("portfolio", "projects", "show me your work"), "show me your work"),
-        (("his work", "your work", "experience", "background", "build"), "tell me more about his work"),
-    ]
-
-    padded_context = f" {combined_context} "
-
-    for markers, expanded_query in topic_rules:
-        if any(marker in padded_context for marker in markers):
-            return expanded_query
+    current_topic_query = topic_query_from_text(normalized_query)
+    if current_topic_query:
+        return current_topic_query
 
     if normalized_query in {"anything?", "really?", "like what?", "for example?", "what do you mean?"}:
-        return "what can i ask you about"
+        contextual_query = topic_query_from_text(combined_context)
+        return contextual_query or remembered_topic or "what can i ask you about"
 
-    if normalized_query.startswith(("what about ai", "how about ai")):
-        return "tell me about your ai experience"
+    if canonicalize_query(normalized_query) in REFERENTIAL_FOLLOW_UPS and remembered_topic:
+        return remembered_topic
 
-    if "ai" in normalized_query or "artificial intelligence" in normalized_query or "machine learning" in normalized_query:
-        return "tell me about your ai experience"
+    contextual_query = topic_query_from_text(combined_context)
+    if contextual_query:
+        return contextual_query
+
+    if remembered_topic:
+        return remembered_topic
 
     if previous_user:
         return previous_user
