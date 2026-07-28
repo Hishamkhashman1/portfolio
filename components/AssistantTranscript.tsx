@@ -77,9 +77,9 @@ const AssistantTranscript = forwardRef<HTMLDivElement, AssistantTranscriptProps>
               <div
                 key={`${message.role}-${index}`}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
-              >
+                >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-6 sm:text-base ${
+                  className={`max-w-[85%] whitespace-pre-line break-words rounded-2xl px-4 py-3 text-sm leading-6 sm:text-base ${
                     message.role === "user"
                       ? "bg-zinc-950 text-white"
                       : "border border-zinc-200 bg-zinc-50 text-zinc-800"

@@ -5978,5 +5978,81 @@
   {
     "input_text": "how does this assistant show full stack expertise",
     "target_text": "This assistant shows full-stack expertise through its Next.js frontend, FastAPI backend, API route proxy, supervised data artifact, retrieval logic, follow-up handling, mobile keyboard fixes, and production deployment."
+  },
+  {
+    "input_text": "what languages does hisham speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what languages does he speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "which languages does hisham speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "which languages does he speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what languages can hisham speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what languages can he speak",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what spoken languages does hisham know",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what spoken languages does he know",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "list hisham's spoken languages",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "list his spoken languages",
+    "target_text": "Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what languages do you speak",
+    "target_text": "I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "which languages do you speak",
+    "target_text": "I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what languages can you speak",
+    "target_text": "I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "what spoken languages do you know",
+    "target_text": "I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "list your spoken languages",
+    "target_text": "I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "do you speak multiple languages",
+    "target_text": "Yes. I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "does hisham speak multiple languages",
+    "target_text": "Yes. Hisham speaks English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "is hisham multilingual",
+    "target_text": "Yes. Hisham is multilingual: English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
+  },
+  {
+    "input_text": "are you multilingual",
+    "target_text": "Yes. I speak English and Spanish at a native level, Arabic, Portuguese at a working proficiency, and Japanese at a limited working level."
   }
 ]

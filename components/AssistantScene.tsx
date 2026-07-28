@@ -17,7 +17,7 @@ export default function AssistantScene() {
   const [input, setInput] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [keyboardOffset, setKeyboardOffset] = useState(0);
-  const transcriptRef = useRef<HTMLDivElement | null>(null);
+  const transcriptScrollRef = useRef<HTMLDivElement | null>(null);
   const isConversationStarted = messages.some((message) => message.role === "user");
 
   useEffect(() => {
@@ -45,12 +45,12 @@ export default function AssistantScene() {
   }, []);
 
   useEffect(() => {
-    if (!transcriptRef.current) {
+    if (!transcriptScrollRef.current) {
       return;
     }
 
-    transcriptRef.current.scrollTo({
-      top: transcriptRef.current.scrollHeight,
+    transcriptScrollRef.current.scrollTo({
+      top: transcriptScrollRef.current.scrollHeight,
       behavior: "smooth"
     });
   }, [messages, isSending]);
@@ -105,9 +105,13 @@ export default function AssistantScene() {
       style={{ "--keyboard-offset": `${keyboardOffset}px` } as CSSProperties}
     >
       <div className="mx-auto flex h-full w-full max-w-3xl flex-col justify-center gap-6 sm:min-h-[calc(100vh-3rem)] sm:gap-10">
-        <div className="flex min-h-0 w-full flex-1 items-center justify-center overflow-y-auto pb-28 pt-3 sm:overflow-visible sm:pb-0 sm:pt-0">
+        <div
+          ref={transcriptScrollRef}
+          className={`flex min-h-0 w-full flex-1 overflow-y-auto pb-28 pt-3 sm:pb-4 sm:pt-0 ${
+            isConversationStarted ? "items-start justify-center" : "items-center justify-center"
+          }`}
+        >
           <AssistantTranscript
-            ref={transcriptRef}
             messages={messages}
             isPending={isSending}
             isConversationStarted={isConversationStarted}

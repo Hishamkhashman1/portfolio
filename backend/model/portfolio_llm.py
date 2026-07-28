@@ -196,6 +196,20 @@ DIRECT_QUERY_ALIASES = {
     "likes": "what do you like outside work",
     "what do you like": "what do you like outside work",
     "what does hisham like": "what does hisham like outside work",
+    "what languages do you speak": "what languages do you speak",
+    "what languages can you speak": "what languages do you speak",
+    "which languages do you speak": "what languages do you speak",
+    "what languages do you know": "what languages do you speak",
+    "languages you speak": "what languages do you speak",
+    "spoken languages": "what languages do you speak",
+    "what languages does hisham speak": "what languages does hisham speak",
+    "what languages does he speak": "what languages does hisham speak",
+    "which languages does hisham speak": "what languages does hisham speak",
+    "which languages does he speak": "what languages does hisham speak",
+    "what languages can hisham speak": "what languages does hisham speak",
+    "what languages can he speak": "what languages does hisham speak",
+    "languages hisham speaks": "what languages does hisham speak",
+    "languages he speaks": "what languages does hisham speak",
     "calendly": "calendly link",
     "calendar": "calendly link",
     "meeting": "schedule a meeting",
@@ -391,6 +405,12 @@ def direct_query_alias(query: str) -> str | None:
 def topic_query_from_text(text: str) -> str | None:
     normalized = canonicalize_query(text)
     padded = f" {normalized} "
+
+    if ("language" in normalized or "speak" in normalized) and "arabic" not in normalized:
+        if any(marker in normalized for marker in ("hisham", " he ", " his ")):
+            return "what languages does hisham speak"
+        if any(marker in normalized for marker in ("what languages", "which languages", "languages do", "languages can", "languages you", "spoken languages")):
+            return "what languages do you speak"
 
     topic_rules = [
         (("bye", "goodbye", "good bye", "see you", "see ya", "later", "adios", "sayonara", "farewell", "take care"), "goodbye"),
