@@ -4054,5 +4054,81 @@
   {
     "input_text": "are aliens real",
     "target_text": "Maybe. I think life elsewhere is plausible, but we do not have confirmed evidence. The serious version is scientific, not Hollywood."
+  },
+  {
+    "input_text": "bye",
+    "target_text": "See you later. Thanks for visiting my portfolio."
+  },
+  {
+    "input_text": "goodbye",
+    "target_text": "Goodbye. Thanks for stopping by."
+  },
+  {
+    "input_text": "good bye",
+    "target_text": "Goodbye. Thanks for stopping by."
+  },
+  {
+    "input_text": "see you later",
+    "target_text": "See you later! Feel free to come back anytime."
+  },
+  {
+    "input_text": "see you",
+    "target_text": "See you later. Feel free to come back anytime."
+  },
+  {
+    "input_text": "see ya",
+    "target_text": "See you later. Feel free to come back anytime."
+  },
+  {
+    "input_text": "later",
+    "target_text": "See you later. Feel free to come back anytime."
+  },
+  {
+    "input_text": "talk later",
+    "target_text": "Sounds good. Come back anytime."
+  },
+  {
+    "input_text": "talk to you later",
+    "target_text": "Sounds good. Come back anytime."
+  },
+  {
+    "input_text": "catch you later",
+    "target_text": "See you later. Thanks for stopping by."
+  },
+  {
+    "input_text": "until next time",
+    "target_text": "Until next time. Thanks for visiting."
+  },
+  {
+    "input_text": "farewell",
+    "target_text": "Farewell. Thanks for stopping by."
+  },
+  {
+    "input_text": "take care",
+    "target_text": "Take care. Feel free to come back anytime."
+  },
+  {
+    "input_text": "have a good day",
+    "target_text": "Thanks, you too. Have a good day."
+  },
+  {
+    "input_text": "have a nice day",
+    "target_text": "Thanks, you too. Have a nice day."
+  },
+  {
+    "input_text": "adios",
+    "target_text": "Adios. Thanks for visiting my portfolio."
+  },
+  {
+    "input_text": "sayonara",
+    "target_text": "Sayonara. Thanks for stopping by."
+  },
+  {
+    "input_text": "ciao",
+    "target_text": "Ciao. Thanks for stopping by."
+  },
+  {
+    "input_text": "peace out",
+    "target_text": "Take care. Come back anytime."
   }
 ]

@@ -101,6 +101,18 @@ DIRECT_QUERY_ALIASES = {
     "thank you so much": "thank you",
     "thanks a lot": "thanks",
     "appreciate it": "thank you",
+    "bye": "bye",
+    "goodbye": "goodbye",
+    "good bye": "goodbye",
+    "see you": "see you later",
+    "see you later": "see you later",
+    "see ya": "see you later",
+    "later": "see you later",
+    "talk later": "see you later",
+    "adios": "goodbye",
+    "sayonara": "goodbye",
+    "farewell": "goodbye",
+    "take care": "take care",
     "portfolio": "portfolio",
     "your portfolio": "your portfolio",
     "my portfolio": "my portfolio",
@@ -304,6 +316,7 @@ def topic_query_from_text(text: str) -> str | None:
     padded = f" {normalized} "
 
     topic_rules = [
+        (("bye", "goodbye", "good bye", "see you", "see ya", "later", "adios", "sayonara", "farewell", "take care"), "goodbye"),
         (("ask me anything", "ask me about", "what can i ask", "what can you answer", "background, experience", "github, linkedin"), "what can i ask you about"),
         (("tell you more about his work", "tell me more about his work", "more about his work", "his work"), "tell me more about his work"),
         (("strengths and weaknesses", "strength and weaknesses", "strengths weaknesses"), "what are your strengths and weaknesses"),
