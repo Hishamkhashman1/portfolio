@@ -49,9 +49,16 @@ export default function AssistantScene() {
       return;
     }
 
-    transcriptScrollRef.current.scrollTo({
-      top: transcriptScrollRef.current.scrollHeight,
-      behavior: "smooth"
+    const scrollElement = transcriptScrollRef.current;
+    requestAnimationFrame(() => {
+      scrollElement.scrollTo({
+        top: scrollElement.scrollHeight,
+        behavior: "smooth"
+      });
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth"
+      });
     });
   }, [messages, isSending]);
 
@@ -101,13 +108,13 @@ export default function AssistantScene() {
 
   return (
     <main
-      className="relative h-[100dvh] overflow-hidden bg-white px-4 pt-6 text-zinc-950 sm:min-h-screen sm:px-6 sm:py-6"
+      className="relative h-[100dvh] overflow-y-auto bg-white px-4 pt-6 text-zinc-950 sm:px-6 sm:py-6"
       style={{ "--keyboard-offset": `${keyboardOffset}px` } as CSSProperties}
     >
-      <div className="mx-auto flex h-full w-full max-w-3xl flex-col justify-center gap-6 sm:min-h-[calc(100vh-3rem)] sm:gap-10">
+      <div className="mx-auto flex min-h-full w-full max-w-3xl flex-col justify-center gap-6 sm:gap-10">
         <div
           ref={transcriptScrollRef}
-          className={`flex min-h-0 w-full flex-1 overflow-y-auto pb-28 pt-3 sm:pb-4 sm:pt-0 ${
+          className={`flex min-h-0 w-full flex-1 touch-pan-y overflow-y-auto overscroll-contain pb-40 pt-3 sm:pb-6 sm:pt-0 ${
             isConversationStarted ? "items-start justify-center" : "items-center justify-center"
           }`}
         >
