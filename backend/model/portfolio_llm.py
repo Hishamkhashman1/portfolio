@@ -14,6 +14,11 @@ except ModuleNotFoundError:  # pragma: no cover - repo-root execution
     from backend.model.tokenizer import normalize_text
 
 try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:  # pragma: no cover - optional until installed
+    SentenceTransformer = None  # type: ignore[assignment]
+
+try:
     import torch
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 except ImportError:  # pragma: no cover - optional until the venv dependencies are present
@@ -26,6 +31,32 @@ RETRIEVER_ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portf
 REWRITE_MODEL_NAME = "google/flan-t5-small"
 FALLBACK_ANSWER = "I'm still learning that part of Hisham's portfolio."
 MIN_MATCH_SCORE = 0.18
+DEFAULT_TFIDF_WEIGHT = 0.45
+DEFAULT_EMBEDDING_WEIGHT = 0.55
+SHORT_FOLLOW_UPS = {
+    "yes",
+    "yeah",
+    "yep",
+    "sure",
+    "ok",
+    "okay",
+    "please",
+    "go on",
+    "continue",
+    "more",
+    "tell me more",
+    "can you tell me more",
+    "anything?",
+    "really?",
+    "like what?",
+    "for example?",
+    "what do you mean?",
+}
+TOPIC_PIVOT_PREFIXES = (
+    "what about ",
+    "how about ",
+    "and ",
+)
 
 REWRITE_PROMPT_TEMPLATE = (
     "You rewrite portfolio answers without adding facts.\n"
@@ -43,6 +74,43 @@ def latest_user_message(messages: Sequence[Any]) -> str:
             content = getattr(message, "content", "").strip()
             if content:
                 return content
+
+    return ""
+
+
+def previous_assistant_message(messages: Sequence[Any]) -> str:
+    seen_latest_user = False
+
+    for message in reversed(messages):
+        role = getattr(message, "role", None)
+        content = getattr(message, "content", "").strip()
+        if not content:
+            continue
+
+        if role == "user" and not seen_latest_user:
+            seen_latest_user = True
+            continue
+
+        if seen_latest_user and role == "assistant":
+            return content
+
+    return ""
+
+
+def previous_user_message(messages: Sequence[Any]) -> str:
+    seen_latest_user = False
+
+    for message in reversed(messages):
+        role = getattr(message, "role", None)
+        content = getattr(message, "content", "").strip()
+        if role != "user" or not content:
+            continue
+
+        if not seen_latest_user:
+            seen_latest_user = True
+            continue
+
+        return content
 
     return ""
 
@@ -100,6 +168,60 @@ def normalize_answer_person(answer: str) -> str:
     return text
 
 
+def is_short_follow_up(query: str) -> bool:
+    normalized = " ".join(query.lower().split())
+    return (
+        normalized in SHORT_FOLLOW_UPS
+        or len(normalized.split()) <= 2
+        or normalized.startswith(TOPIC_PIVOT_PREFIXES)
+    )
+
+
+def expand_follow_up_query(messages: Sequence[Any]) -> str:
+    query = latest_user_message(messages)
+    if not query:
+        return ""
+
+    normalized_query = " ".join(query.lower().split())
+    if not is_short_follow_up(normalized_query):
+        return query
+
+    previous_assistant = previous_assistant_message(messages).lower()
+    previous_user = previous_user_message(messages).lower()
+    combined_context = f"{previous_user} {previous_assistant}".strip()
+
+    topic_rules = [
+        (("ask me anything", "ask me about", "background, experience, projects", "professional background"), "what can i ask you about"),
+        ((" ai ", "artificial intelligence", "machine learning", "forecasting", "anomaly detection"), "tell me about your ai experience"),
+        (("linkedin",), "what is your linkedin"),
+        (("github",), "what is your github"),
+        (("cv", "resume"), "do you have a cv"),
+        (("contact", "email", "whatsapp", "reach", "get in touch"), "how can i contact hisham"),
+        (("portfolio", "projects", "show me your work"), "show me your work"),
+        (("his work", "your work", "experience", "background", "build"), "tell me more about his work"),
+    ]
+
+    padded_context = f" {combined_context} "
+
+    for markers, expanded_query in topic_rules:
+        if any(marker in padded_context for marker in markers):
+            return expanded_query
+
+    if normalized_query in {"anything?", "really?", "like what?", "for example?", "what do you mean?"}:
+        return "what can i ask you about"
+
+    if normalized_query.startswith(("what about ai", "how about ai")):
+        return "tell me about your ai experience"
+
+    if "ai" in normalized_query or "artificial intelligence" in normalized_query or "machine learning" in normalized_query:
+        return "tell me about your ai experience"
+
+    if previous_user:
+        return previous_user
+
+    return query
+
+
 @lru_cache(maxsize=1)
 def load_retriever_artifact() -> dict[str, Any]:
     if not RETRIEVER_ARTIFACT_PATH.exists():
@@ -144,6 +266,42 @@ def cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
     return sum(weight * right.get(token, 0.0) for token, weight in left.items())
 
 
+def dense_cosine_similarity(left: list[float] | None, right: list[float] | None) -> float:
+    if not left or not right or len(left) != len(right):
+        return 0.0
+
+    return sum(left_value * right_value for left_value, right_value in zip(left, right))
+
+
+@lru_cache(maxsize=1)
+def load_embedding_model() -> Any | None:
+    if SentenceTransformer is None:
+        return None
+
+    artifact = load_retriever_artifact()
+    model_name = artifact.get("embedding_model")
+    if not model_name:
+        return None
+
+    try:
+        return SentenceTransformer(model_name)
+    except Exception:
+        return None
+
+
+def build_query_embedding(query: str) -> list[float] | None:
+    model = load_embedding_model()
+    if model is None:
+        return None
+
+    encoded = model.encode(
+        query,
+        normalize_embeddings=True,
+        show_progress_bar=False,
+    )
+    return encoded.tolist()
+
+
 def predict_answer(query: str) -> tuple[str, float]:
     artifact = load_retriever_artifact()
     if not artifact:
@@ -152,16 +310,29 @@ def predict_answer(query: str) -> tuple[str, float]:
     token_to_id = artifact.get("token_to_id", {})
     idf = artifact.get("idf", {})
     documents = artifact.get("documents", [])
+    hybrid_weights = artifact.get("hybrid_weights", {})
+    tfidf_weight = float(hybrid_weights.get("tfidf", DEFAULT_TFIDF_WEIGHT))
+    embedding_weight = float(hybrid_weights.get("embedding", DEFAULT_EMBEDDING_WEIGHT))
 
     query_vector = vectorize_text(query, token_to_id, idf)
-    if not query_vector or not documents:
+    query_embedding = build_query_embedding(query)
+    if not documents or (not query_vector and query_embedding is None):
         return FALLBACK_ANSWER, 0.0
 
     best_answer = FALLBACK_ANSWER
     best_score = 0.0
 
     for document in documents:
-        score = cosine_similarity(query_vector, document.get("vector", {}))
+        tfidf_score = cosine_similarity(query_vector, document.get("vector", {})) if query_vector else 0.0
+        embedding_score = dense_cosine_similarity(query_embedding, document.get("embedding"))
+
+        if query_embedding is None:
+            score = tfidf_score
+        elif query_vector:
+            score = (tfidf_score * tfidf_weight) + (embedding_score * embedding_weight)
+        else:
+            score = embedding_score
+
         if score > best_score:
             best_score = score
             best_answer = document.get("target_text", FALLBACK_ANSWER)
@@ -228,7 +399,7 @@ def rewrite_third_person_answer(question: str, reference_answer: str) -> str:
 
 
 def answer_from_messages(messages: Sequence[Any]) -> str:
-    query = latest_user_message(messages)
+    query = expand_follow_up_query(messages)
     if not query:
         return FALLBACK_ANSWER
 

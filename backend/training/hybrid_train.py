@@ -52,7 +52,6 @@ def split_samples(
 
     validation_size = max(1, int(len(shuffled) * validation_ratio))
     validation_size = min(validation_size, len(shuffled) - 1)
-
     return shuffled[:-validation_size], shuffled[-validation_size:]
 
 
@@ -60,8 +59,7 @@ def build_document_frequency(samples: list[dict[str, str]]) -> dict[str, int]:
     document_frequency: dict[str, int] = defaultdict(int)
 
     for sample in samples:
-        tokens = set(normalize_text(sample["input_text"]))
-        for token in tokens:
+        for token in set(normalize_text(sample["input_text"])):
             document_frequency[token] += 1
 
     return dict(document_frequency)
@@ -109,7 +107,7 @@ def vectorize_text(text: str, token_to_id: dict[str, int], idf: dict[str, float]
     return {token: weight / norm for token, weight in vector.items()}
 
 
-def cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
+def sparse_cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
     if not left or not right:
         return 0.0
 
@@ -184,15 +182,15 @@ def predict_answer(
     tfidf_weight: float = TFIDF_WEIGHT,
     embedding_weight: float = EMBEDDING_WEIGHT,
 ) -> tuple[str, float]:
-    query_vector = vectorize_text(query, token_to_id, idf)
     if not documents:
         return "", 0.0
 
+    query_vector = vectorize_text(query, token_to_id, idf)
     best_answer = ""
     best_score = 0.0
 
     for document in documents:
-        tfidf_score = cosine_similarity(query_vector, document["vector"]) if query_vector else 0.0
+        tfidf_score = sparse_cosine_similarity(query_vector, document.get("vector", {})) if query_vector else 0.0
         embedding_score = dense_cosine_similarity(query_embedding, document.get("embedding"))
 
         if query_embedding is None:
@@ -245,7 +243,7 @@ def save_artifact(
     artifact_path: Path,
     token_to_id: dict[str, int],
     idf: dict[str, float],
-    train_documents: list[dict[str, Any]],
+    documents: list[dict[str, Any]],
     validation_metrics: dict[str, float],
     train_size: int,
     validation_size: int,
@@ -258,14 +256,14 @@ def save_artifact(
         "train_size": train_size,
         "validation_size": validation_size,
         "validation_metrics": validation_metrics,
-        "embedding_model": EMBEDDING_MODEL_NAME if any(document.get("embedding") for document in train_documents) else None,
+        "embedding_model": EMBEDDING_MODEL_NAME if any(document.get("embedding") for document in documents) else None,
         "hybrid_weights": {
             "tfidf": TFIDF_WEIGHT,
             "embedding": EMBEDDING_WEIGHT,
         },
         "token_to_id": token_to_id,
         "idf": idf,
-        "documents": train_documents,
+        "documents": documents,
     }
 
     with artifact_path.open("w", encoding="utf-8") as file:
@@ -278,6 +276,7 @@ def train() -> dict[str, Any]:
 
     cleaned_lookup = cleaning_data(conversations_data)
     token_to_id = build_vocab(cleaned_lookup)
+
     train_document_frequency = build_document_frequency(train_samples)
     train_idf = build_idf(token_to_id, train_document_frequency, len(train_samples))
     train_embeddings = build_embeddings([sample["input_text"] for sample in train_samples])
@@ -309,277 +308,9 @@ def train() -> dict[str, Any]:
     return {
         "artifact_path": str(ARTIFACT_PATH),
         "sample_count": len(samples),
-        "train_count": len(samples),
+        "train_count": len(train_samples),
         "validation_count": len(validation_samples),
         "validation_metrics": validation_metrics,
         "model_type": "hybrid_retriever",
         "embedding_model": EMBEDDING_MODEL_NAME if full_embeddings is not None else None,
     }
-
-
-ARTIFACT_PATH = Path(__file__).resolve().parents[1] / "model" / "artifacts" / "portfolio_classifier.json"
-SMOOTHING = 1.0
-
-
-def build_vocab_from_samples(samples: list[dict[str, str]]) -> dict[str, int]:
-    token_to_id = {"<unk>": 0}
-
-    for sample in samples:
-        for token in normalize_text(sample["input_text"]):
-            if token not in token_to_id:
-                token_to_id[token] = len(token_to_id)
-
-    return token_to_id
-
-
-def train_classifier(
-    samples: list[dict[str, str]],
-    token_to_id: dict[str, int],
-    smoothing: float = SMOOTHING,
-) -> dict[str, Any]:
-    class_document_counts: dict[str, int] = defaultdict(int)
-    class_token_counts: dict[str, Counter[str]] = defaultdict(Counter)
-    class_total_tokens: dict[str, int] = defaultdict(int)
-    class_order: list[str] = []
-
-    for sample in samples:
-        answer = sample["target_text"]
-        if answer not in class_document_counts:
-            class_order.append(answer)
-
-        class_document_counts[answer] += 1
-
-        tokens = [token for token in normalize_text(sample["input_text"]) if token in token_to_id and token != "<unk>"]
-        class_token_counts[answer].update(tokens)
-        class_total_tokens[answer] += len(tokens)
-
-    total_documents = len(samples)
-    default_answer = max(class_document_counts.items(), key=lambda item: item[1])[0] if class_document_counts else ""
-
-    classes: dict[str, dict[str, Any]] = {}
-    for answer in class_order:
-        classes[answer] = {
-            "document_count": class_document_counts[answer],
-            "total_tokens": class_total_tokens[answer],
-            "token_counts": dict(class_token_counts[answer]),
-        }
-
-    return {
-        "model_type": "multinomial_naive_bayes",
-        "alpha": smoothing,
-        "token_to_id": token_to_id,
-        "vocab_size": len(token_to_id),
-        "total_documents": total_documents,
-        "default_answer": default_answer,
-        "classes": classes,
-    }
-
-
-def predict_answer(query: str, model: dict[str, Any]) -> tuple[str, float]:
-    token_to_id = model.get("token_to_id", {})
-    classes = model.get("classes", {})
-    alpha = float(model.get("alpha", SMOOTHING))
-    vocab_size = max(int(model.get("vocab_size", len(token_to_id))), 1)
-    total_documents = max(int(model.get("total_documents", 0)), 1)
-    default_answer = model.get("default_answer", "")
-
-    tokens = [token for token in normalize_text(query) if token in token_to_id and token != "<unk>"]
-    if not tokens:
-        return default_answer, float("-inf")
-
-    query_counts = Counter(tokens)
-    best_answer = default_answer
-    best_score = float("-inf")
-
-    for answer, stats in classes.items():
-        document_count = int(stats.get("document_count", 0))
-        total_tokens = int(stats.get("total_tokens", 0))
-        token_counts = stats.get("token_counts", {})
-
-        if document_count <= 0:
-            continue
-
-        score = math.log(document_count / total_documents)
-        denominator = total_tokens + alpha * vocab_size
-
-        for token, count in query_counts.items():
-            token_count = int(token_counts.get(token, 0))
-            score += count * math.log((token_count + alpha) / denominator)
-
-        if score > best_score:
-            best_score = score
-            best_answer = answer
-
-    return best_answer, best_score
-
-
-def evaluate_classifier(samples: list[dict[str, str]], model: dict[str, Any]) -> dict[str, float]:
-    if not samples:
-        return {"accuracy": 0.0, "average_score": 0.0}
-
-    correct = 0
-    total_score = 0.0
-
-    for sample in samples:
-        predicted_answer, score = predict_answer(sample["input_text"], model)
-        total_score += score if score != float("-inf") else 0.0
-        if predicted_answer == sample["target_text"]:
-            correct += 1
-
-    return {
-        "accuracy": correct / len(samples),
-        "average_score": total_score / len(samples),
-    }
-
-
-def save_classifier_artifact(
-    artifact_path: Path,
-    model: dict[str, Any],
-    validation_metrics: dict[str, float],
-    train_size: int,
-    validation_size: int,
-) -> None:
-    artifact_path.parent.mkdir(parents=True, exist_ok=True)
-
-    payload = {
-        **model,
-        "created_at": "2026-07-28T00:00:00Z",
-        "train_size": train_size,
-        "validation_size": validation_size,
-        "validation_metrics": validation_metrics,
-    }
-
-    with artifact_path.open("w", encoding="utf-8") as file:
-        json.dump(payload, file, indent=2, ensure_ascii=False)
-
-
-def train() -> dict[str, Any]:
-    samples = build_for_training(conversations_data)
-    train_samples, validation_samples = split_samples(samples)
-    token_to_id = build_vocab_from_samples(train_samples)
-    model = train_classifier(train_samples, token_to_id)
-    validation_metrics = evaluate_classifier(validation_samples, model)
-
-    save_classifier_artifact(
-        ARTIFACT_PATH,
-        model,
-        validation_metrics,
-        len(train_samples),
-        len(validation_samples),
-    )
-
-    return {
-        "artifact_path": str(ARTIFACT_PATH),
-        "sample_count": len(samples),
-        "train_count": len(train_samples),
-        "validation_count": len(validation_samples),
-        "validation_metrics": validation_metrics,
-        "model_type": model["model_type"],
-    }
-
-
-def main() -> None:
-    summary = train()
-    print(f"saved artifact: {summary['artifact_path']}")
-    print(
-        "samples: "
-        f"{summary['sample_count']} | "
-        f"train: {summary['train_count']} | "
-        f"validation: {summary['validation_count']}"
-    )
-    print(
-        "validation accuracy: "
-        f"{summary['validation_metrics']['accuracy']:.3f} | "
-        f"average similarity: {summary['validation_metrics']['average_score']:.3f}"
-    )
-
-
-if __name__ == "__main__":
-    main()
-
-
-def predict_answer(
-    query: str,
-    documents: list[dict[str, Any]],
-    token_to_id: dict[str, int],
-    idf: dict[str, float],
-) -> tuple[str, float]:
-    query_vector = vectorize_text(query, token_to_id, idf)
-    if not query_vector or not documents:
-        return "", 0.0
-
-    best_answer = ""
-    best_score = 0.0
-
-    for document in documents:
-        score = cosine_similarity(query_vector, document["vector"])
-        if score > best_score:
-            best_score = score
-            best_answer = document["target_text"]
-
-    return best_answer, best_score
-
-
-ARTIFACT_PATH = Path(__file__).resolve().parents[1] / "model" / "artifacts" / "portfolio_retriever.json"
-
-
-def train() -> dict[str, Any]:
-    samples = build_for_training(conversations_data)
-    train_samples, validation_samples = split_samples(samples)
-
-    cleaned_lookup = cleaning_data(conversations_data)
-    token_to_id = build_vocab(cleaned_lookup)
-
-    train_document_frequency = build_document_frequency(train_samples)
-    train_idf = build_idf(token_to_id, train_document_frequency, len(train_samples))
-    train_documents = build_training_documents(train_samples, token_to_id, train_idf)
-    validation_metrics = evaluate(validation_samples, train_documents, token_to_id, train_idf)
-
-    full_document_frequency = build_document_frequency(samples)
-    full_idf = build_idf(token_to_id, full_document_frequency, len(samples))
-    full_documents = build_training_documents(samples, token_to_id, full_idf)
-
-    save_artifact(
-        ARTIFACT_PATH,
-        token_to_id,
-        full_idf,
-        full_documents,
-        validation_metrics,
-        len(samples),
-        len(validation_samples),
-    )
-
-    return {
-        "artifact_path": str(ARTIFACT_PATH),
-        "sample_count": len(samples),
-        "train_count": len(samples),
-        "validation_count": len(validation_samples),
-        "validation_metrics": validation_metrics,
-        "model_type": "tfidf_retriever",
-    }
-
-
-try:
-    from training.hybrid_train import train as train
-except ModuleNotFoundError:  # pragma: no cover - repo-root execution
-    from backend.training.hybrid_train import train as train
-
-
-def main() -> None:
-    summary = train()
-    print(f"saved artifact: {summary['artifact_path']}")
-    print(
-        "samples: "
-        f"{summary['sample_count']} | "
-        f"train: {summary['train_count']} | "
-        f"validation: {summary['validation_count']}"
-    )
-    print(
-        "validation accuracy: "
-        f"{summary['validation_metrics']['accuracy']:.3f} | "
-        f"average similarity: {summary['validation_metrics']['average_score']:.3f}"
-    )
-
-
-if __name__ == "__main__":
-    main()
