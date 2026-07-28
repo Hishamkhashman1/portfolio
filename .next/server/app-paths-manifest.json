@@ -1,10 +1,10 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/chat/route": "app/api/chat/route.js",
+  "/api/github-activity/route": "app/api/github-activity/route.js",
   "/portfolio/about/page": "app/portfolio/about/page.js",
   "/portfolio/services/page": "app/portfolio/services/page.js",
-  "/api/github-activity/route": "app/api/github-activity/route.js",
   "/page": "app/page.js",
-  "/portfolio/page": "app/portfolio/page.js",
-  "/download/cv/route": "app/download/cv/route.js"
+  "/download/cv/route": "app/download/cv/route.js",
+  "/portfolio/page": "app/portfolio/page.js"
 }

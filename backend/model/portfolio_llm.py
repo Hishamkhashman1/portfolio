@@ -18,13 +18,17 @@ try:
 except ImportError:  # pragma: no cover - optional until installed
     SentenceTransformer = None  # type: ignore[assignment]
 
-try:
-    import torch
-    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
-except ImportError:  # pragma: no cover - optional until the venv dependencies are present
-    torch = None  # type: ignore[assignment]
-    AutoModelForSeq2SeqLM = None  # type: ignore[assignment]
-    AutoTokenizer = None  # type: ignore[assignment]
+# FLAN-T5 rewrite support is intentionally disabled for the current deployed MVP.
+# Loading torch/transformers during a live FastAPI request is too heavy for the
+# current FastAPI Cloud runtime and causes /chat to time out. Keep this here as
+# a marker for the future offline rewrite/training path.
+# try:
+#     import torch
+#     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+# except ImportError:  # pragma: no cover - optional until the venv dependencies are present
+#     torch = None  # type: ignore[assignment]
+#     AutoModelForSeq2SeqLM = None  # type: ignore[assignment]
+#     AutoTokenizer = None  # type: ignore[assignment]
 
 
 RETRIEVER_ARTIFACT_PATH = Path(__file__).resolve().parent / "artifacts" / "portfolio_retriever.json"
@@ -593,15 +597,15 @@ def predict_answer(query: str) -> tuple[str, float]:
     return best_answer, best_score
 
 
-@lru_cache(maxsize=1)
-def load_rewrite_bundle() -> tuple[AutoTokenizer, AutoModelForSeq2SeqLM] | None:
-    if torch is None or AutoTokenizer is None or AutoModelForSeq2SeqLM is None:
-        return None
-
-    tokenizer = AutoTokenizer.from_pretrained(REWRITE_MODEL_NAME)
-    model = AutoModelForSeq2SeqLM.from_pretrained(REWRITE_MODEL_NAME)
-    model.eval()
-    return tokenizer, model
+# @lru_cache(maxsize=1)
+# def load_rewrite_bundle() -> tuple[AutoTokenizer, AutoModelForSeq2SeqLM] | None:
+#     if torch is None or AutoTokenizer is None or AutoModelForSeq2SeqLM is None:
+#         return None
+#
+#     tokenizer = AutoTokenizer.from_pretrained(REWRITE_MODEL_NAME)
+#     model = AutoModelForSeq2SeqLM.from_pretrained(REWRITE_MODEL_NAME)
+#     model.eval()
+#     return tokenizer, model
 
 
 def contains_url(text: str) -> bool:
@@ -609,43 +613,46 @@ def contains_url(text: str) -> bool:
 
 
 def rewrite_third_person_answer(question: str, reference_answer: str) -> str:
-    bundle = load_rewrite_bundle()
-    if bundle is None:
-        return reference_answer
+    return reference_answer
 
-    tokenizer, model = bundle
-    prompt = REWRITE_PROMPT_TEMPLATE.format(question=question.strip(), answer=reference_answer.strip())
-    inputs = tokenizer(
-        prompt,
-        return_tensors="pt",
-        truncation=True,
-        max_length=256,
-    )
-
-    with torch.no_grad():
-        output_ids = model.generate(
-            **inputs,
-            max_new_tokens=96,
-            num_beams=4,
-            do_sample=False,
-            early_stopping=True,
-            no_repeat_ngram_size=3,
-        )
-
-    rewritten = tokenizer.decode(output_ids[0], skip_special_tokens=True).strip()
-    if not rewritten:
-        return reference_answer
-
-    if contains_url(reference_answer) and not contains_url(rewritten):
-        return reference_answer
-
-    if len(rewritten.split()) < 3:
-        return reference_answer
-
-    if "Hisham" in reference_answer and "Hisham" not in rewritten:
-        return reference_answer
-
-    return rewritten
+    # FLAN-T5 runtime rewrite kept for future offline use.
+    # bundle = load_rewrite_bundle()
+    # if bundle is None:
+    #     return reference_answer
+    #
+    # tokenizer, model = bundle
+    # prompt = REWRITE_PROMPT_TEMPLATE.format(question=question.strip(), answer=reference_answer.strip())
+    # inputs = tokenizer(
+    #     prompt,
+    #     return_tensors="pt",
+    #     truncation=True,
+    #     max_length=256,
+    # )
+    #
+    # with torch.no_grad():
+    #     output_ids = model.generate(
+    #         **inputs,
+    #         max_new_tokens=96,
+    #         num_beams=4,
+    #         do_sample=False,
+    #         early_stopping=True,
+    #         no_repeat_ngram_size=3,
+    #     )
+    #
+    # rewritten = tokenizer.decode(output_ids[0], skip_special_tokens=True).strip()
+    # if not rewritten:
+    #     return reference_answer
+    #
+    # if contains_url(reference_answer) and not contains_url(rewritten):
+    #     return reference_answer
+    #
+    # if len(rewritten.split()) < 3:
+    #     return reference_answer
+    #
+    # if "Hisham" in reference_answer and "Hisham" not in rewritten:
+    #     return reference_answer
+    #
+    # return rewritten
 
 
 def answer_from_messages(messages: Sequence[Any]) -> str:

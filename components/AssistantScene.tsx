@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import AssistantTranscript from "@/components/AssistantTranscript";
 import AssistantComposer from "@/components/AssistantComposer";
 
@@ -16,8 +16,33 @@ export default function AssistantScene() {
   ]);
   const [input, setInput] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [keyboardOffset, setKeyboardOffset] = useState(0);
   const transcriptRef = useRef<HTMLDivElement | null>(null);
   const isConversationStarted = messages.some((message) => message.role === "user");
+
+  useEffect(() => {
+    const currentViewport = window.visualViewport;
+    if (!currentViewport) {
+      return;
+    }
+    const visualViewport: VisualViewport = currentViewport;
+
+    function updateKeyboardOffset() {
+      const offset = Math.max(0, window.innerHeight - visualViewport.height - visualViewport.offsetTop);
+      setKeyboardOffset(offset);
+    }
+
+    updateKeyboardOffset();
+    visualViewport.addEventListener("resize", updateKeyboardOffset);
+    visualViewport.addEventListener("scroll", updateKeyboardOffset);
+    window.addEventListener("orientationchange", updateKeyboardOffset);
+
+    return () => {
+      visualViewport.removeEventListener("resize", updateKeyboardOffset);
+      visualViewport.removeEventListener("scroll", updateKeyboardOffset);
+      window.removeEventListener("orientationchange", updateKeyboardOffset);
+    };
+  }, []);
 
   useEffect(() => {
     if (!transcriptRef.current) {
@@ -75,9 +100,12 @@ export default function AssistantScene() {
   }
 
   return (
-    <main className="relative min-h-[100dvh] overflow-hidden bg-white px-4 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-6 text-zinc-950 sm:min-h-screen sm:px-6 sm:py-6">
-      <div className="mx-auto flex min-h-[calc(100dvh-1.5rem-env(safe-area-inset-bottom))] w-full max-w-3xl flex-col justify-between gap-6 sm:min-h-[calc(100vh-3rem)] sm:justify-center sm:gap-10">
-        <div className="flex w-full flex-1 items-center justify-center">
+    <main
+      className="relative h-[100dvh] overflow-hidden bg-white px-4 pt-6 text-zinc-950 sm:min-h-screen sm:px-6 sm:py-6"
+      style={{ "--keyboard-offset": `${keyboardOffset}px` } as CSSProperties}
+    >
+      <div className="mx-auto flex h-full w-full max-w-3xl flex-col justify-center gap-6 sm:min-h-[calc(100vh-3rem)] sm:gap-10">
+        <div className="flex min-h-0 w-full flex-1 items-center justify-center overflow-y-auto pb-28 pt-3 sm:overflow-visible sm:pb-0 sm:pt-0">
           <AssistantTranscript
             ref={transcriptRef}
             messages={messages}
@@ -85,7 +113,7 @@ export default function AssistantScene() {
             isConversationStarted={isConversationStarted}
           />
         </div>
-        <div className="sticky bottom-0 w-full bg-white/95 pb-[env(safe-area-inset-bottom)] pt-3 backdrop-blur-sm sm:static sm:bg-transparent sm:pb-0 sm:pt-0 sm:backdrop-blur-0">
+        <div className="fixed inset-x-4 bottom-[calc(env(safe-area-inset-bottom)+var(--keyboard-offset)+0.75rem)] z-10 mx-auto w-auto max-w-2xl bg-white/95 backdrop-blur-sm transition-[bottom] duration-150 sm:static sm:w-full sm:max-w-none sm:bg-transparent sm:pb-0 sm:pt-0 sm:backdrop-blur-0 sm:transition-none">
           <AssistantComposer
             value={input}
             onChange={setInput}
