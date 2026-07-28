@@ -57,6 +57,16 @@ TOPIC_PIVOT_PREFIXES = (
     "how about ",
     "and ",
 )
+GREETING_PREFIXES = (
+    "hello",
+    "hi",
+    "hey",
+    "yo",
+    "sup",
+    "good morning",
+    "good afternoon",
+    "good evening",
+)
 
 REWRITE_PROMPT_TEMPLATE = (
     "You rewrite portfolio answers without adding facts.\n"
@@ -170,6 +180,9 @@ def normalize_answer_person(answer: str) -> str:
 
 def is_short_follow_up(query: str) -> bool:
     normalized = " ".join(query.lower().split())
+    if normalized.startswith(GREETING_PREFIXES):
+        return False
+
     return (
         normalized in SHORT_FOLLOW_UPS
         or len(normalized.split()) <= 2
