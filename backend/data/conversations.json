@@ -5502,5 +5502,289 @@
   {
     "input_text": "arabic language yes",
     "target_text": "Yes, I speak Arabic."
+  },
+  {
+    "input_text": "calendly link",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "schedule a meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "book a meeting",
+    "target_text": "You can book a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "schedule meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "book meeting",
+    "target_text": "You can book a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "schedule a call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "book a call",
+    "target_text": "You can book a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "schedule call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "book call",
+    "target_text": "You can book a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i schedule a meeting",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i book a meeting",
+    "target_text": "Yes — you can book a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i schedule a call",
+    "target_text": "Yes — you can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i book a call",
+    "target_text": "Yes — you can book a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how can i schedule a meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how do i schedule a meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how can i book a meeting",
+    "target_text": "You can book a 30-minute meeting with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how do i book a meeting",
+    "target_text": "You can book a 30-minute meeting with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how can i schedule a call",
+    "target_text": "You can schedule a 30-minute call with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how do i schedule a call",
+    "target_text": "You can schedule a 30-minute call with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how can i book a call",
+    "target_text": "You can book a 30-minute call with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how do i book a call",
+    "target_text": "You can book a 30-minute call with Hisham through Calendly here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can we meet",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can we have a meeting",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can we have a call",
+    "target_text": "Yes — you can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can we talk",
+    "target_text": "Yes — you can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i talk to hisham",
+    "target_text": "Yes — you can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "i want to talk to hisham",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "i want to meet hisham",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "i want a meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "i want a call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "set up a meeting",
+    "target_text": "You can set up a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "set up a call",
+    "target_text": "You can set up a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "arrange a meeting",
+    "target_text": "You can arrange a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "arrange a call",
+    "target_text": "You can arrange a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "meeting link",
+    "target_text": "Here is Hisham's meeting link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "call link",
+    "target_text": "Here is Hisham's call scheduling link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "calendar link",
+    "target_text": "Here is Hisham's calendar link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "calendly",
+    "target_text": "Here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "calendly link",
+    "target_text": "Here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "do you have calendly",
+    "target_text": "Yes — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "does hisham have calendly",
+    "target_text": "Yes — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "share your calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "share hisham's calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "send calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "send me calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "send me your calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "send me hisham's calendly",
+    "target_text": "Sure — here is Hisham's Calendly link: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "30 minute meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "30 min meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "30 minute call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "30 min call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i schedule 30 minutes",
+    "target_text": "Yes — you can schedule 30 minutes with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i book 30 minutes",
+    "target_text": "Yes — you can book 30 minutes with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can recruiters book a call",
+    "target_text": "Yes — recruiters can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can recruiters schedule a meeting",
+    "target_text": "Yes — recruiters can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i discuss an opportunity",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham to discuss an opportunity here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i discuss a job opportunity",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham to discuss a job opportunity here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i discuss a project",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham to discuss a project here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i discuss freelance work",
+    "target_text": "Yes — you can schedule a 30-minute meeting with Hisham to discuss freelance work here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "how can i contact hisham for a meeting",
+    "target_text": "You can schedule a 30-minute meeting with Hisham here: https://calendly.com/hisham-khashman/30min. You can also email him at hisham.khashman@gmail.com."
+  },
+  {
+    "input_text": "how can i contact you for a call",
+    "target_text": "You can schedule a 30-minute call with Hisham here: https://calendly.com/hisham-khashman/30min. You can also email him at hisham.khashman@gmail.com."
+  },
+  {
+    "input_text": "best way to schedule with hisham",
+    "target_text": "The best way to schedule with Hisham is through Calendly: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "best way to book time with hisham",
+    "target_text": "The best way to book time with Hisham is through Calendly: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "book time with hisham",
+    "target_text": "You can book time with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "schedule time with hisham",
+    "target_text": "You can schedule time with Hisham here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i get on your calendar",
+    "target_text": "Yes — you can get on Hisham's calendar here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "can i get on hisham's calendar",
+    "target_text": "Yes — you can get on Hisham's calendar here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "are you available for a call",
+    "target_text": "You can check Hisham's availability and schedule a 30-minute call here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "is hisham available for a call",
+    "target_text": "You can check Hisham's availability and schedule a 30-minute call here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "are you available for a meeting",
+    "target_text": "You can check Hisham's availability and schedule a 30-minute meeting here: https://calendly.com/hisham-khashman/30min"
+  },
+  {
+    "input_text": "is hisham available for a meeting",
+    "target_text": "You can check Hisham's availability and schedule a 30-minute meeting here: https://calendly.com/hisham-khashman/30min"
   }
 ]
