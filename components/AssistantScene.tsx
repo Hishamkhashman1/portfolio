@@ -75,8 +75,8 @@ export default function AssistantScene() {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-white px-4 py-6 text-zinc-950 sm:px-6">
-      <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-3xl flex-col justify-center gap-10">
+    <main className="relative min-h-[100dvh] overflow-hidden bg-white px-4 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] pt-6 text-zinc-950 sm:min-h-screen sm:px-6 sm:py-6">
+      <div className="mx-auto flex min-h-[calc(100dvh-1.5rem-env(safe-area-inset-bottom))] w-full max-w-3xl flex-col justify-between gap-6 sm:min-h-[calc(100vh-3rem)] sm:justify-center sm:gap-10">
         <div className="flex w-full flex-1 items-center justify-center">
           <AssistantTranscript
             ref={transcriptRef}
@@ -85,12 +85,14 @@ export default function AssistantScene() {
             isConversationStarted={isConversationStarted}
           />
         </div>
-        <AssistantComposer
-          value={input}
-          onChange={setInput}
-          onSubmit={sendMessage}
-          isPending={isSending}
-        />
+        <div className="sticky bottom-0 w-full bg-white/95 pb-[env(safe-area-inset-bottom)] pt-3 backdrop-blur-sm sm:static sm:bg-transparent sm:pb-0 sm:pt-0 sm:backdrop-blur-0">
+          <AssistantComposer
+            value={input}
+            onChange={setInput}
+            onSubmit={sendMessage}
+            isPending={isSending}
+          />
+        </div>
       </div>
     </main>
   );

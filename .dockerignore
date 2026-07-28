@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+coverage/
+.vercel/
+.venv/
+.git/
+__pycache__/
+backend/model/artifacts/portfolio_flan_t5/

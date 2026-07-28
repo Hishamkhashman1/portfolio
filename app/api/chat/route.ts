@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
 
+const LOCAL_BACKEND_CHAT_URL = "http://127.0.0.1:8000/chat";
 const BACKEND_CHAT_URL =
-  process.env.ASSISTANT_BACKEND_URL || "http://127.0.0.1:8000/chat";
+  process.env.ASSISTANT_BACKEND_URL ||
+  (process.env.NODE_ENV === "development" ? LOCAL_BACKEND_CHAT_URL : "");
 
 export async function POST(request: Request) {
   try {
+    if (!BACKEND_CHAT_URL) {
+      return NextResponse.json(
+        { answer: "Assistant backend is not configured yet." },
+        { status: 503 }
+      );
+    }
+
     const payload = await request.json();
     const response = await fetch(BACKEND_CHAT_URL, {
       method: "POST",
