@@ -4,11 +4,11 @@ from fastapi.middleware.cors import CORSMiddleware
 try:
     from app.config import get_allowed_origins, get_service_name
     from app.schemas import ChatRequest, ChatResponse, HealthResponse
-    from model.portfolio_llm import answer_from_messages
+    from model.portfolio_llm import answer_from_messages, preload_semantic_runtime
 except ModuleNotFoundError:  # pragma: no cover - repo-root execution
     from backend.app.config import get_allowed_origins, get_service_name
     from backend.app.schemas import ChatRequest, ChatResponse, HealthResponse
-    from backend.model.portfolio_llm import answer_from_messages
+    from backend.model.portfolio_llm import answer_from_messages, preload_semantic_runtime
 
 app = FastAPI(title="Hisham AI Backend", version="1.0.0")
 
@@ -19,6 +19,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+def preload_assistant_runtime():
+    preload_semantic_runtime()
 
 
 @app.get("/")

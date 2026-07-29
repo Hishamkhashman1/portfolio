@@ -9,14 +9,42 @@ from pathlib import Path
 from typing import Any, Sequence
 
 try:
+    from app.config import (
+        get_confidence_threshold,
+        get_embeddings_path,
+        get_lexical_weight,
+        get_max_query_length,
+        get_onnx_model_path,
+        get_semantic_enabled,
+        get_semantic_weight,
+    )
     from model.tokenizer import normalize_text
 except ModuleNotFoundError:  # pragma: no cover - repo-root execution
+    from backend.app.config import (
+        get_confidence_threshold,
+        get_embeddings_path,
+        get_lexical_weight,
+        get_max_query_length,
+        get_onnx_model_path,
+        get_semantic_enabled,
+        get_semantic_weight,
+    )
     from backend.model.tokenizer import normalize_text
 
 try:
-    from sentence_transformers import SentenceTransformer
+    import numpy as np
 except ImportError:  # pragma: no cover - optional until installed
-    SentenceTransformer = None  # type: ignore[assignment]
+    np = None  # type: ignore[assignment]
+
+try:
+    import onnxruntime as ort
+except ImportError:  # pragma: no cover - optional until installed
+    ort = None  # type: ignore[assignment]
+
+try:
+    from tokenizers import Tokenizer
+except ImportError:  # pragma: no cover - optional until installed
+    Tokenizer = None  # type: ignore[assignment]
 
 # FLAN-T5 rewrite support is intentionally disabled for the current deployed MVP.
 # Loading torch/transformers during a live FastAPI request is too heavy for the
@@ -290,6 +318,13 @@ DIRECT_QUERY_ALIASES = {
     "education": "education",
     "background": "background",
     "experience": "experience",
+    "tell me about hisham": "tell me about hisham",
+    "tell me about hisham khashman": "tell me about hisham",
+    "about hisham": "tell me about hisham",
+    "who is hisham": "tell me about hisham",
+    "who is hisham khashman": "tell me about hisham",
+    "tell me about him": "tell me about hisham",
+    "about him": "tell me about hisham",
     "strengths": "what are your strengths",
     "weaknesses": "what are your weaknesses",
     "strengths and weaknesses": "what are your strengths and weaknesses",
@@ -453,6 +488,7 @@ def topic_query_from_text(text: str) -> str | None:
         (("ok", "okay", "got it", "makes sense", "i see", "never mind", "nevermind", "forget it"), "ok"),
         (("what should i ask", "where should we start", "what should we talk", "suggest a question", "i dont know what to ask", "i don't know what to ask"), "what should i ask first"),
         (("what do you like", "what does hisham like", "hobbies", "interests", "personal interests", "outside work", "free time", "spare time", "for fun", "model making", "learning languages"), "what do you like outside work"),
+        (("tell me about hisham", "tell me about hisham khashman", "who is hisham", "who is hisham khashman", "about hisham", "tell me about him", "about him"), "tell me about hisham"),
         (("tell me about your projects", "tell me about his projects", "tell me about hisham's projects", "can you tell me about your projects", "can you tell me about his projects", "give me a list of your projects", "give me a list of his projects", "list of your projects", "list of his projects", "project list", "give me example of projects", "give me examples of projects", "example of projects", "examples of projects", "project examples", "example projects", "specific projects", "show me projects", "list projects", "what projects have you built"), "specific project examples"),
         (("full stack expertise", "full-stack expertise", "fullstack expertise", "full stack projects", "full-stack projects", "fullstack projects", "demonstrated your full stack", "demonstrated your full-stack", "demonstrated your fullstack", "full stack examples", "full-stack examples", "fullstack examples"), "full stack project examples"),
         (("ask me anything", "ask me about", "what can i ask", "what can you answer", "background, experience", "github, linkedin"), "what can i ask you about"),
@@ -607,40 +643,109 @@ def cosine_similarity(left: dict[str, float], right: dict[str, float]) -> float:
     return sum(weight * right.get(token, 0.0) for token, weight in left.items())
 
 
-def dense_cosine_similarity(left: list[float] | None, right: list[float] | None) -> float:
-    if not left or not right or len(left) != len(right):
+def dense_cosine_similarity(left: Any | None, right: Any | None) -> float:
+    if left is None or right is None or len(left) != len(right):
         return 0.0
 
-    return sum(left_value * right_value for left_value, right_value in zip(left, right))
+    return float(sum(left_value * right_value for left_value, right_value in zip(left, right)))
 
 
 @lru_cache(maxsize=1)
-def load_embedding_model() -> Any | None:
-    if SentenceTransformer is None:
+def load_embeddings() -> Any | None:
+    if np is None:
         return None
 
     artifact = load_retriever_artifact()
-    model_name = artifact.get("embedding_model")
-    if not model_name:
+    embeddings_path = Path(artifact.get("embeddings_path") or get_embeddings_path())
+    if not embeddings_path.exists():
         return None
 
     try:
-        return SentenceTransformer(model_name)
+        loaded = np.load(embeddings_path)
+        return loaded["embeddings"].astype(np.float32)
     except Exception:
         return None
 
 
-def build_query_embedding(query: str) -> list[float] | None:
-    model = load_embedding_model()
-    if model is None:
+def _tokenizer_path_for_model(model_path: Path) -> Path:
+    return model_path.parent / "tokenizer.json"
+
+
+@lru_cache(maxsize=1)
+def load_embedding_components() -> tuple[Any, Any] | None:
+    if not get_semantic_enabled() or np is None or ort is None or Tokenizer is None:
         return None
 
-    encoded = model.encode(
-        query,
-        normalize_embeddings=True,
-        show_progress_bar=False,
-    )
-    return encoded.tolist()
+    model_path = get_onnx_model_path()
+    tokenizer_path = _tokenizer_path_for_model(model_path)
+    if not model_path.exists() or not tokenizer_path.exists():
+        return None
+
+    try:
+        tokenizer = Tokenizer.from_file(str(tokenizer_path))
+        tokenizer.enable_truncation(max_length=get_max_query_length())
+        session = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
+        return tokenizer, session
+    except Exception:
+        return None
+
+
+def _pad_batch(encoded_batch: list[Any]) -> dict[str, Any] | None:
+    if np is None or not encoded_batch:
+        return None
+
+    max_length = max(len(encoded.ids) for encoded in encoded_batch)
+    input_ids: list[list[int]] = []
+    attention_mask: list[list[int]] = []
+    token_type_ids: list[list[int]] = []
+
+    for encoded in encoded_batch:
+        pad_length = max_length - len(encoded.ids)
+        input_ids.append(encoded.ids + [0] * pad_length)
+        attention_mask.append(encoded.attention_mask + [0] * pad_length)
+        token_type_ids.append(encoded.type_ids + [0] * pad_length)
+
+    return {
+        "input_ids": np.asarray(input_ids, dtype=np.int64),
+        "attention_mask": np.asarray(attention_mask, dtype=np.int64),
+        "token_type_ids": np.asarray(token_type_ids, dtype=np.int64),
+    }
+
+
+def _mean_pool(last_hidden_state: Any, attention_mask: Any) -> Any:
+    mask = attention_mask[..., None].astype(np.float32)
+    summed = (last_hidden_state * mask).sum(axis=1)
+    counts = np.clip(mask.sum(axis=1), a_min=1e-9, a_max=None)
+    pooled = summed / counts
+    norms = np.linalg.norm(pooled, axis=1, keepdims=True)
+    return pooled / np.clip(norms, a_min=1e-9, a_max=None)
+
+
+def build_query_embedding(query: str) -> Any | None:
+    components = load_embedding_components()
+    if components is None or np is None:
+        return None
+
+    tokenizer, session = components
+    try:
+        encoded_batch = tokenizer.encode_batch([query])
+        padded_batch = _pad_batch(encoded_batch)
+        if padded_batch is None:
+            return None
+
+        input_names = {model_input.name for model_input in session.get_inputs()}
+        feed = {name: value for name, value in padded_batch.items() if name in input_names}
+        outputs = session.run(None, feed)
+        return _mean_pool(outputs[0], padded_batch["attention_mask"])[0].astype(np.float32)
+    except Exception:
+        return None
+
+
+def preload_semantic_runtime() -> None:
+    load_retriever_artifact()
+    if get_semantic_enabled():
+        load_embeddings()
+        load_embedding_components()
 
 
 def predict_answer(query: str) -> tuple[str, float]:
@@ -652,11 +757,12 @@ def predict_answer(query: str) -> tuple[str, float]:
     idf = artifact.get("idf", {})
     documents = artifact.get("documents", [])
     hybrid_weights = artifact.get("hybrid_weights", {})
-    tfidf_weight = float(hybrid_weights.get("tfidf", DEFAULT_TFIDF_WEIGHT))
-    embedding_weight = float(hybrid_weights.get("embedding", DEFAULT_EMBEDDING_WEIGHT))
+    tfidf_weight = get_lexical_weight() if get_semantic_enabled() else float(hybrid_weights.get("tfidf", DEFAULT_TFIDF_WEIGHT))
+    embedding_weight = get_semantic_weight() if get_semantic_enabled() else float(hybrid_weights.get("embedding", DEFAULT_EMBEDDING_WEIGHT))
 
     query_vector = vectorize_text(query, token_to_id, idf)
-    query_embedding = build_query_embedding(query)
+    document_embeddings = load_embeddings() if get_semantic_enabled() else None
+    query_embedding = build_query_embedding(query) if document_embeddings is not None else None
     if not documents or (not query_vector and query_embedding is None):
         return FALLBACK_ANSWER, 0.0
 
@@ -665,7 +771,9 @@ def predict_answer(query: str) -> tuple[str, float]:
 
     for document in documents:
         tfidf_score = cosine_similarity(query_vector, document.get("vector", {})) if query_vector else 0.0
-        embedding_score = dense_cosine_similarity(query_embedding, document.get("embedding"))
+        embedding_index = document.get("embedding_index")
+        document_embedding = document_embeddings[embedding_index] if document_embeddings is not None and embedding_index is not None else None
+        embedding_score = dense_cosine_similarity(query_embedding, document_embedding)
 
         if query_embedding is None:
             score = tfidf_score
@@ -678,7 +786,8 @@ def predict_answer(query: str) -> tuple[str, float]:
             best_score = score
             best_answer = document.get("target_text", FALLBACK_ANSWER)
 
-    if best_score < MIN_MATCH_SCORE:
+    confidence_threshold = get_confidence_threshold() if get_semantic_enabled() else MIN_MATCH_SCORE
+    if best_score < confidence_threshold:
         return FALLBACK_ANSWER, best_score
 
     return best_answer, best_score

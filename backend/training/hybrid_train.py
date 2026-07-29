@@ -5,7 +5,6 @@ import math
 import random
 import sys
 from collections import Counter, defaultdict
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -17,22 +16,34 @@ if __package__ is None or __package__ == "":
 
 
 try:
+    from app.config import get_embeddings_path, get_max_query_length, get_onnx_model_path
     from model.tokenizer import build_vocab, normalize_text
     from training.dataset import build_for_training, cleaning_data, conversations_data
 except ModuleNotFoundError:  # pragma: no cover - repo-root execution
+    from backend.app.config import get_embeddings_path, get_max_query_length, get_onnx_model_path
     from backend.model.tokenizer import build_vocab, normalize_text
     from backend.training.dataset import build_for_training, cleaning_data, conversations_data
 
 try:
-    from sentence_transformers import SentenceTransformer
+    import numpy as np
 except ImportError:  # pragma: no cover - optional until installed
-    SentenceTransformer = None  # type: ignore[assignment]
+    np = None  # type: ignore[assignment]
+
+try:
+    import onnxruntime as ort
+except ImportError:  # pragma: no cover - optional until installed
+    ort = None  # type: ignore[assignment]
+
+try:
+    from tokenizers import Tokenizer
+except ImportError:  # pragma: no cover - optional until installed
+    Tokenizer = None  # type: ignore[assignment]
 
 
 ARTIFACT_PATH = Path(__file__).resolve().parents[1] / "model" / "artifacts" / "portfolio_retriever.json"
 VALIDATION_RATIO = 0.2
 RANDOM_SEED = 42
-EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2-onnx"
 TFIDF_WEIGHT = 0.45
 EMBEDDING_WEIGHT = 0.55
 
@@ -117,45 +128,94 @@ def sparse_cosine_similarity(left: dict[str, float], right: dict[str, float]) ->
     return sum(weight * right.get(token, 0.0) for token, weight in left.items())
 
 
-def dense_cosine_similarity(left: list[float] | None, right: list[float] | None) -> float:
-    if not left or not right or len(left) != len(right):
+def dense_cosine_similarity(left: Any | None, right: Any | None) -> float:
+    if left is None or right is None or len(left) != len(right):
         return 0.0
 
-    return sum(left_value * right_value for left_value, right_value in zip(left, right))
+    return float(sum(left_value * right_value for left_value, right_value in zip(left, right)))
 
 
-@lru_cache(maxsize=1)
-def load_embedding_model() -> Any | None:
-    if SentenceTransformer is None:
+def _tokenizer_path_for_model(model_path: Path) -> Path:
+    return model_path.parent / "tokenizer.json"
+
+
+def load_embedding_components() -> tuple[Any, Any] | None:
+    if np is None or ort is None or Tokenizer is None:
+        return None
+
+    model_path = get_onnx_model_path()
+    tokenizer_path = _tokenizer_path_for_model(model_path)
+    if not model_path.exists() or not tokenizer_path.exists():
         return None
 
     try:
-        return SentenceTransformer(EMBEDDING_MODEL_NAME)
+        tokenizer = Tokenizer.from_file(str(tokenizer_path))
+        tokenizer.enable_truncation(max_length=get_max_query_length())
+        session = ort.InferenceSession(str(model_path), providers=["CPUExecutionProvider"])
+        return tokenizer, session
     except Exception:
         return None
 
 
-def build_embeddings(texts: list[str]) -> list[list[float]] | None:
-    if not texts:
-        return []
-
-    model = load_embedding_model()
-    if model is None:
+def _pad_batch(encoded_batch: list[Any]) -> dict[str, Any] | None:
+    if np is None or not encoded_batch:
         return None
 
-    encoded = model.encode(
-        texts,
-        normalize_embeddings=True,
-        show_progress_bar=False,
-    )
-    return encoded.tolist()
+    max_length = max(len(encoded.ids) for encoded in encoded_batch)
+    input_ids: list[list[int]] = []
+    attention_mask: list[list[int]] = []
+    token_type_ids: list[list[int]] = []
+
+    for encoded in encoded_batch:
+        pad_length = max_length - len(encoded.ids)
+        input_ids.append(encoded.ids + [0] * pad_length)
+        attention_mask.append(encoded.attention_mask + [0] * pad_length)
+        token_type_ids.append(encoded.type_ids + [0] * pad_length)
+
+    return {
+        "input_ids": np.asarray(input_ids, dtype=np.int64),
+        "attention_mask": np.asarray(attention_mask, dtype=np.int64),
+        "token_type_ids": np.asarray(token_type_ids, dtype=np.int64),
+    }
+
+
+def _mean_pool(last_hidden_state: Any, attention_mask: Any) -> Any:
+    mask = attention_mask[..., None].astype(np.float32)
+    summed = (last_hidden_state * mask).sum(axis=1)
+    counts = np.clip(mask.sum(axis=1), a_min=1e-9, a_max=None)
+    pooled = summed / counts
+    norms = np.linalg.norm(pooled, axis=1, keepdims=True)
+    return pooled / np.clip(norms, a_min=1e-9, a_max=None)
+
+
+def build_embeddings(texts: list[str]) -> Any | None:
+    if not texts:
+        return np.empty((0, 0), dtype=np.float32) if np is not None else []
+
+    components = load_embedding_components()
+    if components is None or np is None:
+        return None
+
+    tokenizer, session = components
+    try:
+        encoded_batch = tokenizer.encode_batch(texts)
+        padded_batch = _pad_batch(encoded_batch)
+        if padded_batch is None:
+            return None
+
+        input_names = {model_input.name for model_input in session.get_inputs()}
+        feed = {name: value for name, value in padded_batch.items() if name in input_names}
+        outputs = session.run(None, feed)
+        return _mean_pool(outputs[0], padded_batch["attention_mask"]).astype(np.float32)
+    except Exception:
+        return None
 
 
 def build_training_documents(
     samples: list[dict[str, str]],
     token_to_id: dict[str, int],
     idf: dict[str, float],
-    embeddings: list[list[float]] | None = None,
+    embeddings: Any | None = None,
 ) -> list[dict[str, Any]]:
     documents: list[dict[str, Any]] = []
 
@@ -166,7 +226,7 @@ def build_training_documents(
                 "input_text": sample["input_text"],
                 "target_text": sample["target_text"],
                 "vector": vectorize_text(sample["input_text"], token_to_id, idf),
-                "embedding": embeddings[index] if embeddings is not None else None,
+                "embedding_index": index if embeddings is not None else None,
             }
         )
 
@@ -178,7 +238,8 @@ def predict_answer(
     documents: list[dict[str, Any]],
     token_to_id: dict[str, int],
     idf: dict[str, float],
-    query_embedding: list[float] | None = None,
+    query_embedding: Any | None = None,
+    document_embeddings: Any | None = None,
     tfidf_weight: float = TFIDF_WEIGHT,
     embedding_weight: float = EMBEDDING_WEIGHT,
 ) -> tuple[str, float]:
@@ -191,7 +252,9 @@ def predict_answer(
 
     for document in documents:
         tfidf_score = sparse_cosine_similarity(query_vector, document.get("vector", {})) if query_vector else 0.0
-        embedding_score = dense_cosine_similarity(query_embedding, document.get("embedding"))
+        embedding_index = document.get("embedding_index")
+        document_embedding = document_embeddings[embedding_index] if document_embeddings is not None and embedding_index is not None else None
+        embedding_score = dense_cosine_similarity(query_embedding, document_embedding)
 
         if query_embedding is None:
             score = tfidf_score
@@ -212,7 +275,8 @@ def evaluate(
     documents: list[dict[str, Any]],
     token_to_id: dict[str, int],
     idf: dict[str, float],
-    validation_embeddings: list[list[float]] | None = None,
+    validation_embeddings: Any | None = None,
+    document_embeddings: Any | None = None,
 ) -> dict[str, float]:
     if not validation_samples:
         return {"accuracy": 0.0, "average_score": 0.0}
@@ -228,6 +292,7 @@ def evaluate(
             token_to_id,
             idf,
             query_embedding=query_embedding,
+            document_embeddings=document_embeddings,
         )
         total_score += score
         if predicted_answer == sample["target_text"]:
@@ -247,6 +312,8 @@ def save_artifact(
     validation_metrics: dict[str, float],
     train_size: int,
     validation_size: int,
+    embeddings_path: Path | None = None,
+    embedding_dimension: int | None = None,
 ) -> None:
     artifact_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -256,7 +323,9 @@ def save_artifact(
         "train_size": train_size,
         "validation_size": validation_size,
         "validation_metrics": validation_metrics,
-        "embedding_model": EMBEDDING_MODEL_NAME if any(document.get("embedding") for document in documents) else None,
+        "embedding_model": EMBEDDING_MODEL_NAME if embeddings_path is not None else None,
+        "embedding_dimension": embedding_dimension,
+        "embeddings_path": str(embeddings_path) if embeddings_path is not None else None,
         "hybrid_weights": {
             "tfidf": TFIDF_WEIGHT,
             "embedding": EMBEDDING_WEIGHT,
@@ -268,6 +337,15 @@ def save_artifact(
 
     with artifact_path.open("w", encoding="utf-8") as file:
         json.dump(payload, file, indent=2, ensure_ascii=False)
+
+
+def save_embeddings(embeddings_path: Path, embeddings: Any | None) -> Path | None:
+    if np is None or embeddings is None:
+        return None
+
+    embeddings_path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(embeddings_path, embeddings=embeddings.astype(np.float32))
+    return embeddings_path
 
 
 def train() -> dict[str, Any]:
@@ -288,12 +366,15 @@ def train() -> dict[str, Any]:
         token_to_id,
         train_idf,
         validation_embeddings=validation_embeddings,
+        document_embeddings=train_embeddings,
     )
 
     full_document_frequency = build_document_frequency(samples)
     full_idf = build_idf(token_to_id, full_document_frequency, len(samples))
     full_embeddings = build_embeddings([sample["input_text"] for sample in samples])
     full_documents = build_training_documents(samples, token_to_id, full_idf, full_embeddings)
+    saved_embeddings_path = save_embeddings(get_embeddings_path(), full_embeddings)
+    embedding_dimension = int(full_embeddings.shape[1]) if full_embeddings is not None and getattr(full_embeddings, "ndim", 0) == 2 and full_embeddings.shape[0] else None
 
     save_artifact(
         ARTIFACT_PATH,
@@ -303,6 +384,8 @@ def train() -> dict[str, Any]:
         validation_metrics,
         len(samples),
         len(validation_samples),
+        embeddings_path=saved_embeddings_path,
+        embedding_dimension=embedding_dimension,
     )
 
     return {

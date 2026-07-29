@@ -6122,5 +6122,61 @@
   {
     "input_text": "examples",
     "target_text": "Specific project examples:\n- Forecast Alpha: AI-powered operational intelligence SaaS.\n- Kifor Match: Ruby on Rails and PostgreSQL donor-to-charity matching MVP.\n- AI Personal Assistant: FastAPI assistant with transcription, memory, summaries, and Q&A.\n- Stock Forecasting LSTM: Python ML forecasting pipeline.\n- BugSquancher: Python CLI for failed command analysis.\n- Rick and Morty API: FastAPI and PostgreSQL service.\n- LinguaLogic: Rails gamified language-learning app.\n- SEO Cyber Tool: Rails SEO reporting tool.\n- ML Data Analysis Suite: Python desktop analytics app.\n- This portfolio assistant: Next.js frontend, FastAPI backend, retrieval logic, and deployment.\nPortfolio: https://hishamkhashman.dev/portfolio"
+  },
+  {
+    "input_text": "tell me about hisham",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "tell me about hisham khashman",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "who is hisham",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "who is hisham khashman",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "can you tell me about hisham",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "can you tell me about him",
+    "target_text": "Hisham Khashman is a Full-Stack Software Engineer and Technical Founder with more than ten years of experience across consulting, finance, enterprise operations, business intelligence, and software engineering. He builds AI-powered SaaS products, backend systems, APIs, forecasting tools, and operational intelligence platforms."
+  },
+  {
+    "input_text": "yes tell me about him",
+    "target_text": "Hisham Khashman's experience spans consulting, finance, business intelligence, enterprise operations, and software engineering. At PwC and Accenture, he worked on PMO implementation, governance, process improvement, RPA, and SAP-related initiatives. More recently, he has built full-stack applications, APIs, machine learning systems, anomaly detection tools, and Forecast Alpha."
+  },
+  {
+    "input_text": "tell me more about hisham",
+    "target_text": "Hisham Khashman's experience spans consulting, finance, business intelligence, enterprise operations, and software engineering. At PwC and Accenture, he worked on PMO implementation, governance, process improvement, RPA, and SAP-related initiatives. More recently, he has built full-stack applications, APIs, machine learning systems, anomaly detection tools, and Forecast Alpha."
+  },
+  {
+    "input_text": "do you speak arabic",
+    "target_text": "Yes. I speak Arabic."
+  },
+  {
+    "input_text": "can you speak arabic",
+    "target_text": "Yes. I speak Arabic."
+  },
+  {
+    "input_text": "do you know arabic",
+    "target_text": "Yes. I speak Arabic."
+  },
+  {
+    "input_text": "does hisham speak arabic",
+    "target_text": "Yes. Hisham speaks Arabic."
+  },
+  {
+    "input_text": "can hisham speak arabic",
+    "target_text": "Yes. Hisham speaks Arabic."
+  },
+  {
+    "input_text": "is arabic one of hisham's languages",
+    "target_text": "Yes. Arabic is one of Hisham's languages."
   }
 ]
